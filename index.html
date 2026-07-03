@@ -65,7 +65,8 @@
     --rule:#d9d2c4;
     --tide:#1f4e5f;      /* deep coastal teal — the site's water note */
     --tide-deep:#173b48;
-    --ember:#b3542e;     /* skillet ember — used sparingly */
+    --ember:#b3542e;     /* skillet ember — used sparingly (decorative) */
+    --ember-text:#a54d28; /* ember dark enough for small text on paper (5.1:1) */
     --paper-on-dark:#f3ede1;
     --measure:64ch;
     --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
@@ -118,7 +119,7 @@
   .store-badge .small{display:block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
   .store-badge .big{display:block;font-family:var(--serif);font-size:1.05rem;font-weight:600}
   .store-badge.is-soon{background:transparent;color:var(--ink);border:1px solid var(--ink);cursor:default}
-  .store-badge.is-soon .small{opacity:.6}
+  .store-badge.is-soon .small{opacity:.75}
   a.store-badge:hover{background:var(--tide);border-color:var(--tide);color:#fff}
 
   /* ---------- hero ---------- */
@@ -147,7 +148,7 @@
   .rule-top{border-top:1px solid var(--rule)}
   h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,3rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:1.25rem;max-width:22em}
   .sec-eyebrow{display:flex;align-items:baseline;gap:.75rem;margin-bottom:1.25rem}
-  .sec-eyebrow .n{font-family:var(--serif);font-weight:700;color:var(--ember);font-size:1rem}
+  .sec-eyebrow .n{font-family:var(--serif);font-weight:700;color:var(--ember-text);font-size:1rem}
   .prose{color:var(--ink-soft);max-width:var(--measure)}
   .prose p{margin-bottom:1rem}
 
@@ -191,7 +192,7 @@
     padding:1.75rem;color:var(--ink);transition:border-color .15s ease;
   }
   .guide-card:hover{border-color:var(--tide)}
-  .guide-card .q{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);margin-bottom:.6rem}
+  .guide-card .q{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ember-text);margin-bottom:.6rem}
   .guide-card h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:.4rem}
   .guide-card p{font-size:.92rem;color:var(--ink-soft)}
   .guide-card .go{display:inline-block;margin-top:1rem;font-size:.88rem;font-weight:600;color:var(--tide)}
@@ -210,7 +211,7 @@
   .tier ul{list-style:none}
   .tier li{padding:.4rem 0 .4rem 1.6rem;position:relative;font-size:.95rem;color:rgba(243,237,225,.85)}
   .tier li::before{content:"";position:absolute;left:0;top:1rem;width:.6rem;height:2px;background:var(--ember)}
-  .band .fineprint{color:rgba(243,237,225,.6)}
+  .band .fineprint{color:rgba(243,237,225,.72)}
 
   /* final CTA */
   .final{text-align:center;padding:6.5rem 0}
@@ -431,7 +432,7 @@
 <!-- ============ PREMIUM ============ -->
 <section aria-labelledby="premium-title" style="padding-top:2rem">
   <div class="band">
-    <div class="sec-eyebrow"><span class="n" style="color:var(--ember)">08</span><p class="eyebrow" style="margin:0;color:rgba(243,237,225,.7)">Free &amp; Premium</p></div>
+    <div class="sec-eyebrow"><span class="n" style="color:#e6a37e">08</span><p class="eyebrow" style="margin:0;color:rgba(243,237,225,.7)">Free &amp; Premium</p></div>
     <h2 id="premium-title">Free where it counts. Premium when you're hooked.</h2>
     <p class="prose">Everything above works on the free tier. Premium removes the ceilings.</p>
     <div class="tiers">
