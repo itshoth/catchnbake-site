@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+  Privacy Policy - attorney review recommended before launch.
+  Served at https://catchnbake.com/privacy
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy — Catch 'N Bake</title>
+<meta name="description" content="How Catch 'N Bake collects, uses, and protects your information." />
+<link rel="canonical" href="https://catchnbake.com/privacy" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Catch 'N Bake" />
+<meta property="og:title" content="Privacy Policy — Catch 'N Bake" />
+<meta property="og:description" content="How Catch 'N Bake collects, uses, and protects your information." />
+<meta property="og:url" content="https://catchnbake.com/privacy" />
+<meta property="og:image" content="https://catchnbake.com/images/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#f7f3ec" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  /* self-hosted variable fonts (latin) */
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}
+  /* metric-matched fallbacks: no layout shift during font swap */
+  @font-face{font-family:'Fraunces Fallback';src:local('Georgia');ascent-override:98%;descent-override:26%;line-gap-override:0%;size-adjust:101%}
+  @font-face{font-family:'Inter Fallback';src:local('Arial');ascent-override:96.9%;descent-override:24.2%;line-gap-override:0%;size-adjust:107%}
+  
+  :root{
+    --paper:#f7f3ec;
+    --ink:#1e1b16;
+    --ink-soft:#4c463c;
+    --rule:#d9d2c4;
+    --tide:#1f4e5f;      /* deep coastal teal — the site's water note */
+    --ember:#b3542e;     /* skillet ember — used sparingly */
+    --measure:64ch;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter','Inter Fallback',system-ui,sans-serif;
+    font-size:1.0625rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* faint paper grain, matching the marketing page */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+  header.site{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:2rem 0 1.5rem;border-bottom:1px solid var(--rule);margin-bottom:4rem;
+  }
+  .brand{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:700;font-size:1.15rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--tide)}
+  nav.legal-nav{font-size:.85rem;font-weight:500}
+  nav.legal-nav a{color:var(--ink-soft);text-decoration:none;margin-left:1.25rem}
+  nav.legal-nav a[aria-current="page"]{color:var(--tide);border-bottom:2px solid var(--tide);padding-bottom:2px}
+  nav.legal-nav a:hover{color:var(--tide)}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:1rem}
+  h1{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:1.25rem}
+  .lede{font-size:1.15rem;color:var(--ink-soft);max-width:var(--measure)}
+  .meta{font-size:.85rem;color:var(--ink-soft);margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+  /* table of contents */
+  .toc{margin:3.5rem 0 4.5rem;padding:1.75rem 2rem;border:1px solid var(--rule);background:rgba(255,255,255,.45)}
+  .toc h2{font-family:'Inter','Inter Fallback',system-ui,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem}
+  .toc ol{list-style:none;columns:2;column-gap:2.5rem;font-size:.95rem}
+  .toc li{margin-bottom:.5rem;break-inside:avoid}
+  .toc a{color:var(--ink);text-decoration:none}
+  .toc a:hover{color:var(--tide)}
+  .toc .n{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;color:var(--tide);margin-right:.5em;font-weight:600}
+  @media (max-width:600px){.toc ol{columns:1}}
+  /* sections */
+  section{margin-bottom:3.5rem;scroll-margin-top:2rem}
+  h2.sec{
+    font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:1.5rem;line-height:1.25;
+    margin-bottom:1.1rem;display:flex;align-items:baseline;gap:.75rem;
+  }
+  h2.sec .n{color:var(--tide);font-size:1.05rem;font-weight:700;min-width:2.2rem}
+  h3{font-family:'Inter','Inter Fallback',system-ui,sans-serif;font-size:1rem;font-weight:600;margin:1.75rem 0 .6rem}
+  p{max-width:var(--measure);margin-bottom:1rem}
+  ul{max-width:var(--measure);margin:0 0 1rem 1.25rem}
+  li{margin-bottom:.55rem}
+  strong{font-weight:600}
+  a{color:var(--tide)}
+  .callout{
+    border-left:3px solid var(--ember);background:rgba(179,84,46,.06);
+    padding:1rem 1.25rem;margin:1.5rem 0;max-width:var(--measure);font-size:.98rem;
+  }
+  table{width:100%;max-width:var(--measure);border-collapse:collapse;font-size:.92rem;margin:1rem 0 1.5rem}
+  th{text-align:left;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding:.5rem .75rem .5rem 0;border-bottom:2px solid var(--rule)}
+  td{padding:.6rem .75rem .6rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  footer.site{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  footer.site a{color:var(--ink-soft)}
+  :focus-visible{outline:2px solid var(--tide);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a class="brand" href="/">Catch <span>'N</span> Bake</a>
+  <nav class="legal-nav" aria-label="Legal pages">
+    <a href="/privacy" aria-current="page">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/guidelines">Guidelines</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<p class="eyebrow">Legal · Privacy</p>
+<h1>Privacy Policy</h1>
+<p class="lede">Catch 'N Bake helps you identify what you caught, log it, cook it, and share it. Doing that well requires some of your information. This page explains exactly what we collect, why, and what control you have over it.</p>
+<p class="meta"><strong>Effective date:</strong> July 3, 2026 &nbsp;·&nbsp; <strong>Operated by:</strong> Catch 'N Bake LLC, a Florida limited liability company ("Catch 'N Bake," "we," "us")</p>
+
+<nav class="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><span class="n">01</span><a href="#collect">What we collect</a></li>
+    <li><span class="n">02</span><a href="#use">How we use it</a></li>
+    <li><span class="n">03</span><a href="#ai">AI features</a></li>
+    <li><span class="n">04</span><a href="#location">Location &amp; photos</a></li>
+    <li><span class="n">05</span><a href="#sharing">Who we share with</a></li>
+    <li><span class="n">06</span><a href="#community">Community content</a></li>
+    <li><span class="n">07</span><a href="#payments">Payments</a></li>
+    <li><span class="n">08</span><a href="#retention">Retention &amp; deletion</a></li>
+    <li><span class="n">09</span><a href="#security">Security</a></li>
+    <li><span class="n">10</span><a href="#children">Children</a></li>
+    <li><span class="n">11</span><a href="#rights">Your rights</a></li>
+    <li><span class="n">12</span><a href="#changes">Changes &amp; contact</a></li>
+  </ol>
+</nav>
+
+<section id="collect">
+  <h2 class="sec"><span class="n">01</span>What we collect</h2>
+  <h3>Information you give us</h3>
+  <ul>
+    <li><strong>Account details:</strong> your email address, a display name, and a username. You may optionally add an avatar photo and profile details.</li>
+    <li><strong>Your catches and cooking:</strong> photos you submit for fish identification, catch log entries (species, notes, and the photo), recipes you save or share, ratings, and comments.</li>
+    <li><strong>Community activity:</strong> posts, photos, group activity, likes, follows, reports you file, and users you block.</li>
+    <li><strong>Support messages:</strong> anything you send us when you report a problem.</li>
+  </ul>
+  <h3>Information collected automatically</h3>
+  <ul>
+    <li><strong>Usage analytics:</strong> we use Amplitude to understand how features are used — events like opening the app, logging a catch, or generating a recipe, associated with a user identifier. This helps us decide what to build and fix.</li>
+    <li><strong>Device basics:</strong> device model, operating system version, and app version, used for compatibility and crash diagnosis.</li>
+    <li><strong>Push token:</strong> if you enable notifications, we store the token needed to deliver them. It is visible only to you and our systems, never to other users.</li>
+  </ul>
+  <p>We do <strong>not</strong> collect your contacts, and we do not track you across other companies' apps or websites for advertising.</p>
+</section>
+
+<section id="use">
+  <h2 class="sec"><span class="n">02</span>How we use it</h2>
+  <ul>
+    <li>To run the product: identify fish from your photos, generate recipes, keep your catch journal, and power the community feed.</li>
+    <li>To operate your account: sign-in, notifications you've enabled, and customer support.</li>
+    <li>To keep the community safe: reviewing reported content and enforcing our <a href="/guidelines">Community Guidelines</a>.</li>
+    <li>To improve the app: aggregate analytics about which features are used and where people get stuck.</li>
+  </ul>
+  <p>We do not sell your personal information, and we do not use it for third-party advertising.</p>
+</section>
+
+<section id="ai">
+  <h2 class="sec"><span class="n">03</span>AI features</h2>
+  <p>Fish identification and recipe generation are powered by an AI model provided by Anthropic. When you use these features, the photo you submit (for identification) or your request details (species, region, preferences, for recipes) are sent to Anthropic's API to produce the result.</p>
+  <div class="callout"><strong>AI results can be wrong.</strong> Identification and recipe results are generated by AI and provided for general guidance. Always confirm species identification, local regulations, and safe food-handling practices yourself — including cooking fish to a safe internal temperature of 145°F.</div>
+  <p>We do not permit our AI providers to use your submissions to train their models under the API terms that apply to our account.</p>
+</section>
+
+<section id="location">
+  <h2 class="sec"><span class="n">04</span>Location &amp; photos</h2>
+  <p><strong>Location</strong> is optional and used while you're in the app to tailor features like region-aware recipes and local conditions. You can decline the permission and use the app without it, or revoke it any time in your device settings.</p>
+  <p><strong>Photos:</strong> when you upload a photo, we strip embedded GPS coordinates (EXIF location data) from the image before it is stored. Your fishing spots stay yours. The photo itself, once shared to the community, is visible to other users as part of your post.</p>
+</section>
+
+<section id="sharing">
+  <h2 class="sec"><span class="n">05</span>Who we share with</h2>
+  <p>We share information only with the service providers that run the app, and only what each needs:</p>
+  <table>
+    <thead><tr><th>Provider</th><th>Purpose</th><th>What they process</th></tr></thead>
+    <tbody>
+      <tr><td>Supabase</td><td>Database, authentication, file storage</td><td>Account data, content, photos</td></tr>
+      <tr><td>Anthropic</td><td>AI fish identification &amp; recipes</td><td>Submitted photos, recipe requests</td></tr>
+      <tr><td>Amplitude</td><td>Product analytics</td><td>Usage events, user identifier</td></tr>
+      <tr><td>Stripe</td><td>Payment processing</td><td>Payment details (we never see full card numbers)</td></tr>
+      <tr><td>Expo</td><td>Push notification delivery</td><td>Push tokens, notification content</td></tr>
+    </tbody>
+  </table>
+  <p>We may also disclose information if required by law, or to protect the rights, safety, or property of our users or others.</p>
+</section>
+
+<section id="community">
+  <h2 class="sec"><span class="n">06</span>Community content</h2>
+  <p>Content you share to the community — posts, catch photos, recipes, comments, your username and avatar — is visible to other users of the app. Think of the community feed as public within Catch 'N Bake. Your email address is never shown to other users.</p>
+</section>
+
+<section id="payments">
+  <h2 class="sec"><span class="n">07</span>Payments</h2>
+  <p>Premium subscriptions and purchases are processed by the platform you buy through — Apple's App Store, Google Play, or our payment processor, Stripe. We receive confirmation of your purchase and subscription status so we can unlock your features; we do not receive or store full payment card numbers.</p>
+</section>
+
+<section id="retention">
+  <h2 class="sec"><span class="n">08</span>Retention &amp; deletion</h2>
+  <p>We keep your information while your account is active. You can delete your account any time in the app under <strong>Settings → Delete Account</strong>. Deletion removes your account, profile, catches, posts, photos, and stored files from our systems. Some records may persist briefly in backups before being purged, and we may retain limited records where required by law (for example, payment records).</p>
+</section>
+
+<section id="security">
+  <h2 class="sec"><span class="n">09</span>Security</h2>
+  <p>All traffic between the app and our servers is encrypted in transit. Access to user data inside our systems is restricted by row-level security so that private fields are readable only by you. No system is perfectly secure, but we design ours so that a mistake exposes as little as possible.</p>
+</section>
+
+<section id="children">
+  <h2 class="sec"><span class="n">10</span>Children</h2>
+  <p>Catch 'N Bake is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child under 13 has created an account, contact us at <a href="mailto:jordan.hoth99@gmail.com">jordan.hoth99@gmail.com</a> and we will delete it.</p>
+</section>
+
+<section id="rights">
+  <h2 class="sec"><span class="n">11</span>Your rights</h2>
+  <p>Depending on where you live, you may have rights to access, correct, delete, or receive a copy of your personal information. You can exercise most of these directly in the app (edit your profile, delete your account). For anything else, email <a href="mailto:jordan.hoth99@gmail.com">jordan.hoth99@gmail.com</a> and we'll respond within a reasonable time. We do not discriminate against you for exercising your privacy rights.</p>
+</section>
+
+<section id="changes">
+  <h2 class="sec"><span class="n">12</span>Changes &amp; contact</h2>
+  <p>If we make material changes to this policy, we'll update the effective date above and notify you in the app. Questions go to:</p>
+  <p><strong>Catch 'N Bake LLC</strong><br><a href="mailto:jordan.hoth99@gmail.com">jordan.hoth99@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer class="site">
+  <span>© 2026 Catch 'N Bake LLC · Made in Florida</span>
+  <span><a href="/">Home</a> · <a href="/support">Support</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/guidelines">Guidelines</a></span>
+</footer>
+
+</div>
+</body>
+</html>

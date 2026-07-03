@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+  Community Guidelines - web mirror of the in-app guidelines (app/guidelines.tsx). Keep both in sync.
+  Served at https://catchnbake.com/guidelines
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Community Guidelines — Catch 'N Bake</title>
+<meta name="description" content="The rules of the water for the Catch 'N Bake community." />
+<link rel="canonical" href="https://catchnbake.com/guidelines" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Catch 'N Bake" />
+<meta property="og:title" content="Community Guidelines — Catch 'N Bake" />
+<meta property="og:description" content="The rules of the water for the Catch 'N Bake community." />
+<meta property="og:url" content="https://catchnbake.com/guidelines" />
+<meta property="og:image" content="https://catchnbake.com/images/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#f7f3ec" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  /* self-hosted variable fonts (latin) */
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}
+  /* metric-matched fallbacks: no layout shift during font swap */
+  @font-face{font-family:'Fraunces Fallback';src:local('Georgia');ascent-override:98%;descent-override:26%;line-gap-override:0%;size-adjust:101%}
+  @font-face{font-family:'Inter Fallback';src:local('Arial');ascent-override:96.9%;descent-override:24.2%;line-gap-override:0%;size-adjust:107%}
+  
+  :root{
+    --paper:#f7f3ec;
+    --ink:#1e1b16;
+    --ink-soft:#4c463c;
+    --rule:#d9d2c4;
+    --tide:#1f4e5f;
+    --ember:#b3542e;
+    --measure:64ch;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter','Inter Fallback',system-ui,sans-serif;
+    font-size:1.0625rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+  header.site{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:2rem 0 1.5rem;border-bottom:1px solid var(--rule);margin-bottom:4rem;
+  }
+  .brand{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:700;font-size:1.15rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--tide)}
+  nav.legal-nav{font-size:.85rem;font-weight:500}
+  nav.legal-nav a{color:var(--ink-soft);text-decoration:none;margin-left:1.25rem}
+  nav.legal-nav a[aria-current="page"]{color:var(--tide);border-bottom:2px solid var(--tide);padding-bottom:2px}
+  nav.legal-nav a:hover{color:var(--tide)}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:1rem}
+  h1{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:1.25rem}
+  .lede{font-size:1.15rem;color:var(--ink-soft);max-width:var(--measure)}
+  .meta{font-size:.85rem;color:var(--ink-soft);margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+  section{margin-bottom:3.25rem;scroll-margin-top:2rem}
+  h2.sec{
+    font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:1.5rem;line-height:1.25;
+    margin-bottom:1.1rem;
+  }
+  p{max-width:var(--measure);margin-bottom:1rem}
+  ul{max-width:var(--measure);margin:0 0 1rem 1.25rem}
+  li{margin-bottom:.55rem}
+  strong{font-weight:600}
+  a{color:var(--tide)}
+  .callout{
+    border-left:3px solid var(--ember);background:rgba(179,84,46,.06);
+    padding:1rem 1.25rem;margin:1.5rem 0;max-width:var(--measure);font-size:.98rem;
+  }
+  .rule-card{
+    border:1px solid var(--rule);background:rgba(255,255,255,.45);
+    padding:1.5rem 1.75rem;margin-bottom:1.25rem;max-width:var(--measure);
+  }
+  .rule-card h2{
+    font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:1.25rem;margin-bottom:.6rem;
+  }
+  .rule-card p:last-child, .rule-card ul:last-child{margin-bottom:0}
+  footer.site{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  footer.site a{color:var(--ink-soft)}
+  :focus-visible{outline:2px solid var(--tide);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a class="brand" href="/">Catch <span>'N</span> Bake</a>
+  <nav class="legal-nav" aria-label="Legal pages">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/guidelines" aria-current="page">Guidelines</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<p class="eyebrow">Community</p>
+<h1>Rules of the Water</h1>
+<p class="lede">Catch 'N Bake is where anglers show off a catch, trade what worked, and cook it right. Every dock has its unwritten rules; here they're written down. They apply to everything you share — posts, photos, recipes, comments, group activity, usernames, and profiles.</p>
+<p class="meta"><strong>Effective date:</strong> July 3, 2026 · These guidelines are part of our <a href="/terms">Terms of Service</a>.</p>
+
+<div class="callout" style="margin-top:2.5rem"><strong>The short version:</strong> post your real catches and real cooking, treat other anglers like you'd want to be treated at the ramp, and keep it something you'd show your kid. We have no tolerance for objectionable content or abusive behavior — report it when you see it, and we'll act, typically within 24 hours.</div>
+
+<section>
+  <div class="rule-card">
+    <h2>1 · Be genuine</h2>
+    <p>Post your own catches, your own photos, your own cooking. Don't pass off someone else's fish, stolen photos, or another site's recipe as yours. Exaggerating the fight is tradition; faking the fish isn't.</p>
+  </div>
+
+  <div class="rule-card">
+    <h2>2 · Respect other anglers</h2>
+    <p>Disagree about tactics all you want — leave the person out of it. No harassment, bullying, threats, name-calling, or hate toward anyone, including on the basis of race, ethnicity, religion, sex, sexual orientation, gender identity, disability, or anything else. One warning at most; repeat behavior loses the account.</p>
+  </div>
+
+  <div class="rule-card">
+    <h2>3 · Keep it family-friendly</h2>
+    <p>Kids learn to fish here too. No sexual content, nudity, gore beyond the normal reality of cleaning a fish, glorified violence, or shock content. If you'd hesitate to show it at a family fish fry, don't post it.</p>
+  </div>
+
+  <div class="rule-card">
+    <h2>4 · Fish legal, post legal</h2>
+    <p>Don't post content that celebrates or encourages illegal activity: out-of-season or undersized harvests, protected species kept, trespassing, or anything else that breaks fishing regulations or the law. Know your local rules — in Florida, that's the FWC. When in doubt, release it and check.</p>
+  </div>
+
+  <div class="rule-card">
+    <h2>5 · No spam or self-dealing</h2>
+    <p>The feed is for fishing and cooking, not advertising. No repetitive posting, engagement bait, pyramid schemes, scams, or link-dropping. Charter captains and guides: the Charters section is your storefront — keep the community feed about the fish.</p>
+  </div>
+
+  <div class="rule-card">
+    <h2>6 · Protect privacy — yours and theirs</h2>
+    <p>Don't post other people's personal information (names, phone numbers, addresses, boat registrations) without their say-so. We strip GPS data from your photos automatically, and honey holes are sacred: don't burn someone else's spot without permission.</p>
+  </div>
+
+  <div class="rule-card">
+    <h2>7 · Cook smart</h2>
+    <p>Recipes and cooking advice are shared angler-to-angler, not professional guidance. Don't post recipes or advice that are unsafe — undercooked preparation of species that require full cooking, unsafe preservation methods, or misidentified species presented as table-fare. When sharing, note safe cooking practice; fish is done at 145°F.</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Enforcement: report, block, and what we do</h2>
+  <p>Every piece of community content has a <strong>⋯ menu</strong> with two tools:</p>
+  <ul>
+    <li><strong>Report</strong> — flag content that breaks these rules and tell us why. Reports are reviewed and violations are acted on, typically within 24 hours: content removed, and depending on severity, a warning, feature restriction, or permanent ban for the author.</li>
+    <li><strong>Block</strong> — instantly hide a user's content from your feeds and stop them from interacting with you. Manage your blocked list in <strong>Settings → Blocked Users</strong>.</li>
+  </ul>
+  <p>Serious violations — threats, sexual content involving minors, doxxing — skip the warning and go straight to a permanent ban, and where appropriate, a report to authorities.</p>
+  <p>If you believe we removed something in error, reply to the notification or contact <a href="mailto:jordan.hoth99@gmail.com">jordan.hoth99@gmail.com</a> and a human will take a second look.</p>
+</section>
+
+</main>
+
+<footer class="site">
+  <span>© 2026 Catch 'N Bake LLC · Made in Florida</span>
+  <span><a href="/">Home</a> · <a href="/support">Support</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/guidelines">Guidelines</a></span>
+</footer>
+
+</div>
+</body>
+</html>

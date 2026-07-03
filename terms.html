@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--
+  Terms of Service - attorney review recommended before launch. Includes the UGC no-tolerance + moderation terms App Store Guideline 1.2 expects.
+  Served at https://catchnbake.com/terms
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Service — Catch 'N Bake</title>
+<meta name="description" content="The terms that govern your use of Catch 'N Bake." />
+<link rel="canonical" href="https://catchnbake.com/terms" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Catch 'N Bake" />
+<meta property="og:title" content="Terms of Service — Catch 'N Bake" />
+<meta property="og:description" content="The terms that govern your use of Catch 'N Bake." />
+<meta property="og:url" content="https://catchnbake.com/terms" />
+<meta property="og:image" content="https://catchnbake.com/images/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#f7f3ec" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  /* self-hosted variable fonts (latin) */
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}
+  /* metric-matched fallbacks: no layout shift during font swap */
+  @font-face{font-family:'Fraunces Fallback';src:local('Georgia');ascent-override:98%;descent-override:26%;line-gap-override:0%;size-adjust:101%}
+  @font-face{font-family:'Inter Fallback';src:local('Arial');ascent-override:96.9%;descent-override:24.2%;line-gap-override:0%;size-adjust:107%}
+  
+  :root{
+    --paper:#f7f3ec;
+    --ink:#1e1b16;
+    --ink-soft:#4c463c;
+    --rule:#d9d2c4;
+    --tide:#1f4e5f;
+    --ember:#b3542e;
+    --measure:64ch;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter','Inter Fallback',system-ui,sans-serif;
+    font-size:1.0625rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
+  header.site{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:2rem 0 1.5rem;border-bottom:1px solid var(--rule);margin-bottom:4rem;
+  }
+  .brand{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:700;font-size:1.15rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--tide)}
+  nav.legal-nav{font-size:.85rem;font-weight:500}
+  nav.legal-nav a{color:var(--ink-soft);text-decoration:none;margin-left:1.25rem}
+  nav.legal-nav a[aria-current="page"]{color:var(--tide);border-bottom:2px solid var(--tide);padding-bottom:2px}
+  nav.legal-nav a:hover{color:var(--tide)}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:1rem}
+  h1{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:1.25rem}
+  .lede{font-size:1.15rem;color:var(--ink-soft);max-width:var(--measure)}
+  .meta{font-size:.85rem;color:var(--ink-soft);margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+  .toc{margin:3.5rem 0 4.5rem;padding:1.75rem 2rem;border:1px solid var(--rule);background:rgba(255,255,255,.45)}
+  .toc h2{font-family:'Inter','Inter Fallback',system-ui,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem}
+  .toc ol{list-style:none;columns:2;column-gap:2.5rem;font-size:.95rem}
+  .toc li{margin-bottom:.5rem;break-inside:avoid}
+  .toc a{color:var(--ink);text-decoration:none}
+  .toc a:hover{color:var(--tide)}
+  .toc .n{font-family:'Fraunces','Fraunces Fallback',Georgia,serif;color:var(--tide);margin-right:.5em;font-weight:600}
+  @media (max-width:600px){.toc ol{columns:1}}
+  section{margin-bottom:3.5rem;scroll-margin-top:2rem}
+  h2.sec{
+    font-family:'Fraunces','Fraunces Fallback',Georgia,serif;font-weight:600;font-size:1.5rem;line-height:1.25;
+    margin-bottom:1.1rem;display:flex;align-items:baseline;gap:.75rem;
+  }
+  h2.sec .n{color:var(--tide);font-size:1.05rem;font-weight:700;min-width:2.2rem}
+  h3{font-family:'Inter','Inter Fallback',system-ui,sans-serif;font-size:1rem;font-weight:600;margin:1.75rem 0 .6rem}
+  p{max-width:var(--measure);margin-bottom:1rem}
+  ul{max-width:var(--measure);margin:0 0 1rem 1.25rem}
+  li{margin-bottom:.55rem}
+  strong{font-weight:600}
+  a{color:var(--tide)}
+  .callout{
+    border-left:3px solid var(--ember);background:rgba(179,84,46,.06);
+    padding:1rem 1.25rem;margin:1.5rem 0;max-width:var(--measure);font-size:.98rem;
+  }
+  footer.site{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  footer.site a{color:var(--ink-soft)}
+  :focus-visible{outline:2px solid var(--tide);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a class="brand" href="/">Catch <span>'N</span> Bake</a>
+  <nav class="legal-nav" aria-label="Legal pages">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms" aria-current="page">Terms</a>
+    <a href="/guidelines">Guidelines</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<p class="eyebrow">Legal · Terms</p>
+<h1>Terms of Service</h1>
+<p class="lede">These terms are the agreement between you and Catch 'N Bake LLC when you use the Catch 'N Bake app and website. They're written to be read, not skimmed past — the short version is: be genuine, be decent to other anglers, and don't rely on an app instead of your own judgment about fish, regulations, or food safety.</p>
+<p class="meta"><strong>Effective date:</strong> July 3, 2026 &nbsp;·&nbsp; <strong>Catch 'N Bake LLC</strong>, a Florida limited liability company ("Catch 'N Bake," "we," "us")</p>
+
+<nav class="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><span class="n">01</span><a href="#agreement">The agreement</a></li>
+    <li><span class="n">02</span><a href="#eligibility">Eligibility &amp; accounts</a></li>
+    <li><span class="n">03</span><a href="#license">Your license to use the app</a></li>
+    <li><span class="n">04</span><a href="#content">Your content</a></li>
+    <li><span class="n">05</span><a href="#conduct">Community conduct &amp; moderation</a></li>
+    <li><span class="n">06</span><a href="#ai">AI features &amp; safety disclaimers</a></li>
+    <li><span class="n">07</span><a href="#premium">Premium &amp; purchases</a></li>
+    <li><span class="n">08</span><a href="#termination">Suspension &amp; termination</a></li>
+    <li><span class="n">09</span><a href="#disclaimers">Disclaimers</a></li>
+    <li><span class="n">10</span><a href="#liability">Limitation of liability</a></li>
+    <li><span class="n">11</span><a href="#disputes">Governing law &amp; disputes</a></li>
+    <li><span class="n">12</span><a href="#changes">Changes &amp; contact</a></li>
+  </ol>
+</nav>
+
+<section id="agreement">
+  <h2 class="sec"><span class="n">01</span>The agreement</h2>
+  <p>By creating an account or using Catch 'N Bake, you agree to these Terms, our <a href="/privacy">Privacy Policy</a>, and our <a href="/guidelines">Community Guidelines</a>, which are part of these Terms. If you downloaded the app from Apple's App Store or Google Play, the standard terms of that store also apply to your download; where those terms and these conflict regarding the license to the app binary, the store's terms control the download and these Terms control everything else.</p>
+</section>
+
+<section id="eligibility">
+  <h2 class="sec"><span class="n">02</span>Eligibility &amp; accounts</h2>
+  <p>You must be at least 13 years old to use Catch 'N Bake. If you are under 18, you may only use the app with the consent of a parent or guardian.</p>
+  <p>You're responsible for your account: keep your credentials to yourself, give us accurate information, and tell us if you believe your account has been compromised. One person, one account, and your username can't impersonate someone else or a brand you don't own.</p>
+</section>
+
+<section id="license">
+  <h2 class="sec"><span class="n">03</span>Your license to use the app</h2>
+  <p>We grant you a personal, non-exclusive, non-transferable, revocable license to use Catch 'N Bake for your own non-commercial use. You may not copy, modify, reverse engineer, scrape, resell, or build a competing dataset or service from the app, its content, or its APIs, and you may not use automated means to access the service outside of the app's intended interfaces.</p>
+</section>
+
+<section id="content">
+  <h2 class="sec"><span class="n">04</span>Your content</h2>
+  <p>Your catches, photos, recipes, posts, and comments are yours. By sharing them in the app you grant Catch 'N Bake a worldwide, non-exclusive, royalty-free license to host, store, display, and distribute that content within the service, so the community features can work. This license ends for a given piece of content when you delete it, or when you delete your account, except where the content has been reshared within the app by others or where we must retain it for legal reasons.</p>
+  <p>You promise that you have the rights to what you post, and that it doesn't infringe anyone else's rights. If you believe content in the app infringes your copyright, contact us at <a href="mailto:jordan.hoth99@gmail.com">jordan.hoth99@gmail.com</a> with the details and we'll respond as required by law.</p>
+</section>
+
+<section id="conduct">
+  <h2 class="sec"><span class="n">05</span>Community conduct &amp; moderation</h2>
+  <div class="callout"><strong>We have no tolerance for objectionable content or abusive users.</strong> Content or behavior that violates our <a href="/guidelines">Community Guidelines</a> — including harassment, hate, sexual content, violence, spam, or illegal activity — may be removed without notice, and accounts responsible may be restricted or terminated.</div>
+  <p>The app gives every user the tools to protect their own experience:</p>
+  <ul>
+    <li><strong>Report:</strong> flag any post, photo, comment, or recipe. Reports are reviewed, and we act on violations — typically within 24 hours of a report.</li>
+    <li><strong>Block:</strong> block any user to immediately hide their content from your feeds and prevent interaction.</li>
+  </ul>
+  <p>We may remove content, restrict features, or suspend accounts at our discretion to keep the community safe. We don't owe a warning for serious violations, though we'll usually explain the action taken.</p>
+</section>
+
+<section id="ai">
+  <h2 class="sec"><span class="n">06</span>AI features &amp; safety disclaimers</h2>
+  <p>Fish identification and recipe suggestions are generated by artificial intelligence. They are provided for general informational purposes and <strong>can be wrong</strong>. You agree that you — not the app — are responsible for:</p>
+  <ul>
+    <li><strong>Species identification.</strong> Do not rely solely on the app to determine whether a fish is safe to keep, legal to harvest, or safe to eat. Misidentifying a species can violate regulations or make you sick.</li>
+    <li><strong>Fishing regulations.</strong> Seasons, size limits, bag limits, and licensing are your responsibility to verify with your local authority (in Florida, the FWC).</li>
+    <li><strong>Food safety.</strong> Follow safe handling practices and cook fish to a safe internal temperature (145°F). Recipe content is not professional culinary, health, or allergy advice.</li>
+  </ul>
+</section>
+
+<section id="premium">
+  <h2 class="sec"><span class="n">07</span>Premium &amp; purchases</h2>
+  <p>Some features require a paid subscription or one-time purchase. Pricing is shown before you buy. Purchases made through Apple's App Store or Google Play are billed and managed by that store under its terms, including cancellation and refunds; manage or cancel in your store account settings. Purchases made outside those stores are processed by Stripe and can be managed through the billing portal linked in your account.</p>
+  <p>Subscriptions renew automatically until cancelled. Cancelling stops future renewals; it doesn't refund the current period except where the platform's policy or law requires. One-time purchases, if we offer them, are delivered to your account on purchase and are non-refundable once used.</p>
+</section>
+
+<section id="termination">
+  <h2 class="sec"><span class="n">08</span>Suspension &amp; termination</h2>
+  <p>You can stop using Catch 'N Bake at any time and delete your account in <strong>Settings → Delete Account</strong>. We may suspend or terminate your access if you violate these Terms or the Community Guidelines, if required by law, or if we discontinue the service. Sections of these Terms that by their nature should survive termination (content license for retained content, disclaimers, limitation of liability, disputes) survive.</p>
+</section>
+
+<section id="disclaimers">
+  <h2 class="sec"><span class="n">09</span>Disclaimers</h2>
+  <p>Catch 'N Bake is provided "as is" and "as available." To the fullest extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We don't warrant that the app will be uninterrupted, error-free, or that AI-generated results will be accurate.</p>
+</section>
+
+<section id="liability">
+  <h2 class="sec"><span class="n">10</span>Limitation of liability</h2>
+  <p>To the fullest extent permitted by law, Catch 'N Bake LLC and its members, officers, and agents will not be liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits, data, or goodwill, arising from your use of the service. Our total liability for any claim arising out of these Terms or the service will not exceed the greater of the amount you paid us in the twelve months before the claim or one hundred dollars ($100). Some jurisdictions don't allow certain limitations, so parts of this section may not apply to you.</p>
+</section>
+
+<section id="disputes">
+  <h2 class="sec"><span class="n">11</span>Governing law &amp; disputes</h2>
+  <p>These Terms are governed by the laws of the State of Florida, without regard to conflict-of-law rules. Any dispute that can't be resolved informally will be brought in the state or federal courts located in Pinellas County, Florida, and you consent to their jurisdiction.</p>
+</section>
+
+<section id="changes">
+  <h2 class="sec"><span class="n">12</span>Changes &amp; contact</h2>
+  <p>We may update these Terms as the product evolves. For material changes we'll update the effective date and notify you in the app; continuing to use the service after changes take effect means you accept them. Questions:</p>
+  <p><strong>Catch 'N Bake LLC</strong><br><a href="mailto:jordan.hoth99@gmail.com">jordan.hoth99@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer class="site">
+  <span>© 2026 Catch 'N Bake LLC · Made in Florida</span>
+  <span><a href="/">Home</a> · <a href="/support">Support</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/guidelines">Guidelines</a></span>
+</footer>
+
+</div>
+</body>
+</html>
