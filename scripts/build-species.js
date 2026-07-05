@@ -70,6 +70,7 @@ const SPECIES = [
       url: 'https://myfwc.com/fishing/saltwater/recreational/sheepshead/',
       label: 'FWC sheepshead regulations'
     },
+    meal: { file: 'fried-fish-and-chips', alt: 'Crispy fried fish pieces with a basket of chips, tartar sauce, and a squeezed lime on newspaper', caption: 'The classic: crispy fried, tartar on the side.' },
     faq: [
       { q: 'Can you eat sheepshead?', a: "Yes — sheepshead is excellent eating, with sweet, mild white meat often compared to shellfish thanks to its diet of crabs, shrimp, and barnacles. It's a regulated species in Florida, so check current FWC size and bag limits before keeping one." },
       { q: 'What does sheepshead taste like?', a: "Sweet, clean, and slightly briny — closer to crab or lobster than to typical white fish. The fillets are white, lean, firm, and flaky with no oily or fishy edge when properly iced." },
@@ -122,6 +123,7 @@ const SPECIES = [
       url: 'https://myfwc.com/fishing/saltwater/recreational/snook/',
       label: 'FWC snook regulations'
     },
+    meal: { file: 'grilled-fish-lime-squeeze', alt: 'A hand squeezing fresh lime over fish fillets sizzling on a grill', caption: 'Citrus over fire — exactly how snook wants to be treated.' },
     faq: [
       { q: 'Can you eat snook?', a: "Yes — snook is considered some of the best-eating fish in Florida, with mild, sweet, firm white fillets. But harvest is tightly regulated: you may only keep one during open season, within the slot size, with a snook permit, and rules differ by coast. Check current FWC regulations before keeping any snook." },
       { q: 'Why can’t you buy snook in a store or restaurant?', a: "Snook is a protected gamefish in Florida and its commercial sale has been banned for decades. The only legal way to eat snook is to catch a legal one yourself during an open season." },
@@ -174,6 +176,7 @@ const SPECIES = [
       url: 'https://myfwc.com/fishing/saltwater/recreational/red-drum/',
       label: 'FWC red drum regulations'
     },
+    meal: { file: 'blackened-fish-fillet-plated', alt: 'A plated fish fillet with a dark blackened spice crust, asparagus, and mash', caption: 'The blackened treatment: dark spice crust outside, tender inside.' },
     faq: [
       { q: 'Can you eat redfish?', a: "Yes — slot-sized redfish (red drum) are excellent eating: mild, subtly sweet, medium-firm fillets that made blackened redfish a Gulf Coast icon. Florida manages redfish by region with rules that have changed recently, so check the current FWC regulations for your zone before keeping one." },
       { q: 'What does redfish taste like?', a: "Mild and subtly sweet with a medium-firm texture that stands up to bold cooking — spice, smoke, and butter. Slot-sized fish are tender and clean; large bull reds are coarser and are the breeding stock, so they're best released." },
@@ -352,6 +355,10 @@ ${jsonLd(sp)}
   .verdict.careful .v{color:var(--ember)}
   .verdict p{margin:0}
   figure{margin:3rem 0}
+  figure.meal{margin:2.25rem 0 0}
+  figure.meal figcaption{margin-top:.75rem;font-size:.85rem;color:var(--ink-soft)}
+  figure.meal{margin:2.25rem 0 0}
+  figure.meal figcaption{margin-top:.75rem;font-size:.85rem;color:var(--ink-soft)}
   figure img{display:block;width:100%;height:auto;border-radius:4px;background:#e8e2d5}
   h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3vw,1.9rem);line-height:1.2;margin:3.25rem 0 1rem;color:var(--ink)}
   h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:1.75rem 0 .5rem;color:var(--ink)}
@@ -427,6 +434,13 @@ ${sp.clean.steps.map((s) => `  <li>${s}</li>`).join('\n')}
 
 <h2>${sp.methods.heading}</h2>
 ${sp.methods.items.map((m) => `<h3>${m.name}</h3>\n<p>${m.body}</p>`).join('\n')}
+${sp.meal ? `<figure class="meal">
+  <picture>
+    <source srcset="/images/meals/${sp.meal.file}.webp" type="image/webp" />
+    <img src="/images/meals/${sp.meal.file}.jpg" width="1400" height="875" alt="${esc(sp.meal.alt)}" loading="lazy" />
+  </picture>
+  <figcaption>${sp.meal.caption}</figcaption>
+</figure>` : ''}
 <p class="safety"><strong>Food safety:</strong> ${sp.methods.safety}</p>
 
 <h2>Regulations: check before you keep</h2>
