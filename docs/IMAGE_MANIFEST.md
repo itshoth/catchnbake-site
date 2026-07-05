@@ -1,54 +1,57 @@
-# Image Manifest — every slot, what to shoot, exact specs
+# Image Manifest — every slot, current contents, exact specs
 
-**The rule that makes this painless:** every image slot on the site already points at a real file with a fixed name and fixed dimensions. Placeholder art ships in each slot today. To do the image drop, **overwrite the file with the same name and pixel dimensions** — no HTML changes, no layout shift, done.
+**Updated 2026-07-05:** the real-photo drop happened. Nine photos from `Website pics.zip` were processed (HEIC→WebP+JPG, resized, **all EXIF/GPS metadata stripped and verified zero**) and placed. Species IDs below are mine from the photos — correct me if any are wrong and I'll rename/re-place.
 
-Placeholders are design-system wireframes, so the site looks intentional even if it deploys before the drop.
+**Processing pipeline** (ImageMagick 7.1.2 + ExifTool 13.59, both installed via winget):
+```
+magick IN -auto-orient -profile "C:/Windows/System32/spool/drivers/color/sRGB Color Space Profile.icm" -strip [-crop ...] -resize ... -quality ~72-80 OUT.webp/jpg
+exiftool -r -GPS:all -EXIF:all -XMP:all images/   # must return nothing
+```
+Format call: **WebP + JPG fallback** via `<picture>` for direct photo slots; app-preview screens are WebP-only `<img>` (universal support, and they're generated artwork).
 
-## 1. App screenshots — `images/screens/` (1179 × 2556 px PNG)
+## 1. App screens — `images/screens/*.webp` (590×1279 display copies)
 
-Shoot on an iPhone with a 1179×2556 screen (iPhone 14 Pro / 15 / 15 Pro / 16 class). Use a seeded demo account with realistic, attractive data. Clean status bar (9:41, full battery — Xcode simulator does this automatically). Export PNG, then compress (e.g. squoosh.app / oxipng) to keep each under ~300 KB.
+These are **app-preview wireframes with the real catch photos composited in** — not real app screenshots yet. Generated from a design-system template; each carries an "app preview" caption in-frame.
 
-| File | Where it appears | What to capture |
+| File | Where | Contains now | Real-screenshot drop |
+|---|---|---|---|
+| `01-identify.webp` | Landing hero | Identify screen with the **hogfish** boat photo loaded | Replace with real screenshot |
+| `02-id-result.webp` | Fish ID feature | Gag Grouper result using the **gag (boat)** photo | Replace with real screenshot |
+| `03-recipes.webp` | Recipes feature | "Cook Your Gag Grouper" recipe list (no photo) | Replace with real screenshot |
+| `04-journal.webp` | Journal feature | Stats wireframe | Replace with real screenshot |
+| `05-community.webp` | Community feature | Feed with **lane snapper table** + **black drum night** photos | Replace with real screenshot |
+
+To drop real screenshots later: capture at 1179×2556 PNG, then per file:
+`magick real.png -resize 590x -strip -quality 82 images/screens/01-identify.webp` — filenames fixed, no HTML edits.
+
+## 2. Species page heroes — `images/fish/<slug>.{webp,jpg}` (1400×875)
+
+| File | Status | Photo |
 |---|---|---|
-| `01-identify.png` | Landing hero (above the fold — the money shot) | Identify tab with a great-looking fish photo loaded, "Identify this fish" button visible |
-| `02-id-result.png` | "Fish identification" feature section | ID result screen: species + scientific name, High confidence, habitat + regulations summary visible. Sheepshead would rhyme with the fish-guide content |
-| `03-recipes.png` | "Recipes" feature section | Recipe results for an identified fish — 4–5 recipe cards showing names + difficulty, region label visible if possible |
-| `04-journal.png` | "Catch journal" feature section | Journal Stats sub-tab with a season of data (or the catch Map if it demos better) |
-| `05-community.png` | "Community" feature section | Community feed with 2 attractive posts — ideally one catch photo + one cooked-dish photo |
+| `snook.*` | ✅ **Real** | Golden-hour dock snook (from IMG_0834) |
+| `redfish.*` | ✅ **Real** | Flats-boat redfish, tail spot visible (IMG_3143) |
+| `gag-grouper.*` | ✅ **Real** | Pier gag grouper (IMG_8324) |
+| `sheepshead.*` | ⬜ Still placeholder | **Wanted: a real sheepshead photo** — overwrite both files at 1400×875 |
 
-## 2. Species photos — `images/fish/` (1600 × 1000 px PNG)
+## 3. Processed photo library — `images/photos/` (not all placed yet)
 
-Real photos of the actual species — a held fish in good light, or on ice/dock. Landscape, subject centered (the frame is displayed full-width at up to ~700 px). If your source is JPEG, either export to PNG with the same filename, or change the extension in `scripts/build-species.js` and re-run it.
+| File | Species (verify me) | Currently used |
+|---|---|---|
+| `hogfish-catch-offshore-florida.*` | Hogfish | Inside hero screen mockup |
+| `gag-grouper-catch-boat-florida.*` | Gag grouper | Inside ID-result mockup |
+| `lane-snapper-catch-cleaning-table.*` | Lane snapper ×5 | Inside community mockup |
+| `black-drum-catch-night-dock.*` | Black drum | Inside community mockup |
+| `brown-trout-fly-fishing-mountain-stream.*` | Brown trout | Landing photo band (2.35:1 crop) |
+| `black-grouper-catch-jetty-florida.*` | Black grouper (**least confident ID** — could be gag) | Unplaced — reserved for a future grouper/wave-2 page |
 
-| File | Page |
-|---|---|
-| `sheepshead.png` | /fish/sheepshead |
-| `snook.png` | /fish/snook |
-| `redfish.png` | /fish/redfish |
+Low-res sources kept out of large slots: IMG_4652 (black drum, 576px) and IMG_0955 (gag boat, 1170px) only appear inside small mockup areas where their resolution is fine.
 
-Every new wave-2 species page needs its own `images/fish/<slug>.png` (and OG image below).
+## 4. Social/OG — `images/og-default.png`, `images/og/*.png` (1200×630)
 
-## 3. Social/OG images — `images/og/` + `images/og-default.png` (1200 × 630 px PNG)
+Brand-design cards (final): default + sheepshead, snook, redfish, **gag-grouper** (new). Optionally replace with photo-based versions at the same size later.
 
-**These are already final** — generated in the brand design (not wireframe placeholders). Link previews in Messages/X/Facebook/Slack will look right on day one. Optionally replace later with photo-based versions at the same size.
+## 5. Still wanted (the next drop)
 
-| File | Used by |
-|---|---|
-| `og-default.png` | Landing page, support, legal pages |
-| `og/sheepshead.png`, `og/snook.png`, `og/redfish.png` | Each species page |
-
-New species pages get an OG image via the generator workflow (see `scripts/build-species.js` header).
-
-## 4. Icons
-
-| File | Status |
-|---|---|
-| `favicon.svg` | ✅ Final — brand mark (tide square, paper fish, ember gill) |
-| `apple-touch-icon.png` (180×180) | **Optional add** — nice-to-have for iOS bookmark/share sheet. If added, place at repo root and add `<link rel="apple-touch-icon" href="/apple-touch-icon.png">` to each page head |
-
-## 5. Checklist for the drop
-
-1. Overwrite the 5 screenshot PNGs (compressed).
-2. Overwrite the 3 species photos.
-3. (Optional) photo-based OG images, same sizes.
-4. `git add images && git commit` — dimensions are fixed in HTML, so nothing else changes.
+1. **Cooked-meal photos** — the zip had none. Ideal shots: a finished grouper sandwich, blackened redfish in the skillet, a fried-fish spread. Best slot: the community mockup and a future landing "plate" moment; 1400px wide, any aspect.
+2. **Real sheepshead photo** (see §2).
+3. **Real app screenshots** once the app has demo data (see §1).

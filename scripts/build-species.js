@@ -6,8 +6,11 @@
  * Output: fish/<slug>.html for every entry in SPECIES below.
  *
  * To add a species: add an entry to SPECIES, add its images
- * (images/fish/<slug>.png 1600x1000, images/og/<slug>.png 1200x630),
+ * (images/fish/<slug>.webp + .jpg at 1400x875, images/og/<slug>.png 1200x630),
  * add the route to sitemap.xml, then re-run this script.
+ * Photo processing rule: every photo must be EXIF-stripped (GPS especially)
+ * and converted to sRGB before it enters the repo. Pipeline used:
+ *   magick IN -auto-orient -profile "C:/Windows/System32/spool/drivers/color/sRGB Color Space Profile.icm" -strip -resize/-crop ... OUT
  *
  * Content rules (see docs/SEO_STRATEGY.md):
  *  - The eat-it verdict must be responsible: where harvest is tightly
@@ -73,7 +76,7 @@ const SPECIES = [
       { q: 'Are sheepshead hard to clean?', a: "Yes — heavy scales, sharp dorsal spines, and a large rib cage make them the toughest-cleaning common inshore fish. Ice the fish well, use a sturdy or electric fillet knife, work over the rib cage rather than through it, and expect a yield of roughly a third of the fish's weight." },
       { q: 'Do sheepshead have worms?', a: "Like many inshore fish, sheepshead can occasionally carry harmless parasites — it's normal and not a reason to discard the fish. Inspect fillets as you trim and cook fish to an internal temperature of 145°F, which makes properly handled fillets safe to eat." }
     ],
-    related: ['redfish', 'snook']
+    related: ['redfish', 'gag-grouper']
   },
   {
     slug: 'snook',
@@ -83,7 +86,7 @@ const SPECIES = [
     description: "Snook is superb table fare — but it's one of Florida's most tightly protected gamefish. When you can (and can't) keep one, why the skin must come off, and how to cook it right.",
     verdict: { short: 'Yes — but only when it’s legal, and often it isn’t.', tone: 'careful',
       text: "Snook is genuinely superb eating — that's exactly why Florida protects it so tightly. Harvest is limited to open seasons, a narrow slot size, and a required snook permit, and the rules differ between the Atlantic and Gulf coasts. Many of the snook you'll catch must go back. Check the FWC rules first, every time — and when in doubt, release it." },
-    heroAlt: 'Common snook — a sleek silver gamefish with a distinctive black lateral line',
+    heroAlt: 'Angler at a Florida dock in golden-hour light holding a snook, its black lateral line running the length of the fish',
     intro: "Ask a Florida angler to name the best-eating fish they're rarely allowed to keep, and you'll hear one word. Snook sit in a strange spot: legendary on the plate, legendary on the line, and guarded by some of the strictest inshore regulations in the state. That combination is not a coincidence. Here's the honest picture.",
     taste: {
       heading: 'What does snook taste like?',
@@ -135,7 +138,7 @@ const SPECIES = [
     description: "Yes — redfish (red drum) is a Gulf Coast classic, the fish that made 'blackened' famous. What it tastes like, why slot fish eat best, how to cook it on the half shell, and the rules to check.",
     verdict: { short: 'Yes — a Gulf Coast classic.', tone: 'yes',
       text: "Redfish is the fish that made \"blackened\" a household word — so good that the 1980s craze nearly wiped them out and ended commercial harvest for good. Slot-sized fish are superb eating. The big bull reds are the breeding stock: coarser on the plate and far more valuable back in the water." },
-    heroAlt: 'Redfish (red drum) — a copper-bronze inshore fish with a black spot near the tail',
+    heroAlt: 'Angler on a flats boat holding a copper-colored redfish, the black spot near its tail clearly visible',
     intro: "The copper flash in skinny water. Redfish — red drum, reds, whatever your dock calls them — are the everyman's trophy of the Gulf and Atlantic coasts, and one of the best-eating fish a newer angler is likely to catch. They're also a conservation success story with rules that have shifted meaningfully in recent years, so the modern answer to \"can I keep it?\" deserves care.",
     taste: {
       heading: 'What does redfish taste like?',
@@ -178,6 +181,58 @@ const SPECIES = [
       { q: 'Is it legal to keep redfish in Florida?', a: "It depends on your region. Florida manages red drum by management zones with differing slot and bag rules, and some areas have been catch-and-release only in recent years. Always check the current FWC red drum rules for your specific zone before keeping a fish." }
     ],
     related: ['sheepshead', 'snook']
+  },
+  {
+    slug: 'gag-grouper',
+    name: 'Gag Grouper',
+    scientific: 'Mycteroperca microlepis',
+    title: "Can You Eat Gag Grouper? Taste, Cleaning & Best Recipes",
+    description: "Yes — gag grouper is the fish behind Florida's famous grouper sandwich: mild, sweet, thick white fillets. What it tastes like, how to clean one, three ways to cook it, and why you must check the season first.",
+    verdict: { short: 'Yes — the grouper-sandwich fish.', tone: 'yes',
+      text: "When a Florida menu says \"grouper sandwich,\" gag is the fish that made it famous: thick, snow-white fillets, mild and sweet, with a firm flake. One caveat before the fryer heats up — gag seasons are tightly managed and differ between state and Gulf federal waters, and they've changed in recent years. Check before you keep." },
+    heroAlt: 'Angler kneeling on a Florida fishing pier holding a large gag grouper with mottled gray-brown markings',
+    intro: "Half the fish sandwiches in Florida owe their reputation to this fish, and most people who order one have never seen it whole. If you pull a gag off a rock pile, a bridge piling, or a nearshore ledge, you're holding the state's favorite eating fish — with rules that deserve a look before it goes in the cooler.",
+    taste: {
+      heading: 'What does gag grouper taste like?',
+      body: [
+        "Mild, subtly sweet, and clean — no strong or oily notes at all. The fillets are thick and snow-white with a big, moist flake that holds together whether you fry, grill, or blacken it. It's the texture that makes grouper famous: closer to lobster-tender chunks than to a thin, delicate fillet.",
+        "That thickness is the point. A gag fillet stands up to a sandwich bun, a hard sear, and an aggressive spice crust without falling apart — which is why it's the default fish sandwich of the entire Gulf coast."
+      ]
+    },
+    clean: {
+      heading: 'How to clean a gag grouper',
+      body: [
+        "Groupers clean generously — big fillets, forgiving structure — with two things to know: tough skin, and a bonus cut most people throw away."
+      ],
+      steps: [
+        "Bleed and ice the fish promptly; a big grouper holds heat and the meat rewards fast cooling.",
+        "Fillet as usual — cut behind the gill plate, run the blade along the backbone, and lift. The fillets are thick; keep the knife angled to the bone so you don't leave meat behind.",
+        "Skin every fillet. Grouper skin is thick, tough, and strong-tasting — it doesn't crisp, it chews. Off it comes.",
+        "Trim the bloodline and cut the fillet into portions by cook: sandwich-sized slabs, or chunks for frying.",
+        "Don't toss the head section: grouper cheeks and throats are a dockside delicacy — two extra portions hiding above the collar."
+      ]
+    },
+    methods: {
+      heading: 'Three ways to cook gag grouper',
+      items: [
+        { name: 'The fried grouper sandwich', body: "The Florida icon. Dredge a thick fillet in seasoned flour, then egg, then cornmeal or panko, and fry at 350°F until deep golden — 4–5 minutes for a sandwich-cut slab. Serve on a soft bun with lettuce, tomato, and tartar. Do it right and you'll never order one at a restaurant again." },
+        { name: 'Grilled with lemon butter', body: "Thick grouper fillets are one of the few white fish that grill confidently without a basket. Oil well, season simply, and grill over medium-high heat about 5 minutes a side, basting with lemon-garlic butter. The big flake stays moist inside the grill marks." },
+        { name: 'Blackened, Gulf-style', body: "A Cajun spice crust in a screaming-hot cast-iron pan, 3–4 minutes a side. Gag's thick fillet is the ideal canvas — crusted and dark outside, snow-white and steaming inside. Squeeze a lime over the top." }
+      ],
+      safety: "Whatever the method: fish is done at an internal temperature of 145°F, when the flesh is opaque and flakes easily."
+    },
+    regs: {
+      body: "Gag grouper is one of the most actively managed species in Florida: harvest seasons, size limits, and bag limits differ between state and federal waters and have changed meaningfully in recent years — some recent Gulf seasons have been short. Never assume last year's season; check the current FWC grouper rules for where you're fishing before you keep one.",
+      url: 'https://myfwc.com/fishing/saltwater/recreational/groupers/',
+      label: 'FWC grouper regulations'
+    },
+    faq: [
+      { q: 'Can you eat gag grouper?', a: "Yes — gag grouper is one of the best-eating fish in Florida, the species behind the classic grouper sandwich: thick, mild, sweet white fillets with a firm flake. Harvest is tightly managed, so check the current FWC grouper seasons and limits for your waters before keeping one." },
+      { q: 'What does gag grouper taste like?', a: "Mild and subtly sweet with thick, snow-white fillets and a big moist flake — no oily or fishy notes. The texture is the signature: firm enough for sandwiches, grilling, and blackening without falling apart." },
+      { q: 'When can you keep gag grouper in Florida?', a: "Only during open season, and the seasons differ between Florida state waters and Gulf federal waters — they've also changed significantly in recent years, with some short Gulf seasons. Always check the current FWC recreational grouper regulations for your specific waters before keeping a gag." },
+      { q: 'Do you eat grouper skin?', a: "No — grouper skin is thick, tough, and strong-tasting, so fillets are always skinned before cooking. Don't skip the cheeks and throats though: they're some of the best meat on the fish." }
+    ],
+    related: ['redfish', 'sheepshead']
   }
 ];
 
@@ -355,7 +410,10 @@ ${jsonLd(sp)}
 </div>
 
 <figure>
-  <img src="/images/fish/${sp.slug}.png" width="1600" height="1000" alt="${esc(sp.heroAlt)}" loading="lazy" />
+  <picture>
+    <source srcset="/images/fish/${sp.slug}.webp" type="image/webp" />
+    <img src="/images/fish/${sp.slug}.jpg" width="1400" height="875" alt="${esc(sp.heroAlt)}" loading="lazy" />
+  </picture>
 </figure>
 
 <h2>${sp.taste.heading}</h2>

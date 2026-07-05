@@ -2,7 +2,7 @@
 <!--
   Catch 'N Bake — marketing landing page.
   Every feature claim on this page is verified against the app repo; see docs/SITE_AUDIT.md §2.
-  Screenshot slots: overwrite the PNGs in /images/screens (same filenames, 1179x2556) — no HTML edits needed. See docs/IMAGE_MANIFEST.md.
+  Screenshot slots: overwrite the WebP files in /images/screens (same filenames, 1179x2556 source) — no HTML edits needed. See docs/IMAGE_MANIFEST.md for the one-line convert command.
   App Store link: set APP_STORE_URL in /js/app-store.js when the store listing is live.
 -->
 <html lang="en">
@@ -184,9 +184,15 @@
   .also-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem}
   .also-card p{font-size:.92rem;color:var(--ink-soft)}
 
+  /* field photo band */
+  .photo-band-sec{padding:3.5rem 0}
+  .photo-band{margin:0}
+  .photo-band img{display:block;width:100%;height:auto;border-radius:4px;background:#e8e2d5;box-shadow:0 24px 60px -30px rgba(30,27,22,.4)}
+  .photo-band figcaption{margin-top:1rem;font-size:.85rem;color:var(--ink-soft);text-align:center;letter-spacing:.02em}
+
   /* fish guides */
-  .guides{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
-  @media (max-width:760px){.guides{grid-template-columns:1fr}}
+  .guides{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3rem}
+  @media (max-width:600px){.guides{grid-template-columns:1fr}}
   .guide-card{
     display:block;text-decoration:none;border:1px solid var(--rule);background:rgba(255,255,255,.45);
     padding:1.75rem;color:var(--ink);transition:border-color .15s ease;
@@ -262,7 +268,7 @@
   </div>
   <div class="feature-shot">
     <div class="phone">
-      <img src="/images/screens/01-identify.png" width="1179" height="2556" alt="Catch 'N Bake identify screen with a photo of a fish ready to be identified" fetchpriority="high" />
+      <img src="/images/screens/01-identify.webp" width="1179" height="2556" alt="Catch 'N Bake identify screen with a photo of a hogfish loaded, ready to identify" fetchpriority="high" />
     </div>
   </div>
 </section>
@@ -310,7 +316,7 @@
     </div>
     <div class="feature-shot">
       <div class="phone">
-        <img src="/images/screens/02-id-result.png" width="1179" height="2556" alt="Fish identification result showing species name, scientific name, confidence, habitat, and regulations summary" loading="lazy" />
+        <img src="/images/screens/02-id-result.webp" width="1179" height="2556" alt="Fish identification result for a gag grouper showing species name, confidence, and regulations summary" loading="lazy" />
       </div>
     </div>
   </div>
@@ -320,7 +326,7 @@
   <div class="feature flip">
     <div class="feature-shot">
       <div class="phone">
-        <img src="/images/screens/03-recipes.png" width="1179" height="2556" alt="Generated recipes for an identified fish, with difficulty, ingredients, and steps" loading="lazy" />
+        <img src="/images/screens/03-recipes.webp" width="1179" height="2556" alt="Generated recipes for a gag grouper, with difficulty, ingredients, and steps" loading="lazy" />
       </div>
     </div>
     <div class="feature-copy">
@@ -351,7 +357,7 @@
     </div>
     <div class="feature-shot">
       <div class="phone">
-        <img src="/images/screens/04-journal.png" width="1179" height="2556" alt="Catch journal with stats dashboard and a map of logged catches" loading="lazy" />
+        <img src="/images/screens/04-journal.webp" width="1179" height="2556" alt="Catch journal with stats dashboard and a map of logged catches" loading="lazy" />
       </div>
     </div>
   </div>
@@ -361,7 +367,7 @@
   <div class="feature flip">
     <div class="feature-shot">
       <div class="phone">
-        <img src="/images/screens/05-community.png" width="1179" height="2556" alt="Community feed with shared catches, cook photos, and recipes" loading="lazy" />
+        <img src="/images/screens/05-community.webp" width="1179" height="2556" alt="Community feed with a shared black drum catch and a table of lane snapper ready for cleaning" loading="lazy" />
       </div>
     </div>
     <div class="feature-copy">
@@ -401,6 +407,17 @@
   </div>
 </section>
 
+<!-- ============ FIELD PHOTO ============ -->
+<section class="rule-top photo-band-sec" aria-label="From the field">
+  <figure class="photo-band">
+    <picture>
+      <source srcset="/images/photos/brown-trout-fly-fishing-mountain-stream.webp" type="image/webp" />
+      <img src="/images/photos/brown-trout-fly-fishing-mountain-stream.jpg" width="1400" height="596" alt="An angler kneeling in a Rocky Mountain stream holding a brown trout, fly rod gripped in his teeth" loading="lazy" />
+    </picture>
+    <figcaption>Salt flats or mountain streams — if you can catch it, you can cook it.</figcaption>
+  </figure>
+</section>
+
 <!-- ============ FISH GUIDES ============ -->
 <section id="guides" class="rule-top" aria-labelledby="guides-title">
   <div class="sec-eyebrow"><span class="n">07</span><p class="eyebrow" style="margin:0">Field guide</p></div>
@@ -423,6 +440,12 @@
       <p class="q">Can you eat…</p>
       <h3>Redfish</h3>
       <p>The fish that made “blackened” famous. Taste, cleaning, and three ways to cook it.</p>
+      <span class="go">Read the guide →</span>
+    </a>
+    <a class="guide-card" href="/fish/gag-grouper">
+      <p class="q">Can you eat…</p>
+      <h3>Gag Grouper</h3>
+      <p>The fish behind Florida's famous grouper sandwich — and its tightly watched seasons.</p>
       <span class="go">Read the guide →</span>
     </a>
   </div>
