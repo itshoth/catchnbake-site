@@ -2,6 +2,23 @@
 
 **Date:** 2026-07-03 · Everything below is committed locally on `main`. **Nothing has been pushed or deployed.**
 
+---
+
+## Update 2026-07-05 — Real photography + palette shift
+
+| Commit | What it did |
+|---|---|
+| `e384475` | **Real photos processed + placed; gag grouper guide added.** All 9 photos from `Website pics.zip` unzipped outside the repo, converted (HEIC→WebP + JPG fallback), resized per slot, SEO-named with species IDs, and **EXIF/GPS-stripped — verified zero location tags on every file in the repo** (8 of 9 sources carried live GPS of your spots). Snook, redfish, and the new gag grouper pages got real hero photos; app-preview mockups now composite real photos (hogfish hero, gag ID result, lane snapper + black drum community); landing gained the brown-trout photo band and a 4th guide card; screen slots converted to WebP (hero LCP asset 47KB). |
+| `787286b` | **Palette warmed toward the photography** — paper/tide/rule/ink-soft tokens shifted (sampled from the photos' golden-hour copper + slate-teal water), ember untouched, every contrast pair re-verified ≥5.1:1. |
+
+**Tooling installed (logged per mission):** ImageMagick 7.1.2-Q16-HDRI and ExifTool 13.59, both via winget. Processing pipeline documented in `docs/IMAGE_MANIFEST.md`.
+
+**Lighthouse after (all ≥95 target held):** home **96/100/100/100** (LCP 2.2s, CLS 0) · /fish/snook **98/100/100/100** · /fish/gag-grouper **98/100/100/100**.
+
+**Species IDs to double-check (my calls from the photos):** hogfish, lane snapper (×5 on the table), snook, gag grouper (boat + pier shots), redfish, black drum, **black grouper (least confident — could be another gag)**, brown trout. Corrections → rename in `images/photos/` and I'll re-place.
+
+**Still wanted (next drop, see manifest §5):** cooked-meal photos (none were in the zip — the "meal imagery" part of the brief couldn't be fulfilled from provided assets), a real sheepshead photo, and real app screenshots when demo data is ready.
+
 ## What changed, by commit
 
 | Commit | What it did |
