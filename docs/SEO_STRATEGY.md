@@ -36,6 +36,10 @@ Priority scoring = search volume of “can you eat X” + “how to cook X” ×
 6. **Flounder** — high cooking volume, seasonal FL closures add a regs hook.
 7. **Mahi-mahi** — huge recipe volume; offshore crossover audience.
 
+### Queued: comparison content (added 2026-07-05)
+
+**“Sheepshead vs black drum”** is a high-value target: a classic misidentification pair (barbels + downturned mouth vs incisor teeth + crisp bars), matching our audience's exact confusion — photo drop #2 itself arrived labeled sheepshead and turned out to be juvenile black drum. Queue a dedicated comparison page (e.g. /fish/sheepshead-vs-black-drum) once the species-page waves are underway; both species pages already seed the answer in their FAQ/intro copy. Don't build it tonight.
+
 ### Wave 3 — accidental-catch goldmine (weakest SERPs, highest “now what?” confusion)
 8. Ladyfish (“can you eat ladyfish” — classic newbie query), 9. Jack crevalle, 10. Hardhead vs gafftopsail catfish (“can you eat saltwater catfish” — genuinely underserved), 11. Bonnethead shark, 12. Pinfish, 13. Black drum, 14. Pompano, 15. Tripletail, 16. Spanish mackerel, 17. Bluefish, 18. Grouper (red/gag), 19. Whiting, 20. Mullet.
 

@@ -4,6 +4,38 @@
 
 ---
 
+## Update 2026-07-05 — Photo drop #2: three new species pages
+
+**Species verification (the calls, evidence, and confidence):** the drop was labeled sheepshead, Spanish mackerel, and red grouper. Two labels confirmed; one overruled.
+
+| Photo | Owner label | My call | Confidence | Anatomical evidence |
+|---|---|---|---|---|
+| IMG_1196 (8 striped fish, cleaning table) | Sheepshead | **BLACK DRUM (juvenile)** | **~90%** | Inferior/downturned mouths with overhanging snouts (sheepshead mouths are terminal); zero visible incisor teeth on any of 8 fish (sheepshead's are unmissable); whisker-like chin-barbel fringe visible on the center fish in tight zoom; dusky bars on brassy ground vs sheepshead's crisp black-on-silver |
+| IMG_6748 (held on bridge pier) | Spanish mackerel | **SPANISH MACKEREL** ✓ | ~85–90% | Scattered golden-yellow oval spots with NO mid-flank yellow stripe (rules out cero); lateral line slopes gently with no abrupt mid-body drop (rules out king) |
+| IMG_1126 (3 groupers + 3 small fish, dock) | Red grouper | **RED GROUPER ×3** ✓ | ~85% | Rusty red-brown body, scattered pale/white blotches, reddish dorsal fins (gag = gray + vermiculations; black grouper = dark rectangular blotches + brassy spots). Bonus: the 3 small fish are **yellowtail snapper** |
+| IMG_1276 (skillet) | — | Blackened fillets (meal shot; species-ambiguous, no species claim made) | n/a | n/a |
+
+**Photo → slot table:**
+
+| Source | Repo file | Placement |
+|---|---|---|
+| IMG_1196 | `images/fish/black-drum.{webp,jpg}` | Hero of new **/fish/black-drum** |
+| IMG_6748 | `images/fish/spanish-mackerel.{webp,jpg}` | Hero of new **/fish/spanish-mackerel** |
+| IMG_1126 | `images/fish/red-grouper.{webp,jpg}` | Hero of new **/fish/red-grouper** |
+| IMG_1276 | `images/meals/blackened-fillets-cast-iron.{webp,jpg}` | Cooking sections of **/fish/redfish** (replaces + deletes the flagged stock-salmon image) and **/fish/black-drum** |
+
+Pipeline identical to drop #1 (sRGB, EXIF/GPS stripped — 3 of 4 sources had live coordinates, one in the lower Keys; verified zero location tags repo-wide; no .heic in repo; all files <200KB).
+
+**Because the "sheepshead" were drum:** the sheepshead page still wears its placeholder, and per the brief a **"sheepshead vs black drum" comparison page is queued in docs/SEO_STRATEGY.md** (not built tonight). Both species pages seed the distinction in their intro/FAQ copy meanwhile.
+
+**Site changes:** 3 new generator-built pages with full content, per-species publish dates, Article+FAQPage JSON-LD, and amber-brand OG images; landing field-guide grid grew to 7 cards + a "more every week" teaser tile (clean 2×4); sitemap now 12 routes; cross-links updated (gag ↔ red grouper, drum ↔ redfish/sheepshead).
+
+**Lighthouse (all ≥95 target held):** home **96** · black-drum **97** · spanish-mackerel **98** · red-grouper **98** · redfish **97** — accessibility, best practices, and SEO **100 on every page tested**.
+
+**Needs your confirmation before pushing:** (1) the black-drum call on IMG_1196 — if you're confident they were sheepshead after all, say so and I'll re-place (but check a chin photo first: barbels = drum); (2) red grouper vs other grouper on IMG_1126 if you remember the trip; (3) the blackened fillets are presented species-neutrally on both redfish and black-drum pages — fine, or prefer them on only one?
+
+---
+
 ## Update 2026-07-05 (later) — Meal imagery + app-amber brand
 
 | Commit | What it did |
