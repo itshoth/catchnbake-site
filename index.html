@@ -63,10 +63,13 @@
     --ink:#1e1b16;
     --ink-soft:#4d463a;
     --rule:#ddd3c2;
-    --tide:#245862;      /* deep coastal teal — the site's water note */
-    --tide-deep:#17414d;
-    --ember:#b3542e;     /* skillet ember — used sparingly (decorative) */
-    --ember-text:#a54d28; /* ember dark enough for small text on paper (5.1:1) */
+    --brand:#8a5303;      /* dark amber — app accent family, 5.7:1 on paper */
+    --brand-mid:#b45309;  /* amber-700 — large text on paper, white-text fills */
+    --brand-bright:#f59e0b; /* app primary amber — dark-bg text, buttons, decoration */
+    
+    --slate:#0f172a;
+    --ember:#b45309;     /* skillet ember — used sparingly (decorative) */
+    --ember-text:#8a5303; /* ember dark enough for small text on paper (5.1:1) */
     --paper-on-dark:#f3ede1;
     --measure:64ch;
     --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
@@ -89,11 +92,11 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   [hidden]{display:none!important}
-  .skip{position:absolute;left:-9999px;top:0;background:var(--tide);color:#fff;padding:.6rem 1rem;z-index:50;font-weight:600}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:.6rem 1rem;z-index:50;font-weight:600}
   .skip:focus{left:1rem;top:1rem}
   .wrap{position:relative;z-index:1;max-width:72rem;margin:0 auto;padding:0 1.5rem}
-  a{color:var(--tide)}
-  :focus-visible{outline:2px solid var(--tide);outline-offset:3px}
+  a{color:var(--brand)}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
   strong{font-weight:600}
 
   /* ---------- header ---------- */
@@ -102,10 +105,10 @@
     padding:1.75rem 0;border-bottom:1px solid var(--rule);
   }
   .brand{font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--tide)}
+  .brand span{color:var(--brand)}
   nav.main{font-size:.9rem;font-weight:500;display:flex;align-items:center;gap:1.5rem}
   nav.main a{color:var(--ink-soft);text-decoration:none}
-  nav.main a:hover{color:var(--tide)}
+  nav.main a:hover{color:var(--brand)}
   @media (max-width:640px){nav.main .hide-sm{display:none}}
 
   /* ---------- App Store badge ---------- */
@@ -120,15 +123,15 @@
   .store-badge .big{display:block;font-family:var(--serif);font-size:1.05rem;font-weight:600}
   .store-badge.is-soon{background:transparent;color:var(--ink);border:1px solid var(--ink);cursor:default}
   .store-badge.is-soon .small{opacity:.75}
-  a.store-badge:hover{background:var(--tide);border-color:var(--tide);color:#fff}
+  a.store-badge:hover{background:var(--brand-bright);border-color:var(--brand-bright);color:var(--ink)}
 
   /* ---------- hero ---------- */
   .hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:3rem;align-items:center;padding:5.5rem 0 6rem}
   @media (max-width:860px){.hero{grid-template-columns:1fr;padding:3.5rem 0 4rem}}
-  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:1.25rem}
-  .eyebrow .dot{color:var(--ember)}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:1.25rem}
+  .eyebrow .dot{color:var(--brand-bright)}
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.04;letter-spacing:-.015em;margin-bottom:1.5rem}
-  h1 em{font-style:italic;color:var(--tide)}
+  h1 em{font-style:italic;color:var(--brand-mid)}
   .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink-soft);max-width:34em;margin-bottom:2.25rem}
   .cta-row{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
   .cta-note{font-size:.85rem;color:var(--ink-soft)}
@@ -155,7 +158,7 @@
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3.5rem}
   @media (max-width:760px){.steps{grid-template-columns:1fr;gap:2rem}}
-  .step .n{font-family:var(--serif);font-weight:700;font-size:2.4rem;color:var(--tide);line-height:1}
+  .step .n{font-family:var(--serif);font-weight:700;font-size:2.4rem;color:var(--brand-mid);line-height:1}
   .step h3{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin:.75rem 0 .5rem}
   .step p{color:var(--ink-soft);font-size:.98rem}
 
@@ -197,15 +200,15 @@
     display:block;text-decoration:none;border:1px solid var(--rule);background:rgba(255,255,255,.45);
     padding:1.75rem;color:var(--ink);transition:border-color .15s ease;
   }
-  .guide-card:hover{border-color:var(--tide)}
+  .guide-card:hover{border-color:var(--brand-mid)}
   .guide-card .q{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ember-text);margin-bottom:.6rem}
   .guide-card h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:.4rem}
   .guide-card p{font-size:.92rem;color:var(--ink-soft)}
-  .guide-card .go{display:inline-block;margin-top:1rem;font-size:.88rem;font-weight:600;color:var(--tide)}
+  .guide-card .go{display:inline-block;margin-top:1rem;font-size:.88rem;font-weight:600;color:var(--brand)}
   .guides-more{margin-top:1.5rem;font-size:.9rem;color:var(--ink-soft)}
 
   /* premium band */
-  .band{background:var(--tide-deep);color:var(--paper-on-dark);border-radius:4px;padding:4.5rem clamp(1.5rem,5vw,4.5rem);margin:2rem 0}
+  .band{background:var(--slate);color:var(--paper-on-dark);border-radius:4px;padding:4.5rem clamp(1.5rem,5vw,4.5rem);margin:2rem 0}
   .band h2{color:#fff}
   .band .prose{color:rgba(243,237,225,.8)}
   .tiers{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
@@ -229,7 +232,7 @@
   footer.site{border-top:1px solid var(--rule);padding:2.5rem 0 3.5rem;font-size:.85rem;color:var(--ink-soft)}
   footer.site .cols{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
   footer.site a{color:var(--ink-soft)}
-  footer.site a:hover{color:var(--tide)}
+  footer.site a:hover{color:var(--brand)}
   footer.site nav{display:flex;gap:1.25rem;flex-wrap:wrap}
 </style>
 </head>
@@ -455,7 +458,7 @@
 <!-- ============ PREMIUM ============ -->
 <section aria-labelledby="premium-title" style="padding-top:2rem">
   <div class="band">
-    <div class="sec-eyebrow"><span class="n" style="color:#e6a37e">08</span><p class="eyebrow" style="margin:0;color:rgba(243,237,225,.7)">Free &amp; Premium</p></div>
+    <div class="sec-eyebrow"><span class="n" style="color:var(--brand-bright)">08</span><p class="eyebrow" style="margin:0;color:rgba(243,237,225,.7)">Free &amp; Premium</p></div>
     <h2 id="premium-title">Free where it counts. Premium when you're hooked.</h2>
     <p class="prose">Everything above works on the free tier. Premium removes the ceilings.</p>
     <div class="tiers">

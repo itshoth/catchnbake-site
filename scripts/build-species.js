@@ -319,7 +319,10 @@ ${jsonLd(sp)}
 
   :root{
     --paper:#f8f2e7;--ink:#1e1b16;--ink-soft:#4d463a;--rule:#ddd3c2;
-    --tide:#245862;--tide-deep:#17414d;--ember:#b3542e;--paper-on-dark:#f3ede1;--measure:64ch;
+    --brand:#8a5303;      /* dark amber — app accent family, 5.7:1 on paper */
+    --brand-mid:#b45309;  /* amber-700 — large text on paper, white-text fills */
+    --brand-bright:#f59e0b; /* app primary amber — dark-bg text, buttons, decoration */
+    --slate:#0f172a;--ember:#b45309;--paper-on-dark:#f3ede1;--measure:64ch;
     --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
     --sans:'Inter','Inter Fallback',system-ui,sans-serif;
   }
@@ -332,24 +335,24 @@ ${jsonLd(sp)}
     content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  .skip{position:absolute;left:-9999px;top:0;background:var(--tide);color:#fff;padding:.6rem 1rem;z-index:50;font-weight:600}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:.6rem 1rem;z-index:50;font-weight:600}
   .skip:focus{left:1rem;top:1rem}
   .wrap{position:relative;z-index:1;max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
-  a{color:var(--tide)}
-  :focus-visible{outline:2px solid var(--tide);outline-offset:3px}
+  a{color:var(--brand)}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
   strong{font-weight:600}
   header.site{display:flex;justify-content:space-between;align-items:baseline;padding:2rem 0 1.5rem;border-bottom:1px solid var(--rule);margin-bottom:3.5rem}
   .brand{font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--tide)}
+  .brand span{color:var(--brand)}
   nav.site-nav{font-size:.85rem;font-weight:500}
   nav.site-nav a{color:var(--ink-soft);text-decoration:none;margin-left:1.25rem}
-  nav.site-nav a:hover{color:var(--tide)}
-  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tide);margin-bottom:1rem}
+  nav.site-nav a:hover{color:var(--brand)}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:1rem}
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,5.5vw,3.4rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:1.25rem}
   .sci{font-style:italic;color:var(--ink-soft);font-size:1rem;margin-bottom:2rem}
   p{max-width:var(--measure);margin-bottom:1rem;color:var(--ink-soft)}
   .intro{font-size:1.15rem}
-  .verdict{border:1px solid var(--rule);border-left:5px solid var(--tide);background:rgba(255,255,255,.5);padding:1.75rem 2rem;margin:2.5rem 0}
+  .verdict{border:1px solid var(--rule);border-left:5px solid var(--brand-bright);background:rgba(255,255,255,.5);padding:1.75rem 2rem;margin:2.5rem 0}
   .verdict.careful{border-left-color:var(--ember)}
   .verdict .v{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.2;color:var(--ink);margin-bottom:.6rem}
   .verdict.careful .v{color:var(--ember)}
@@ -364,12 +367,12 @@ ${jsonLd(sp)}
   h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:1.75rem 0 .5rem;color:var(--ink)}
   ol.steps{max-width:var(--measure);margin:1.25rem 0 1rem;padding-left:0;list-style:none;counter-reset:step}
   ol.steps li{counter-increment:step;position:relative;padding:.5rem 0 .5rem 3rem;color:var(--ink-soft)}
-  ol.steps li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:.55rem;font-family:var(--serif);font-weight:700;color:var(--tide)}
-  .safety{border-left:3px solid var(--ember);background:rgba(179,84,46,.06);padding:1rem 1.25rem;margin:1.75rem 0;max-width:var(--measure);font-size:.98rem;color:var(--ink)}
+  ol.steps li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:.55rem;font-family:var(--serif);font-weight:700;color:var(--brand)}
+  .safety{border-left:3px solid var(--ember);background:rgba(180,83,9,.06);padding:1rem 1.25rem;margin:1.75rem 0;max-width:var(--measure);font-size:.98rem;color:var(--ink)}
   .regs{border:1px solid var(--rule);background:rgba(255,255,255,.45);padding:1.5rem 1.75rem;margin:1.25rem 0;max-width:var(--measure)}
   .regs p{margin-bottom:.75rem}
   .regs a{font-weight:600}
-  .cta-band{background:var(--tide-deep);color:var(--paper-on-dark);border-radius:4px;padding:2.5rem 2rem;margin:3.5rem 0;text-align:center}
+  .cta-band{background:var(--slate);color:var(--paper-on-dark);border-radius:4px;padding:2.5rem 2rem;margin:3.5rem 0;text-align:center}
   .cta-band h2{color:#fff;margin:0 0 .5rem;font-size:1.6rem}
   .cta-band p{color:rgba(243,237,225,.8);margin:0 auto 1.5rem;max-width:36em}
   .store-badge{display:inline-flex;align-items:center;gap:.7rem;background:var(--paper);color:var(--ink);text-decoration:none;border-radius:12px;padding:.65rem 1.25rem .65rem 1.05rem;line-height:1.15;border:1px solid var(--paper)}
@@ -382,10 +385,10 @@ ${jsonLd(sp)}
   .related{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem}
   @media (max-width:560px){.related{grid-template-columns:1fr}}
   .rel-card{display:block;text-decoration:none;border:1px solid var(--rule);background:rgba(255,255,255,.45);padding:1.5rem;color:var(--ink)}
-  .rel-card:hover{border-color:var(--tide)}
+  .rel-card:hover{border-color:var(--brand-mid)}
   .rel-card .q{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);margin-bottom:.4rem}
   .rel-card h3{margin:0 0 .3rem;font-size:1.3rem}
-  .rel-card .go{font-size:.85rem;font-weight:600;color:var(--tide)}
+  .rel-card .go{font-size:.85rem;font-weight:600;color:var(--brand)}
   footer.site{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
   footer.site a{color:var(--ink-soft)}
 </style>
