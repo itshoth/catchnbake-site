@@ -4,6 +4,17 @@
 
 ---
 
+## Update 2026-07-05 (later) — Meal imagery + app-amber brand
+
+| Commit | What it did |
+|---|---|
+| `4e3ee0c` | **Free-license meal imagery** (Pexels only, per policy): fried fish & chips on /fish/sheepshead, lime-over-the-grill on /fish/snook, blackened fillet on /fish/redfish (stock salmon — flagged), battered fish taco composited into the recipes mockup. Every source URL + photographer + license in `docs/IMAGE_CREDITS.md`. No genuine fried-fish-sandwich stock exists anywhere free — the gag page slot stays empty by design. |
+| `adf346a` | **Teal → app amber.** Ground truth from `lib/ThemeContext.tsx`: #f59e0b / #d97706 / slate #0f172a. Raw amber fails WCAG on cream (1.9:1), so a same-hue dark derivative #8a5303 (5.7:1) carries text/links, #b45309 carries large text, and bright #f59e0b lives on dark backgrounds, button fills (with ink text), and decoration. Dark bands are now app-slate #0f172a. Favicon, OG images, and mockups regenerated. The earlier improvised warm-teal shift (787286b) is fully superseded; **warm paper #f8f2e7 was kept** — it flatters amber better than the original cooler cream. |
+
+**Lighthouse after:** home 96 · snook 97 · privacy 98 · support 100 — accessibility/best-practices/SEO **100 on all four**.
+
+---
+
 ## Update 2026-07-05 — Real photography + palette shift
 
 | Commit | What it did |
@@ -17,7 +28,7 @@
 
 **Species IDs to double-check (my calls from the photos):** hogfish, lane snapper (×5 on the table), snook, gag grouper (boat + pier shots), redfish, black drum, **black grouper (least confident — could be another gag)**, brown trout. Corrections → rename in `images/photos/` and I'll re-place.
 
-**Still wanted (next drop, see manifest §5):** cooked-meal photos (none were in the zip — the "meal imagery" part of the brief couldn't be fulfilled from provided assets), a real sheepshead photo, and real app screenshots when demo data is ready.
+**Still wanted (next drop, see manifest):** cooked-meal photos (none were in the zip — the "meal imagery" part of the brief couldn't be fulfilled from provided assets), a real sheepshead photo, and real app screenshots when demo data is ready.
 
 ## What changed, by commit
 

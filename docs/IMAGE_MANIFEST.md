@@ -46,12 +46,16 @@ To drop real screenshots later: capture at 1179×2556 PNG, then per file:
 
 Low-res sources kept out of large slots: IMG_4652 (black drum, 576px) and IMG_0955 (gag boat, 1170px) only appear inside small mockup areas where their resolution is fine.
 
-## 4. Social/OG — `images/og-default.png`, `images/og/*.png` (1200×630)
+## 4. Meal imagery — `images/meals/` (1400×875, stock)
 
-Brand-design cards (final): default + sheepshead, snook, redfish, **gag-grouper** (new). Optionally replace with photo-based versions at the same size later.
+Free-license Pexels photos on the species pages' cooking sections + the recipes mockup. Full source URLs, photographers, and licenses in `docs/IMAGE_CREDITS.md`. The gag-grouper page has no meal image (no genuine fried-fish-sandwich stock exists — shoot one).
 
-## 5. Still wanted (the next drop)
+## 5. Social/OG — `images/og-default.png`, `images/og/*.png` (1200×630)
 
-1. **Cooked-meal photos** — the zip had none. Ideal shots: a finished grouper sandwich, blackened redfish in the skillet, a fried-fish spread. Best slot: the community mockup and a future landing "plate" moment; 1400px wide, any aspect.
+Brand-design cards (final, amber brand): default + sheepshead, snook, redfish, gag-grouper. Optionally replace with photo-based versions at the same size later.
+
+## 6. Still wanted (the next drop)
+
+1. **Your own cooked-meal photos** — stock fills the slots for now (see §4), but real ones win: a finished grouper sandwich (fills the gag page's empty slot), blackened REDFISH (replaces the stock salmon), a fried-fish spread. 1400px wide.
 2. **Real sheepshead photo** (see §2).
 3. **Real app screenshots** once the app has demo data (see §1).
