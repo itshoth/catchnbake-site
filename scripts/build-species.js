@@ -176,7 +176,7 @@ const SPECIES = [
       url: 'https://myfwc.com/fishing/saltwater/recreational/red-drum/',
       label: 'FWC red drum regulations'
     },
-    meal: { file: 'blackened-fish-fillet-plated', alt: 'A plated fish fillet with a dark blackened spice crust, asparagus, and mash', caption: 'The blackened treatment: dark spice crust outside, tender inside.' },
+    meal: { file: 'blackened-fillets-cast-iron', alt: 'Two spice-crusted fillets blackening in a hot cast-iron style skillet', caption: 'The blackened treatment: dark spice crust outside, tender inside.' },
     faq: [
       { q: 'Can you eat redfish?', a: "Yes — slot-sized redfish (red drum) are excellent eating: mild, subtly sweet, medium-firm fillets that made blackened redfish a Gulf Coast icon. Florida manages redfish by region with rules that have changed recently, so check the current FWC regulations for your zone before keeping one." },
       { q: 'What does redfish taste like?', a: "Mild and subtly sweet with a medium-firm texture that stands up to bold cooking — spice, smoke, and butter. Slot-sized fish are tender and clean; large bull reds are coarser and are the breeding stock, so they're best released." },
@@ -235,7 +235,167 @@ const SPECIES = [
       { q: 'When can you keep gag grouper in Florida?', a: "Only during open season, and the seasons differ between Florida state waters and Gulf federal waters — they've also changed significantly in recent years, with some short Gulf seasons. Always check the current FWC recreational grouper regulations for your specific waters before keeping a gag." },
       { q: 'Do you eat grouper skin?', a: "No — grouper skin is thick, tough, and strong-tasting, so fillets are always skinned before cooking. Don't skip the cheeks and throats though: they're some of the best meat on the fish." }
     ],
+    related: ['red-grouper', 'sheepshead']
+  },
+  {
+    slug: 'black-drum',
+    name: 'Black Drum',
+    scientific: 'Pogonias cromis',
+    published: '2026-07-05',
+    title: "Can You Eat Black Drum? Taste, Cleaning & Best Recipes",
+    description: "Yes — small 'puppy drum' eat nearly as well as their redfish cousins. Why size is everything with black drum, how to clean one (and what those worms are), and three ways to cook it.",
+    verdict: { short: 'Yes — the small ones are superb.', tone: 'yes',
+      text: "Black drum are redfish cousins, and a slot-sized \"puppy drum\" eats almost exactly like one: mild, sweet, and firm. The rule that matters is size. Small drum are excellent; big drum — the 20-pound-plus bruisers — run coarse, often carry harmless-but-unappetizing parasites, and are the breeding stock. Keep the little ones, release the giants." },
+    heroAlt: 'A limit of juvenile black drum with dusky vertical bars laid out on a boat cleaning table at night',
+    intro: "Every Florida angler eventually stares at a striped, bar-sided fish and asks: sheepshead or black drum? (Check the chin — drum wear little whisker-like barbels, and they don't have sheepshead's human-looking front teeth.) When the answer is a young black drum, you're holding one of the most underrated fish boxes on the coast.",
+    taste: {
+      heading: 'What does black drum taste like?',
+      body: [
+        "A small black drum tastes remarkably like its famous cousin the redfish: mild, subtly sweet, with firm white fillets of medium flake. Blindfolded, most people can't tell slot drum from slot redfish — same family, same water, nearly the same fish on a plate.",
+        "Then size takes over. As drum grow past roughly ten pounds the meat coarsens into something stringy and dense, and the big ones frequently host spaghetti worms. Those worms are harmless to humans and cooked fish is perfectly safe — but nobody enjoys finding them. The kitchen answer and the conservation answer agree: eat the small ones."
+      ]
+    },
+    clean: {
+      heading: 'How to clean a black drum',
+      body: [
+        "Puppy drum clean like redfish with one extra habit — a quick worm check on bigger fish."
+      ],
+      steps: [
+        "Bleed and ice promptly; drum firm up beautifully when handled cold.",
+        "The scales are heavy armor — a stout knife or an electric fillet knife makes the first cut behind the gill plate much easier.",
+        "Run the blade along the backbone and over the rib cage, lifting as you go — same cut as a redfish.",
+        "Skin the fillets and trim the bloodline.",
+        "On fish over a few pounds, scan the fillets for spaghetti worms — thin white strands, usually near the tail. Trim any out. They're harmless either way, and cooking makes everything safe."
+      ]
+    },
+    methods: {
+      heading: 'Three ways to cook black drum',
+      items: [
+        { name: 'Blackened in cast iron', body: "What puppy drum were born for. Butter-dredge the fillets, coat heavily in Cajun spice, and sear in a screaming-hot skillet 2–3 minutes a side. The firm flesh takes the crust like redfish and holds together beautifully." },
+        { name: 'On the half shell', body: "Those armor scales earn their keep on the grill: fillet with skin and scales on, grill scale-side down with garlic butter, lid closed, 10–12 minutes, no flipping. Serve straight off the shell." },
+        { name: 'Crispy fried bites', body: "Cube the fillets, dredge in seasoned cornmeal, and fry at 350°F for about 3 minutes. Drum's density makes perfect nuggets — the fish-fry answer when the box is full of school-size fish." }
+      ],
+      safety: "Whatever the method: fish is done at an internal temperature of 145°F, when the flesh is opaque and flakes easily."
+    },
+    meal: { file: 'blackened-fillets-cast-iron', alt: 'Two spice-crusted fillets blackening in a hot skillet with sizzling oil', caption: 'From the cleaning table to the skillet — blackened is what puppy drum are for.' },
+    regs: {
+      body: "Black drum are a regulated species in Florida — slot and bag rules apply and can change. Check the current FWC black drum page before you keep one, and confirm the rules for your waters.",
+      url: 'https://myfwc.com/fishing/saltwater/recreational/black-drum/',
+      label: 'FWC black drum regulations'
+    },
+    faq: [
+      { q: 'Can you eat black drum?', a: "Yes — smaller black drum (\"puppy drum\") are excellent eating, very close to redfish: mild, sweet, firm white fillets. Large drum over roughly ten pounds become coarse and often carry harmless spaghetti worms, and they're the breeding stock — release the big ones. Check current FWC rules before keeping any." },
+      { q: 'What is the difference between black drum and sheepshead?', a: "Both wear dark vertical bars, but black drum have whisker-like barbels under the chin and a downturned mouth, while sheepshead have no barbels and unmistakable human-looking incisor teeth. Sheepshead bars are also crisper black-on-silver; drum lean brassy gray." },
+      { q: 'Do black drum have worms?', a: "Larger black drum commonly carry spaghetti worms — thin, harmless parasites that pose no risk to humans, especially in fish cooked to 145°F. They're rare in small drum, which is one more reason slot-sized fish are the ones to keep. Trim out any you find while filleting." },
+      { q: 'What size black drum is best to eat?', a: "Slot-sized fish up to roughly 24 inches. Under that size the meat is mild, sweet, and redfish-firm; above it the texture coarsens, worms get more common, and the fish are the spawners that keep the fishery healthy." }
+    ],
     related: ['redfish', 'sheepshead']
+  },
+  {
+    slug: 'spanish-mackerel',
+    name: 'Spanish Mackerel',
+    scientific: 'Scomberomorus maculatus',
+    published: '2026-07-05',
+    title: "Can You Eat Spanish Mackerel? Taste & How to Cook It",
+    description: "Yes — Spanish mackerel is Florida's most underrated eating fish, if you treat it right from the first minute. Taste, the bleed-and-ice rule, and three ways to cook it (smoked fish dip included).",
+    verdict: { short: 'Yes — wildly underrated.', tone: 'yes',
+      text: "Spanish mackerel gets dismissed as \"too fishy\" by people who left one warm in a bucket for an afternoon. Handled right — bled at the rail, buried in ice, eaten fresh or smoked — it's rich, buttery, full-flavored fish that regulars quietly prefer to half the glamour species. The quality of a Spanish mackerel dinner is decided in the first five minutes after the catch." },
+    heroAlt: 'Angler on a Florida bridge pier holding a Spanish mackerel, its golden-yellow oval spots catching the sun',
+    intro: "The silver flash that smokes your spoon in a fall bait shower. Spanish mackerel are everywhere on the Florida coast, fight far above their weight, and carry a completely undeserved bad rap on the table. Here's the honest case for keeping a couple — and the handling rule that makes or breaks them.",
+    taste: {
+      heading: 'What does Spanish mackerel taste like?',
+      body: [
+        "Rich, savory, and full-flavored, with soft, moist flesh and a fine flake — this is an oily fish in the best sense, loaded with the same omega-3s that make salmon and sardines famous. It is not a mild white fish and doesn't pretend to be; it's closer to good mackerel-family fare the world over: satisfying, distinctive, and superb with smoke, citrus, and heat.",
+        "Freshness is everything. The oils that make Spanish mackerel delicious turn on you if the fish is mishandled or frozen long — so this is a catch-it, cook-it species. Bled and iced, eaten within a day or two (or smoked), it will change minds."
+      ]
+    },
+    clean: {
+      heading: 'How to clean a Spanish mackerel',
+      body: [
+        "The work happens at the rail, not the cleaning table."
+      ],
+      steps: [
+        "Bleed the fish the moment it's landed — a quick cut at the gills — and get it straight into an ice slurry. This single step is most of the flavor.",
+        "Fillet as usual; the skeleton is simple and the fillets come off fast. There are no scales worth worrying about.",
+        "Leave the skin on for grilling or smoking (it holds the soft fillet together); skin off for pan preparations.",
+        "Trim the dark bloodline down the center of each fillet — it's the strongest-tasting part, and removing it mellows the fillet noticeably.",
+        "Cook or smoke within a day or two. Spanish mackerel is a poor freezer — plan the menu, not the stockpile."
+      ]
+    },
+    methods: {
+      heading: 'Three ways to cook Spanish mackerel',
+      items: [
+        { name: 'Smoked, for fish dip', body: "The Florida institution. Brine the fillets, smoke them low over oak or hickory until bronzed, then flake into cream cheese, mayo, lemon, and a little hot sauce. Smoked fish dip with saltines is half the reason to keep Spanish mackerel at all." },
+        { name: 'Hot-grilled, skin-on', body: "Skin-side down over high heat, brushed with citrus butter, 3–4 minutes until the skin crisps and the flesh just sets. The oil content keeps it moist where lean fish would dry out." },
+        { name: 'Broiled with lemon and butter', body: "Fillets under a hot broiler with butter, lemon, salt, and paprika — 5–6 minutes, no flipping. Weeknight-fast, and the high heat plays perfectly against the rich flesh." }
+      ],
+      safety: "Whatever the method: fish is done at an internal temperature of 145°F, when the flesh is opaque and flakes easily."
+    },
+    regs: {
+      body: "Spanish mackerel are a regulated species in Florida — size and bag limits apply and can change. Check the current FWC Spanish mackerel page before keeping fish, and confirm the rules for your waters.",
+      url: 'https://myfwc.com/fishing/saltwater/recreational/spanish-mackerel/',
+      label: 'FWC Spanish mackerel regulations'
+    },
+    faq: [
+      { q: 'Can you eat Spanish mackerel?', a: "Yes — Spanish mackerel is excellent, underrated eating: rich, full-flavored, omega-3-loaded flesh that shines grilled, broiled, or smoked into Florida's classic fish dip. The catch is handling: bleed and ice the fish immediately and eat it fresh — its reputation for tasting 'fishy' comes almost entirely from poor handling." },
+      { q: 'What does Spanish mackerel taste like?', a: "Rich, savory, and moderately oily with soft, moist flesh — closer to sardine/salmon richness than to a mild white fish. Properly bled, iced, and eaten fresh it's buttery and clean; the dark bloodline carries the strongest flavor and is easy to trim away." },
+      { q: 'How do you tell Spanish mackerel from king mackerel or cero?', a: "Spanish mackerel have scattered golden-yellow oval spots and a lateral line that slopes gently toward the tail. King mackerel grow much larger, lose their spots as adults, and their lateral line takes an abrupt drop mid-body. Cero mackerel show yellow spots plus a distinct yellow stripe down the midline that Spanish lack." },
+      { q: 'Can you freeze Spanish mackerel?', a: "It's not recommended for long — the oils that make the fish delicious degrade quickly in the freezer and turn strong. Eat Spanish mackerel within a day or two of the catch, or smoke it; smoked mackerel keeps well and makes Florida's best fish dip." }
+    ],
+    related: ['snook', 'black-drum']
+  },
+  {
+    slug: 'red-grouper',
+    name: 'Red Grouper',
+    scientific: 'Epinephelus morio',
+    published: '2026-07-05',
+    title: "Can You Eat Red Grouper? Taste, Cleaning & Best Recipes",
+    description: "Yes — red grouper is Gulf sandwich royalty, a touch sweeter than gag. What it tastes like, how to clean one (save the cheeks), three ways to cook it, and why you check the season first.",
+    verdict: { short: 'Yes — sandwich royalty, the sweeter one.', tone: 'yes',
+      text: "Red grouper is the other half of Florida's grouper-sandwich dynasty, and plenty of Gulf cooks quietly rate it above gag: the same thick, snow-white fillets with a slightly sweeter, almost shellfish note from a diet heavy in crab and shrimp. Like all Florida groupers, harvest is actively managed — seasons and limits differ by waters and change. Check first." },
+    heroAlt: 'Two rust-red groupers with scattered white blotches laid on a dock, freshly caught',
+    intro: "The brick-red fish that comes up from the rock ledges looking like it was carved out of Gulf limestone. Red grouper doesn't get gag's headlines, but ask around any fish house on the west coast of Florida and you'll find its quiet loyalists. On the plate, the case makes itself.",
+    taste: {
+      heading: 'What does red grouper taste like?',
+      body: [
+        "Everything grouper is loved for — thick, snow-white fillets, a big moist flake, no fishy edge — with a slightly sweeter finish than gag. Red grouper feed heavily on crabs, shrimp, and lobster, and that shellfish diet reads on the fork the same way it does with sheepshead: a faint sweetness that needs nothing but butter and lemon to shine.",
+        "The texture runs a touch softer than gag — still firm enough to grill or fry into a sandwich, but especially suited to gentler treatments where that big flake can stay juicy."
+      ]
+    },
+    clean: {
+      heading: 'How to clean a red grouper',
+      body: [
+        "Same generous job as any grouper — thick fillets, simple structure, two bonus cuts."
+      ],
+      steps: [
+        "Bleed and ice promptly; a thick-bodied grouper holds heat longer than you'd think.",
+        "Cut behind the gill plate and run the blade along the backbone, angling to the bone — the fillets are deep, and a lazy angle leaves dinner behind.",
+        "Skin every fillet: grouper skin is thick, tough, and strong-tasting. Off it comes.",
+        "Trim the bloodline and portion into sandwich slabs or frying chunks.",
+        "Take the cheeks and throats before the carcass goes over — on a red grouper they're two scallop-sweet portions most people throw away."
+      ]
+    },
+    methods: {
+      heading: 'Three ways to cook red grouper',
+      items: [
+        { name: 'The fried grouper sandwich', body: "Same throne, sweeter king. Thick fillet, seasoned flour, egg, cornmeal or panko, 350°F until deep golden. Soft bun, lettuce, tomato, tartar. Red grouper's extra sweetness against the salty crust is the version regulars order twice." },
+        { name: 'Pan-seared with lemon butter', body: "The gentler texture rewards a simple sear: hot pan, neutral oil, 3–4 minutes a side, finished by basting with butter, garlic, and thyme. The big flake stays juicy and the shellfish sweetness comes through clean." },
+        { name: 'Grilled with mojo', body: "A nod to the fish's southern range: marinate briefly in sour orange, garlic, and cumin, then grill over medium-high heat about 5 minutes a side. The citrus-garlic hit is made for sweet white grouper." }
+      ],
+      safety: "Whatever the method: fish is done at an internal temperature of 145°F, when the flesh is opaque and flakes easily."
+    },
+    regs: {
+      body: "Red grouper is actively managed in Florida: seasons, size limits, and bag limits differ between state and federal waters — Atlantic and Gulf rules differ too — and they change. Never assume last season's rules; check the current FWC grouper page for where you're fishing before you keep one.",
+      url: 'https://myfwc.com/fishing/saltwater/recreational/groupers/',
+      label: 'FWC grouper regulations'
+    },
+    faq: [
+      { q: 'Can you eat red grouper?', a: "Yes — red grouper is premier Gulf table fare: thick, snow-white fillets with a big moist flake and a slightly sweeter taste than gag, thanks to a shellfish-heavy diet. Harvest is actively managed, so check current FWC grouper seasons and limits for your waters before keeping one." },
+      { q: 'Red grouper vs gag grouper — which tastes better?', a: "Both are excellent and close enough that preparation matters more than species. Red grouper runs slightly sweeter (a shellfish diet) with a marginally softer flake; gag is a touch firmer. Sandwich loyalists split roughly down the middle — the honest answer is: whichever one is in season." },
+      { q: 'How do you tell a red grouper from a gag or black grouper?', a: "Red grouper are rusty reddish-brown with scattered pale blotches and reddish dorsal fins. Gag are gray with darker worm-like (vermiculated) markings, and black grouper are darker with brassy spots and rectangular blotches." },
+      { q: 'Do you eat grouper skin?', a: "No — grouper skin is thick, tough, and strong-tasting, so fillets are always skinned before cooking. The cheeks and throats, though, are some of the best meat on the fish — don't waste them." }
+    ],
+    related: ['gag-grouper', 'redfish']
   }
 ];
 
@@ -252,8 +412,8 @@ function jsonLd(sp) {
         headline: `Can You Eat ${sp.name}? Taste, Cleaning & Best Recipes`,
         description: sp.description,
         image: `${SITE}/images/og/${sp.slug}.png`,
-        datePublished: PUBLISHED,
-        dateModified: PUBLISHED,
+        datePublished: sp.published || PUBLISHED,
+        dateModified: sp.published || PUBLISHED,
         mainEntityOfPage: `${SITE}/fish/${sp.slug}`,
         author: { '@type': 'Organization', name: "Catch 'N Bake", url: SITE },
         publisher: { '@type': 'Organization', name: "Catch 'N Bake LLC", url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/favicon.svg` } }

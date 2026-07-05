@@ -26,6 +26,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://catchnbake.com/fish/black-drum</loc>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://catchnbake.com/fish/spanish-mackerel</loc>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://catchnbake.com/fish/red-grouper</loc>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://catchnbake.com/support</loc>
     <lastmod>2026-07-03</lastmod>
     <priority>0.4</priority>
