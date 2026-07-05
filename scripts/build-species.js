@@ -34,7 +34,7 @@ const SPECIES = [
     description: "Yes — sheepshead is one of the best-eating fish inshore. What it tastes like, how to clean one (it's a chore, here's how), three ways to cook it, and the regulations to check.",
     verdict: { short: 'Yes — one of the best.', tone: 'yes',
       text: "Sheepshead live on crabs, shrimp, barnacles, and oysters, and it shows: sweet, almost shellfish-flavored white meat that regulars quietly rate above far more famous fish. The catch is the cleaning — more on that below." },
-    heroAlt: 'Sheepshead — a deep-bodied inshore fish with bold vertical black and silver bars',
+    heroAlt: 'A limit of sheepshead with bold vertical bars laid out on a boat cleaning table at night',
     intro: "The convict fish. The bait stealer with human-looking teeth. If you fish docks, bridges, or rock piles anywhere on the Florida coast, sooner or later a sheepshead ends up on your line — and the first question everyone asks is whether that strange-looking thing is actually food. It is. Emphatically.",
     taste: {
       heading: 'What does sheepshead taste like?',
@@ -176,7 +176,6 @@ const SPECIES = [
       url: 'https://myfwc.com/fishing/saltwater/recreational/red-drum/',
       label: 'FWC red drum regulations'
     },
-    meal: { file: 'blackened-fillets-cast-iron', alt: 'Two spice-crusted fillets blackening in a hot cast-iron style skillet', caption: 'The blackened treatment: dark spice crust outside, tender inside.' },
     faq: [
       { q: 'Can you eat redfish?', a: "Yes — slot-sized redfish (red drum) are excellent eating: mild, subtly sweet, medium-firm fillets that made blackened redfish a Gulf Coast icon. Florida manages redfish by region with rules that have changed recently, so check the current FWC regulations for your zone before keeping one." },
       { q: 'What does redfish taste like?', a: "Mild and subtly sweet with a medium-firm texture that stands up to bold cooking — spice, smoke, and butter. Slot-sized fish are tender and clean; large bull reds are coarser and are the breeding stock, so they're best released." },
@@ -246,7 +245,7 @@ const SPECIES = [
     description: "Yes — small 'puppy drum' eat nearly as well as their redfish cousins. Why size is everything with black drum, how to clean one (and what those worms are), and three ways to cook it.",
     verdict: { short: 'Yes — the small ones are superb.', tone: 'yes',
       text: "Black drum are redfish cousins, and a slot-sized \"puppy drum\" eats almost exactly like one: mild, sweet, and firm. The rule that matters is size. Small drum are excellent; big drum — the 20-pound-plus bruisers — run coarse, often carry harmless-but-unappetizing parasites, and are the breeding stock. Keep the little ones, release the giants." },
-    heroAlt: 'A limit of juvenile black drum with dusky vertical bars laid out on a boat cleaning table at night',
+    heroAlt: 'Black drum — a deep-bodied inshore fish with dusky vertical bars and chin barbels',
     intro: "Every Florida angler eventually stares at a striped, bar-sided fish and asks: sheepshead or black drum? (Check the chin — drum wear little whisker-like barbels, and they don't have sheepshead's human-looking front teeth.) When the answer is a young black drum, you're holding one of the most underrated fish boxes on the coast.",
     taste: {
       heading: 'What does black drum taste like?',
@@ -277,7 +276,6 @@ const SPECIES = [
       ],
       safety: "Whatever the method: fish is done at an internal temperature of 145°F, when the flesh is opaque and flakes easily."
     },
-    meal: { file: 'blackened-fillets-cast-iron', alt: 'Two spice-crusted fillets blackening in a hot skillet with sizzling oil', caption: 'From the cleaning table to the skillet — blackened is what puppy drum are for.' },
     regs: {
       body: "Black drum are a regulated species in Florida — slot and bag rules apply and can change. Check the current FWC black drum page before you keep one, and confirm the rules for your waters.",
       url: 'https://myfwc.com/fishing/saltwater/recreational/black-drum/',

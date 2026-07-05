@@ -4,6 +4,20 @@
 
 ---
 
+## Correction 2026-07-05 — Owner override on the IMG_1196 call
+
+The owner cleaned the IMG_1196 fish personally and confirms **SHEEPSHEAD** — no chin barbels, sheepshead teeth present. My ~90% black-drum call from the night-flash photo was **wrong**; hands-on inspection beats photo forensics. Applied:
+
+- Photo renamed and rehomed: now `images/fish/sheepshead.{webp,jpg}`, the hero of **/fish/sheepshead** — the slot that had waited since drop #1 is finally filled with a real (owner-verified) sheepshead photo.
+- **/fish/black-drum stays live** (valid SEO content, already in the sitemap) with a brand-styled placeholder hero; a real black drum photo heads the manifest wanted-list.
+- The skillet fillet photo (IMG_1276) is **removed from the site entirely** per owner instruction (fish photos only); the redfish and black-drum cooking sections render cleanly without a meal figure.
+- Spanish mackerel and red grouper calls stand **confirmed** by the owner — no changes.
+- The "sheepshead vs black drum" comparison page **stays queued** in SEO_STRATEGY — the confusion is demonstrably live (it got me).
+
+Lighthouse after correction: sheepshead **97**, black-drum **98**, redfish **98** — accessibility/best-practices/SEO **100** on all three.
+
+---
+
 ## Update 2026-07-05 — Photo drop #2: three new species pages
 
 **Species verification (the calls, evidence, and confidence):** the drop was labeled sheepshead, Spanish mackerel, and red grouper. Two labels confirmed; one overruled.

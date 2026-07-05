@@ -31,8 +31,8 @@ To drop real screenshots later: capture at 1179×2556 PNG, then per file:
 | `snook.*` | ✅ **Real** | Golden-hour dock snook (from IMG_0834) |
 | `redfish.*` | ✅ **Real** | Flats-boat redfish, tail spot visible (IMG_3143) |
 | `gag-grouper.*` | ✅ **Real** | Pier gag grouper (IMG_8324) |
-| `sheepshead.*` | ⬜ **Still placeholder** | Drop #2's "sheepshead" turned out to be juvenile black drum — the slot is still waiting for a real sheepshead |
-| `black-drum.*` | ✅ **Real** (drop #2) | Puppy-drum limit on the cleaning table at night (IMG_1196) |
+| `sheepshead.*` | ✅ **Real** (drop #2, owner-confirmed) | Sheepshead limit on the cleaning table at night (IMG_1196) — the slot that waited since drop #1 is finally filled |
+| `black-drum.*` | ⬜ Placeholder | Page is live with full content; **wanted: a real black drum photo** (1400×875, overwrite both files) |
 | `spanish-mackerel.*` | ✅ **Real** (drop #2) | Spanish mackerel held on a bridge pier, spots visible (IMG_6748) |
 | `red-grouper.*` | ✅ **Real** (drop #2) | Two red groupers on the dock (IMG_1126 — three yellowtail snapper also in the source frame) |
 
@@ -51,7 +51,7 @@ Low-res sources kept out of large slots: IMG_4652 (black drum, 576px) and IMG_09
 
 ## 4. Meal imagery — `images/meals/` (1400×875, stock)
 
-Mixed: Pexels stock AND one owner photo. `blackened-fillets-cast-iron.*` (drop #2, owner-shot, species-ambiguous fillets) now serves BOTH /fish/redfish and /fish/black-drum cooking sections — it replaced the flagged stock-salmon image, which was removed from the repo. Full source URLs, photographers, and licenses in `docs/IMAGE_CREDITS.md`. The gag-grouper page has no meal image (no genuine fried-fish-sandwich stock exists — shoot one).
+Pexels stock only (owner prefers his own imagery to be fish photos; the drop-#2 skillet shot was removed at his instruction). The redfish and black-drum cooking sections currently run without a meal image. Sources/licenses in `docs/IMAGE_CREDITS.md`. Full source URLs, photographers, and licenses in `docs/IMAGE_CREDITS.md`. The gag-grouper page has no meal image (no genuine fried-fish-sandwich stock exists — shoot one).
 
 ## 5. Social/OG — `images/og-default.png`, `images/og/*.png` (1200×630)
 
@@ -59,6 +59,6 @@ Brand-design cards (final, amber brand): default + sheepshead, snook, redfish, g
 
 ## 6. Still wanted (the next drop)
 
-1. **Your own cooked-meal photos** — one arrived in drop #2 (blackened fillets, placed). Still wanted: a finished grouper sandwich (fills the gag AND red grouper pages' signature dish), smoked-fish-dip spread (Spanish mackerel page), a fried-fish spread. 1400px wide.
-2. **Real sheepshead photo** (see §2 — drop #2 did not contain one; the labeled fish were black drum).
+1. **A real black drum photo** — the page is live with a placeholder hero (`images/fish/black-drum.*`, 1400×875).
+2. **Meal photos, if you change your mind on imagery policy** — grouper sandwich, smoked fish dip, blackened redfish; stock currently covers fried (sheepshead) and grilled (snook) only.
 3. **Real app screenshots** once the app has demo data (see §1).
