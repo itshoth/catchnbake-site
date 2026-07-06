@@ -235,6 +235,27 @@
   footer.site .brandline{color:var(--mist)}
   footer.site .brandline .brand{font-size:1.1rem;display:inline-block;margin-bottom:.8rem}
 
+  /* ---------- mobile (<=480px): stacked photo + slate text block; fish-first focal points ---------- */
+  @media (max-width:480px){
+    .hero{min-height:auto;display:block}
+    .hero .ph{position:relative;height:58svh}
+    .hero .ph img{object-position:30% 45%}
+    .hero .grade{display:none}
+    .hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.72),rgba(11,18,32,0) 32%,rgba(11,18,32,0) 78%,rgba(11,18,32,.5))}
+    .hero .copy{position:relative;padding:2.4rem clamp(1.25rem,4vw,3rem) 3rem;background:var(--night)}
+    .band{min-height:auto;display:block}
+    .band .ph{position:relative;height:54svh}
+    .band .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,0) 72%,rgba(11,18,32,.55))}
+    .band .grade{display:none}
+    .band .cap{position:relative;padding:0;background:var(--night2);border-bottom:1px solid var(--line)}
+    .band .cap .inner{display:block;padding:2.2rem 0 2.5rem}
+    .band h2{margin-bottom:1rem}
+    .band .side{max-width:none}
+    #band-journal .ph img{object-position:48% 58%!important}
+    #band-community .ph img{object-position:48% 65%!important}
+    #band-trout .ph img{object-position:48% 75%!important}
+  }
+
   /* scroll reveal — subtle, respects reduced motion */
   @media (prefers-reduced-motion: no-preference){
     .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -306,7 +327,7 @@
 <main id="main">
 
 <!-- ============ HERO ============ -->
-<div class="hero">
+<div class="hero" id="hero">
   <div class="ph">
     <picture>
       <source srcset="/images/hero/home-snook-960.webp 960w, /images/hero/home-snook.webp 1920w" sizes="100vw" type="image/webp" />
