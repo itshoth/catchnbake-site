@@ -426,12 +426,98 @@ function jsonLd(sp) {
     ]
   }, null, 2);
 }
+const NAV = `<header class="site">
+  <a class="brand" href="/">Catch <span>'N</span> Bake</a>
+  <nav class="primary" aria-label="Site">
+    <a href="/">Home</a>
+    <div class="drop">
+      <button type="button" aria-haspopup="true">Fish Guides</button>
+      <div class="menu">
+        <a href="/fish/sheepshead">Sheepshead</a>
+        <a href="/fish/snook">Snook</a>
+        <a href="/fish/redfish">Redfish</a>
+        <a href="/fish/gag-grouper">Gag Grouper</a>
+        <a href="/fish/red-grouper">Red Grouper</a>
+        <a href="/fish/black-drum">Black Drum</a>
+        <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+        <a class="all" href="/#guides">All guides →</a>
+      </div>
+    </div>
+    <a href="/support">Support</a>
+  </nav>
+  <button class="burger" data-nav-open aria-label="Open menu" aria-expanded="false">
+    <svg width="20" height="14" viewBox="0 0 20 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1h18M1 7h18M1 13h18"/></svg>
+  </button>
+</header>
+
+<div class="mobilenav" id="mobilenav" hidden>
+  <button class="close" data-nav-close aria-label="Close menu">
+    <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="display:block;margin:auto"><path d="M2 2l12 12M14 2L2 14"/></svg>
+  </button>
+  <span class="meta">Catch 'N Bake</span>
+  <a href="/">Home</a>
+  <a href="/support">Support</a>
+  <span class="meta">Fish Guides</span>
+  <a href="/fish/sheepshead">Sheepshead</a>
+  <a href="/fish/snook">Snook</a>
+  <a href="/fish/redfish">Redfish</a>
+  <a href="/fish/gag-grouper">Gag Grouper</a>
+  <a href="/fish/red-grouper">Red Grouper</a>
+  <a href="/fish/black-drum">Black Drum</a>
+  <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+  <span class="meta">Legal</span>
+  <div class="small">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/guidelines">Community Guidelines</a>
+  </div>
+</div>`;
+
+const FOOTER = `<footer class="site">
+  <div class="wrap cols">
+    <div class="brandline">
+      <span class="brand" style="color:var(--bone)">Catch <span style="color:var(--amber)">'N</span> Bake</span><br>
+      © 2026 Catch 'N Bake LLC · Made in Florida
+    </div>
+    <div>
+      <span class="meta">App</span>
+      <a href="/">Home</a>
+      <a href="/support">Support</a>
+    </div>
+    <div>
+      <span class="meta">Fish Guides</span>
+      <a href="/fish/sheepshead">Sheepshead</a>
+      <a href="/fish/snook">Snook</a>
+      <a href="/fish/redfish">Redfish</a>
+      <a href="/fish/gag-grouper">Gag Grouper</a>
+      <a href="/fish/red-grouper">Red Grouper</a>
+      <a href="/fish/black-drum">Black Drum</a>
+      <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+    </div>
+    <div>
+      <span class="meta">Legal</span>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/guidelines">Guidelines</a>
+    </div>
+  </div>
+</footer>`;
+
+const CLARITY = `<script type="text/javascript">
+    /* Microsoft Clarity — deferred until after the load event so it never competes with page rendering */
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        function go(){t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);}
+        function later(){setTimeout(go,3000)}
+        if(l.readyState==="complete"){later()}else{c.addEventListener("load",later)}
+    })(window, document, "clarity", "script", "xhwobxiz8q");
+</script>`;
 
 function page(sp) {
   const relatedCards = sp.related.map((slug) => {
     const r = SPECIES.find((s) => s.slug === slug);
-    return `    <a class="rel-card" href="/fish/${r.slug}">
-      <p class="q">Can you eat…</p>
+    return `    <a class="guide-row" href="/fish/${r.slug}">
       <h3>${r.name}</h3>
       <span class="go">Read the guide →</span>
     </a>`;
@@ -460,7 +546,7 @@ function page(sp) {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#f8f2e7" />
+<meta name="theme-color" content="#0b1220" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -468,115 +554,115 @@ function page(sp) {
 ${jsonLd(sp)}
 </script>
 <style>
-  /* self-hosted variable fonts (latin) */
   @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2')}
   @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}
-  /* metric-matched fallbacks: no layout shift during font swap */
   @font-face{font-family:'Fraunces Fallback';src:local('Georgia');ascent-override:98%;descent-override:26%;line-gap-override:0%;size-adjust:101%}
   @font-face{font-family:'Inter Fallback';src:local('Arial');ascent-override:96.9%;descent-override:24.2%;line-gap-override:0%;size-adjust:107%}
 
   :root{
-    --paper:#f8f2e7;--ink:#1e1b16;--ink-soft:#4d463a;--rule:#ddd3c2;
-    --brand:#8a5303;      /* dark amber — app accent family, 5.7:1 on paper */
-    --brand-mid:#b45309;  /* amber-700 — large text on paper, white-text fills */
-    --brand-bright:#f59e0b; /* app primary amber — dark-bg text, buttons, decoration */
-    --slate:#0f172a;--ember:#b45309;--paper-on-dark:#f3ede1;--measure:64ch;
+    --night:#0b1220;--night2:#0f172a;--card:#1e293b;--line:#26334a;
+    --bone:#f5f1e6;--mist:#a3adbf;--amber:#f59e0b;--amber-deep:#d97706;--ink-on-amber:#171003;
     --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
     --sans:'Inter','Inter Fallback',system-ui,sans-serif;
+    --measure:64ch;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   [hidden]{display:none!important}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased}
-  body::before{
-    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:.6rem 1rem;z-index:50;font-weight:600}
+  body{background:var(--night);color:var(--bone);font-family:var(--sans);font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--amber)}
+  strong{font-weight:600;color:var(--bone)}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--amber);color:var(--ink-on-amber);padding:.6rem 1rem;z-index:90;font-weight:600}
   .skip:focus{left:1rem;top:1rem}
-  .wrap{position:relative;z-index:1;max-width:46rem;margin:0 auto;padding:0 1.5rem 6rem}
-  a{color:var(--brand)}
-  :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
-  strong{font-weight:600}
-  header.site{display:flex;justify-content:space-between;align-items:baseline;padding:2rem 0 1.5rem;border-bottom:1px solid var(--rule);margin-bottom:3.5rem}
-  .brand{font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--brand)}
-  nav.site-nav{font-size:.85rem;font-weight:500}
-  nav.site-nav a{color:var(--ink-soft);text-decoration:none;margin-left:1.25rem}
-  nav.site-nav a:hover{color:var(--brand)}
-  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:1rem}
-  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,5.5vw,3.4rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:1.25rem}
-  .sci{font-style:italic;color:var(--ink-soft);font-size:1rem;margin-bottom:2rem}
-  p{max-width:var(--measure);margin-bottom:1rem;color:var(--ink-soft)}
-  .intro{font-size:1.15rem}
-  .verdict{border:1px solid var(--rule);border-left:5px solid var(--brand-bright);background:rgba(255,255,255,.5);padding:1.75rem 2rem;margin:2.5rem 0}
-  .verdict.careful{border-left-color:var(--ember)}
-  .verdict .v{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.2;color:var(--ink);margin-bottom:.6rem}
-  .verdict.careful .v{color:var(--ember)}
+  .meta{font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+  .meta b{color:var(--amber);font-weight:600}
+
+  header.site{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.6rem clamp(1.25rem,4vw,3rem);border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--bone);text-decoration:none;letter-spacing:.01em}
+  .brand span{color:var(--amber)}
+  nav.primary{display:flex;align-items:center;gap:2rem;font-size:.92rem;font-weight:500}
+  nav.primary > a{color:var(--bone);text-decoration:none;opacity:.9}
+  nav.primary > a:hover{color:var(--amber);opacity:1}
+  .drop{position:relative}
+  .drop > button{background:none;border:0;color:var(--bone);font:inherit;font-weight:500;cursor:pointer;opacity:.9;display:flex;align-items:center;gap:.4rem;padding:.2rem 0}
+  .drop > button::after{content:"";width:.45em;height:.45em;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-.1em)}
+  .drop > button:hover{color:var(--amber);opacity:1}
+  .drop .menu{position:absolute;top:calc(100% + .9rem);left:50%;transform:translateX(-50%);background:var(--night2);border:1px solid var(--line);border-radius:12px;padding:.6rem;min-width:15rem;display:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);z-index:50}
+  .drop:hover .menu,.drop:focus-within .menu{display:block}
+  .drop .menu a{display:block;color:var(--bone);text-decoration:none;padding:.55rem .9rem;border-radius:8px;font-size:.92rem}
+  .drop .menu a:hover{background:var(--card);color:var(--amber)}
+  .drop .menu .all{border-top:1px solid var(--line);margin-top:.4rem;padding-top:.7rem;color:var(--mist);font-size:.8rem}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--bone);width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center}
+  .mobilenav{position:fixed;inset:0;z-index:80;background:rgba(11,18,32,.98);padding:5.5rem clamp(1.5rem,6vw,3rem) 3rem;overflow:auto}
+  .mobilenav .close{position:absolute;top:1.4rem;right:clamp(1.25rem,4vw,3rem);background:none;border:1px solid var(--line);border-radius:10px;color:var(--bone);width:44px;height:40px;cursor:pointer}
+  .mobilenav .meta{display:block;margin:2rem 0 .8rem}
+  .mobilenav a{display:block;color:var(--bone);text-decoration:none;font-family:var(--serif);font-size:1.7rem;font-weight:600;padding:.45rem 0}
+  .mobilenav a:hover{color:var(--amber)}
+  .mobilenav .small a{font-family:var(--sans);font-size:1rem;font-weight:500;color:var(--mist);padding:.3rem 0}
+  @media (max-width:900px){nav.primary{display:none}.burger{display:flex}}
+
+  .wrap{position:relative;max-width:48rem;margin:0 auto;padding:3.5rem clamp(1.25rem,4vw,2rem) 6rem}
+  .eyebrow{display:block;margin-bottom:1.2rem}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;letter-spacing:-.018em;margin-bottom:1rem}
+  .sci{font-style:italic;color:var(--mist);font-size:1rem;margin-bottom:2rem}
+  p{max-width:var(--measure);margin-bottom:1rem;color:var(--mist)}
+  .intro{font-size:1.15rem;color:#cfd6e2}
+  .verdict{border:1px solid var(--line);border-left:5px solid var(--amber);background:var(--night2);border-radius:0 14px 14px 0;padding:1.6rem 1.9rem;margin:2.4rem 0}
+  .verdict .v{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.2;color:var(--bone);margin-bottom:.6rem}
+  .verdict.careful .v{color:var(--amber)}
   .verdict p{margin:0}
-  figure{margin:3rem 0}
+  figure{margin:2.8rem 0}
+  figure img{display:block;width:100%;height:auto;border-radius:14px;background:var(--night2)}
   figure.meal{margin:2.25rem 0 0}
-  figure.meal figcaption{margin-top:.75rem;font-size:.85rem;color:var(--ink-soft)}
-  figure.meal{margin:2.25rem 0 0}
-  figure.meal figcaption{margin-top:.75rem;font-size:.85rem;color:var(--ink-soft)}
-  figure img{display:block;width:100%;height:auto;border-radius:4px;background:#e8e2d5}
-  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3vw,1.9rem);line-height:1.2;margin:3.25rem 0 1rem;color:var(--ink)}
-  h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:1.75rem 0 .5rem;color:var(--ink)}
+  figure.meal figcaption{margin-top:.75rem;font-size:.85rem;color:var(--mist)}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin:3.2rem 0 1rem;color:var(--bone)}
+  h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:1.75rem 0 .5rem;color:var(--bone)}
   ol.steps{max-width:var(--measure);margin:1.25rem 0 1rem;padding-left:0;list-style:none;counter-reset:step}
-  ol.steps li{counter-increment:step;position:relative;padding:.5rem 0 .5rem 3rem;color:var(--ink-soft)}
-  ol.steps li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:.55rem;font-family:var(--serif);font-weight:700;color:var(--brand)}
-  .safety{border-left:3px solid var(--ember);background:rgba(180,83,9,.06);padding:1rem 1.25rem;margin:1.75rem 0;max-width:var(--measure);font-size:.98rem;color:var(--ink)}
-  .regs{border:1px solid var(--rule);background:rgba(255,255,255,.45);padding:1.5rem 1.75rem;margin:1.25rem 0;max-width:var(--measure)}
+  ol.steps li{counter-increment:step;position:relative;padding:.5rem 0 .5rem 3rem;color:var(--mist)}
+  ol.steps li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:.55rem;font-family:var(--serif);font-weight:700;color:var(--amber)}
+  .safety{border-left:3px solid var(--amber);background:rgba(245,158,11,.08);border-radius:0 10px 10px 0;padding:1rem 1.25rem;margin:1.75rem 0;max-width:var(--measure);font-size:.98rem;color:var(--bone)}
+  .regs{border:1px solid var(--line);background:var(--night2);border-radius:14px;padding:1.5rem 1.75rem;margin:1.25rem 0;max-width:var(--measure)}
   .regs p{margin-bottom:.75rem}
   .regs a{font-weight:600}
-  .cta-band{background:var(--slate);color:var(--paper-on-dark);border-radius:4px;padding:2.5rem 2rem;margin:3.5rem 0;text-align:center}
-  .cta-band h2{color:#fff;margin:0 0 .5rem;font-size:1.6rem}
-  .cta-band p{color:rgba(243,237,225,.8);margin:0 auto 1.5rem;max-width:36em}
-  .store-badge{display:inline-flex;align-items:center;gap:.7rem;background:var(--paper);color:var(--ink);text-decoration:none;border-radius:12px;padding:.65rem 1.25rem .65rem 1.05rem;line-height:1.15;border:1px solid var(--paper)}
-  .store-badge .small{display:block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+  .cta-band{background:var(--night2);border:1px solid var(--line);border-radius:16px;padding:2.5rem 2rem;margin:3.5rem 0;text-align:center;background-image:radial-gradient(70% 90% at 50% 0%,rgba(245,158,11,.09),transparent 65%)}
+  .cta-band h2{color:var(--bone);margin:0 0 .5rem;font-size:1.6rem}
+  .cta-band p{margin:0 auto 1.5rem;max-width:36em}
+  .store-badge{display:inline-flex;align-items:center;gap:.7rem;background:transparent;color:var(--bone);text-decoration:none;border-radius:12px;padding:.65rem 1.25rem;line-height:1.15;border:1.5px solid var(--bone)}
+  .store-badge .small{display:block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mist)}
   .store-badge .big{display:block;font-family:var(--serif);font-size:1.05rem;font-weight:600}
-  .store-badge.is-soon{background:transparent;color:var(--paper-on-dark);border:1px solid rgba(243,237,225,.5);cursor:default}
+  .store-badge.is-soon{cursor:default}
+  a.store-badge:hover{background:var(--amber);border-color:var(--amber);color:var(--ink-on-amber)}
+  a.store-badge:hover .small{color:var(--ink-on-amber)}
   dl.faq{max-width:var(--measure)}
-  dl.faq dt{font-weight:600;color:var(--ink);margin-top:1.5rem}
-  dl.faq dd{margin:.4rem 0 0;color:var(--ink-soft)}
-  .related{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem}
-  @media (max-width:560px){.related{grid-template-columns:1fr}}
-  .rel-card{display:block;text-decoration:none;border:1px solid var(--rule);background:rgba(255,255,255,.45);padding:1.5rem;color:var(--ink)}
-  .rel-card:hover{border-color:var(--brand-mid)}
-  .rel-card .q{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);margin-bottom:.4rem}
-  .rel-card h3{margin:0 0 .3rem;font-size:1.3rem}
-  .rel-card .go{font-size:.85rem;font-weight:600;color:var(--brand)}
-  footer.site{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-  footer.site a{color:var(--ink-soft)}
+  dl.faq dt{font-weight:600;color:var(--bone);margin-top:1.5rem}
+  dl.faq dd{margin:.4rem 0 0;color:var(--mist)}
+  .guides{margin-top:1.4rem;border-top:1px solid var(--line)}
+  .guide-row{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
+  .guide-row h3{margin:0;font-size:1.4rem}
+  .guide-row:hover h3{color:var(--amber)}
+  .guide-row .go{color:var(--amber);font-weight:600;font-size:.9rem;white-space:nowrap}
+
+  footer.site{border-top:1px solid var(--line);padding:3rem 0 3.5rem;font-size:.88rem;color:var(--mist)}
+  footer.site .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:76rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+  @media (max-width:760px){footer.site .cols{grid-template-columns:1fr 1fr}}
+  footer.site .meta{display:block;margin-bottom:.9rem}
+  footer.site a{color:var(--mist);text-decoration:none;display:block;padding:.22rem 0}
+  footer.site a:hover{color:var(--amber)}
+  footer.site .brandline .brand{font-size:1.1rem;display:inline-block;margin-bottom:.8rem}
 </style>
-<script type="text/javascript">
-    /* Microsoft Clarity — deferred until after the load event so it never competes with page rendering */
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        function go(){t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);}
-        function later(){setTimeout(go,3000)}
-        if(l.readyState==="complete"){later()}else{c.addEventListener("load",later)}
-    })(window, document, "clarity", "script", "xhwobxiz8q");
-</script>
+${CLARITY}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="wrap">
 
-<header class="site">
-  <a class="brand" href="/">Catch <span>'N</span> Bake</a>
-  <nav class="site-nav" aria-label="Site">
-    <a href="/">Home</a>
-    <a href="/#guides">Fish Guides</a>
-    <a href="/support">Support</a>
-  </nav>
-</header>
+${NAV}
 
 <main id="main">
+<div class="wrap">
 
-<p class="eyebrow">Field Guide · Florida Inshore</p>
+<span class="eyebrow meta">The Field Guide · <b>Florida Inshore</b></span>
 <h1>Can You Eat ${sp.name}?</h1>
 <p class="sci">${sp.scientific}</p>
 
@@ -637,24 +723,21 @@ ${sp.faq.map((f) => `  <dt>${f.q}</dt>\n  <dd>${f.a}</dd>`).join('\n')}
 </dl>
 
 <h2>More from the field guide</h2>
-<div class="related">
+<div class="guides">
 ${relatedCards}
 </div>
 
+</div>
 </main>
 
-<footer class="site">
-  <span>© 2026 Catch 'N Bake LLC · Made in Florida</span>
-  <span><a href="/">Home</a> · <a href="/support">Support</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/guidelines">Guidelines</a></span>
-</footer>
+${FOOTER}
 
-</div>
 <script src="/js/app-store.js" defer></script>
+<script src="/js/nav.js" defer></script>
 </body>
 </html>
 `;
 }
-
 const outDir = path.join(__dirname, '..', 'fish');
 fs.mkdirSync(outDir, { recursive: true });
 for (const sp of SPECIES) {

@@ -1,5 +1,15 @@
 # Catch 'N Bake Site — Launch Report
 
+---
+
+## Update 2026-07-06 — "Dark Water" redesign (direction B, de-filmed)
+
+Full-site redesign: night-slate ground (#0b1220, the app's own dark palette), amber #f59e0b accent, Fraunces display type at cinematic scale, full-bleed owner photography with art-directed focal points (fish + angler stay in frame at desktop and mobile), amber tide-line motif. All film/cinema framing removed per direction — plain product labels only. New site-wide navigation: desktop nav with a Fish Guides dropdown (all 7 species), mobile full-screen menu covering every route incl. legal. All 13 routes live in the new system; legal-page content preserved byte-for-byte (chrome + tokens only). New hero assets in images/hero/ (1920w + 960w srcset, WebP+JPG, EXIF-stripped). OG images regenerated dark. Clarity (deferred) + privacy disclosure retained. Scroll reveals honor prefers-reduced-motion with a noscript fallback.
+
+**Lighthouse (mobile, local):** home **85** · /fish/snook **88** · /privacy **90** — accessibility/SEO **100** everywhere; best-practices 77 site-wide (accepted Clarity cookie penalty). Home LCP 3.6s, CLS 0.
+
+**Awaiting owner review before push.**
+
 **Date:** 2026-07-03 · Everything below is committed locally on `main`. **Nothing has been pushed or deployed.**
 
 ---

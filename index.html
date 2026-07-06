@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <!--
-  Catch 'N Bake — marketing landing page.
-  Every feature claim on this page is verified against the app repo; see docs/SITE_AUDIT.md §2.
-  Screenshot slots: overwrite the WebP files in /images/screens (same filenames, 1179x2556 source) — no HTML edits needed. See docs/IMAGE_MANIFEST.md for the one-line convert command.
-  App Store link: set APP_STORE_URL in /js/app-store.js when the store listing is live.
+  Catch 'N Bake — marketing landing page. "Dark Water" design system:
+  night slate ground (#0b1220), amber accent (#f59e0b), full-bleed owner
+  photography with art-directed focal points, Fraunces display type.
+  Every feature claim verified against the app repo; see docs/SITE_AUDIT.md.
+  App Store link: set APP_STORE_URL in /js/app-store.js when the listing is live.
 -->
 <html lang="en">
 <head>
@@ -21,8 +22,9 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#f8f2e7" />
+<meta name="theme-color" content="#0b1220" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" as="image" imagesrcset="/images/hero/home-snook-960.webp 960w, /images/hero/home-snook.webp 1920w" imagesizes="100vw" />
 <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 <script type="application/ld+json">
@@ -54,188 +56,191 @@
   /* self-hosted variable fonts (latin) */
   @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2')}
   @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}
-  /* metric-matched fallbacks: no layout shift during font swap */
   @font-face{font-family:'Fraunces Fallback';src:local('Georgia');ascent-override:98%;descent-override:26%;line-gap-override:0%;size-adjust:101%}
   @font-face{font-family:'Inter Fallback';src:local('Arial');ascent-override:96.9%;descent-override:24.2%;line-gap-override:0%;size-adjust:107%}
 
   :root{
-    --paper:#f8f2e7;
-    --ink:#1e1b16;
-    --ink-soft:#4d463a;
-    --rule:#ddd3c2;
-    --brand:#8a5303;      /* dark amber — app accent family, 5.7:1 on paper */
-    --brand-mid:#b45309;  /* amber-700 — large text on paper, white-text fills */
-    --brand-bright:#f59e0b; /* app primary amber — dark-bg text, buttons, decoration */
-    
-    --slate:#0f172a;
-    --ember:#b45309;     /* skillet ember — used sparingly (decorative) */
-    --ember-text:#8a5303; /* ember dark enough for small text on paper (5.1:1) */
-    --paper-on-dark:#f3ede1;
-    --measure:64ch;
+    --night:#0b1220;        /* page ground */
+    --night2:#0f172a;       /* raised ground (matches the app) */
+    --card:#1e293b;
+    --line:#26334a;
+    --bone:#f5f1e6;         /* primary text */
+    --mist:#a3adbf;         /* muted text, 6.9:1 on night */
+    --amber:#f59e0b;        /* the accent — 8.3:1 on night */
+    --amber-deep:#d97706;
+    --ink-on-amber:#171003;
     --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
     --sans:'Inter','Inter Fallback',system-ui,sans-serif;
+    --measure:62ch;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:1.0625rem;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  /* faint paper grain */
-  body::before{
-    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.46 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  [hidden]{display:none!important}
-  .skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:.6rem 1rem;z-index:50;font-weight:600}
+  body{background:var(--night);color:var(--bone);font-family:var(--sans);font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--amber)}
+  strong{font-weight:600;color:var(--bone)}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--amber);color:var(--ink-on-amber);padding:.6rem 1rem;z-index:90;font-weight:600}
   .skip:focus{left:1rem;top:1rem}
-  .wrap{position:relative;z-index:1;max-width:72rem;margin:0 auto;padding:0 1.5rem}
-  a{color:var(--brand)}
-  :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
-  strong{font-weight:600}
+  .wrap{max-width:76rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
 
-  /* ---------- header ---------- */
-  header.site{
-    display:flex;justify-content:space-between;align-items:center;gap:1rem;
-    padding:1.75rem 0;border-bottom:1px solid var(--rule);
-  }
-  .brand{font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:.01em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--brand)}
-  nav.main{font-size:.9rem;font-weight:500;display:flex;align-items:center;gap:1.5rem}
-  nav.main a{color:var(--ink-soft);text-decoration:none}
-  nav.main a:hover{color:var(--brand)}
-  @media (max-width:640px){nav.main .hide-sm{display:none}}
+  .meta{font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+  .meta b{color:var(--amber);font-weight:600}
 
-  /* ---------- App Store badge ---------- */
-  .store-badge{
-    display:inline-flex;align-items:center;gap:.7rem;
-    background:var(--ink);color:var(--paper-on-dark);text-decoration:none;
-    border-radius:12px;padding:.65rem 1.25rem .65rem 1.05rem;line-height:1.15;
-    border:1px solid var(--ink);
-  }
-  .store-badge svg{flex-shrink:0}
-  .store-badge .small{display:block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
-  .store-badge .big{display:block;font-family:var(--serif);font-size:1.05rem;font-weight:600}
-  .store-badge.is-soon{background:transparent;color:var(--ink);border:1px solid var(--ink);cursor:default}
-  .store-badge.is-soon .small{opacity:.75}
-  a.store-badge:hover{background:var(--brand-bright);border-color:var(--brand-bright);color:var(--ink)}
+  /* signature motif: the tide line */
+  .tide{height:2px;position:relative;overflow:visible;margin:0}
+  .tide svg{position:absolute;left:0;width:100%;height:14px;top:-6px;display:block}
+
+  /* ---------- header / nav ---------- */
+  header.site{position:absolute;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.6rem clamp(1.25rem,4vw,3rem)}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--bone);text-decoration:none;letter-spacing:.01em}
+  .brand span{color:var(--amber)}
+  nav.primary{display:flex;align-items:center;gap:2rem;font-size:.92rem;font-weight:500}
+  nav.primary > a{color:var(--bone);text-decoration:none;opacity:.9}
+  nav.primary > a:hover{color:var(--amber);opacity:1}
+  .drop{position:relative}
+  .drop > button{background:none;border:0;color:var(--bone);font:inherit;font-weight:500;cursor:pointer;opacity:.9;display:flex;align-items:center;gap:.4rem;padding:.2rem 0}
+  .drop > button::after{content:"";width:.45em;height:.45em;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-.1em)}
+  .drop > button:hover{color:var(--amber);opacity:1}
+  .drop .menu{position:absolute;top:calc(100% + .9rem);left:50%;transform:translateX(-50%);background:var(--night2);border:1px solid var(--line);border-radius:12px;padding:.6rem;min-width:15rem;display:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+  .drop:hover .menu,.drop:focus-within .menu{display:block}
+  .drop .menu a{display:block;color:var(--bone);text-decoration:none;padding:.55rem .9rem;border-radius:8px;font-size:.92rem}
+  .drop .menu a:hover{background:var(--card);color:var(--amber)}
+  .drop .menu .all{border-top:1px solid var(--line);margin-top:.4rem;padding-top:.7rem;color:var(--mist);font-size:.8rem}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--bone);width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center}
+  .burger svg{display:block}
+  /* mobile menu */
+  .mobilenav{position:fixed;inset:0;z-index:80;background:rgba(11,18,32,.98);padding:5.5rem clamp(1.5rem,6vw,3rem) 3rem;overflow:auto}
+  .mobilenav .close{position:absolute;top:1.4rem;right:clamp(1.25rem,4vw,3rem);background:none;border:1px solid var(--line);border-radius:10px;color:var(--bone);width:44px;height:40px;cursor:pointer}
+  .mobilenav .meta{display:block;margin:2rem 0 .8rem}
+  .mobilenav a{display:block;color:var(--bone);text-decoration:none;font-family:var(--serif);font-size:1.7rem;font-weight:600;padding:.45rem 0}
+  .mobilenav a:hover{color:var(--amber)}
+  .mobilenav .small a{font-family:var(--sans);font-size:1rem;font-weight:500;color:var(--mist);padding:.3rem 0}
+  @media (max-width:900px){nav.primary{display:none}.burger{display:flex}}
 
   /* ---------- hero ---------- */
-  .hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:3rem;align-items:center;padding:5.5rem 0 6rem}
-  @media (max-width:860px){.hero{grid-template-columns:1fr;padding:3.5rem 0 4rem}}
-  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:1.25rem}
-  .eyebrow .dot{color:var(--brand-bright)}
-  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.04;letter-spacing:-.015em;margin-bottom:1.5rem}
-  h1 em{font-style:italic;color:var(--brand-mid)}
-  .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink-soft);max-width:34em;margin-bottom:2.25rem}
-  .cta-row{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
-  .cta-note{font-size:.85rem;color:var(--ink-soft)}
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end}
+  .hero .ph{position:absolute;inset:0;overflow:hidden}
+  .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:62% 30%}
+  @media (max-width:700px){.hero .ph img{object-position:42% 28%}}
+  .hero .grade{position:absolute;inset:0;background:linear-gradient(178deg,rgba(11,18,32,.66) 4%,rgba(11,18,32,.06) 30%,rgba(11,18,32,.18) 55%,rgba(11,18,32,.96) 90%)}
+  .hero .copy{position:relative;z-index:2;width:100%;padding:9rem clamp(1.25rem,4vw,3rem) 7vh}
+  .eyebrow{display:block;margin-bottom:1.6rem}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.3rem,10vw,11rem);line-height:.9;letter-spacing:-.028em;text-transform:uppercase}
+  h1 .l2{display:block;color:var(--amber);margin-left:.06em}
+  .hero .dek{max-width:36em;margin:2.6rem 0 0;color:#d4dae4;font-size:clamp(1rem,1.4vw,1.15rem)}
+  .cta-row{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:2.4rem}
+  .cta-note{font-size:.85rem;color:var(--mist)}
+  .store-badge{display:inline-flex;align-items:center;gap:.7rem;background:transparent;color:var(--bone);text-decoration:none;border-radius:12px;padding:.65rem 1.25rem .65rem 1.05rem;line-height:1.15;border:1.5px solid var(--bone)}
+  .store-badge svg{flex-shrink:0}
+  .store-badge .small{display:block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mist)}
+  .store-badge .big{display:block;font-family:var(--serif);font-size:1.05rem;font-weight:600}
+  .store-badge.is-soon{cursor:default}
+  a.store-badge:hover{background:var(--amber);border-color:var(--amber);color:var(--ink-on-amber)}
+  a.store-badge:hover .small{color:var(--ink-on-amber)}
 
-  /* ---------- phone frames ---------- */
-  .phone{
-    position:relative;border-radius:clamp(28px,6.5cqw,44px);background:var(--ink);
-    padding:clamp(8px,1.8cqw,12px);box-shadow:0 24px 60px -24px rgba(30,27,22,.45);
-    container-type:inline-size;
-  }
-  .phone img{display:block;width:100%;height:auto;border-radius:clamp(20px,5cqw,34px);background:#0f172a}
-  .hero .phone{max-width:320px;margin:0 auto;transform:rotate(2.5deg)}
-  @media (max-width:860px){.hero .phone{max-width:260px}}
+  /* ---------- sections ---------- */
+  section{padding:clamp(4.5rem,10vh,7.5rem) 0}
+  h2{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,4.6vw,4.2rem);line-height:1;letter-spacing:-.018em;max-width:16em}
+  h2 em{font-style:normal;color:var(--amber)}
+  .prose{color:var(--mist);max-width:var(--measure)}
+  .prose p{margin-bottom:1.2rem}
+  .prose em{color:var(--bone);font-style:italic}
+  .sechead .meta{display:block;margin-bottom:1.4rem}
 
-  /* ---------- section scaffolding ---------- */
-  section{padding:5.5rem 0;scroll-margin-top:2rem}
-  .rule-top{border-top:1px solid var(--rule)}
-  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,3rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:1.25rem;max-width:22em}
-  .sec-eyebrow{display:flex;align-items:baseline;gap:.75rem;margin-bottom:1.25rem}
-  .sec-eyebrow .n{font-family:var(--serif);font-weight:700;color:var(--ember-text);font-size:1rem}
-  .prose{color:var(--ink-soft);max-width:var(--measure)}
-  .prose p{margin-bottom:1rem}
+  /* why: prose + steps */
+  .why{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+  .steps{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+  .step{display:grid;grid-template-columns:4.5rem 1fr;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+  .step .n{font-family:var(--serif);font-weight:700;font-size:2.6rem;line-height:1;color:var(--amber)}
+  .step h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:.35rem;color:var(--bone)}
+  .step p{color:var(--mist);font-size:.95rem;line-height:1.6}
+  @media (max-width:860px){.why{grid-template-columns:1fr}}
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3.5rem}
-  @media (max-width:760px){.steps{grid-template-columns:1fr;gap:2rem}}
-  .step .n{font-family:var(--serif);font-weight:700;font-size:2.4rem;color:var(--brand-mid);line-height:1}
-  .step h3{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin:.75rem 0 .5rem}
-  .step p{color:var(--ink-soft);font-size:.98rem}
-
-  /* feature rows */
-  .feature{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:4rem;align-items:center}
-  .feature.flip{grid-template-columns:minmax(0,4fr) minmax(0,7fr)}
-  .feature.flip .feature-copy{order:2}
-  .feature.flip .feature-shot{order:1}
+  /* features */
+  .feature{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(2rem,6vw,5rem);align-items:center}
+  .feature.flip .fcopy{order:2}
+  .feature.flip .fshot{order:1}
   @media (max-width:860px){
-    .feature,.feature.flip{grid-template-columns:1fr;gap:2.5rem}
-    .feature.flip .feature-copy{order:1}
-    .feature.flip .feature-shot{order:2}
+    .feature,.feature.flip{grid-template-columns:1fr}
+    .feature.flip .fcopy{order:1}.feature.flip .fshot{order:2}
   }
-  .feature .phone{max-width:280px;margin:0 auto}
-  .feature ul{list-style:none;margin-top:1.5rem;max-width:var(--measure)}
-  .feature li{padding:.45rem 0 .45rem 1.6rem;position:relative;color:var(--ink-soft)}
-  .feature li::before{content:"";position:absolute;left:0;top:1.05rem;width:.6rem;height:2px;background:var(--ember)}
-  .feature li strong{color:var(--ink)}
-  .fineprint{margin-top:1.25rem;font-size:.85rem;color:var(--ink-soft);opacity:.85}
+  .feature ul{list-style:none;margin-top:1.6rem;max-width:var(--measure)}
+  .feature li{padding:.5rem 0 .5rem 1.7rem;position:relative;color:var(--mist)}
+  .feature li::before{content:"";position:absolute;left:0;top:1.12rem;width:.65rem;height:2px;background:var(--amber)}
+  .feature li strong{color:var(--bone)}
+  .fineprint{margin-top:1.4rem;font-size:.85rem;color:var(--mist);opacity:.85;max-width:var(--measure)}
+  .phone{max-width:290px;margin:0 auto;border-radius:clamp(30px,6cqw,42px);background:#020617;padding:10px;box-shadow:0 0 80px 4px rgba(245,158,11,.13),0 40px 90px -40px rgba(0,0,0,.9);container-type:inline-size}
+  .phone img{display:block;width:100%;height:auto;border-radius:clamp(22px,4.6cqw,32px);background:#0f172a}
 
-  /* also strip */
-  .also{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}
+  /* full-bleed photo bands */
+  .band{position:relative;min-height:88svh;display:flex;align-items:flex-end}
+  .band .ph{position:absolute;inset:0;overflow:hidden}
+  .band .ph img{width:100%;height:100%;object-fit:cover}
+  .band .grade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,18,32,.94) 6%,rgba(11,18,32,.06) 48%)}
+  .band .cap{position:relative;z-index:2;width:100%;padding:0 0 6vh}
+  .band .cap .inner{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap}
+  .band h2{max-width:12em}
+  .band .side{max-width:26rem;color:#d4dae4;font-size:1rem}
+  .band .side .meta{display:block;margin-bottom:.8rem}
+
+  /* also cards */
+  .also{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:3rem}
   @media (max-width:960px){.also{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:560px){.also{grid-template-columns:1fr}}
-  .also-card{border:1px solid var(--rule);background:rgba(255,255,255,.45);padding:1.5rem 1.5rem 1.4rem}
-  .also-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem}
-  .also-card p{font-size:.92rem;color:var(--ink-soft)}
+  .also-card{border:1px solid var(--line);background:var(--night2);border-radius:14px;padding:1.5rem}
+  .also-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem;color:var(--bone)}
+  .also-card p{font-size:.92rem;color:var(--mist)}
 
-  /* field photo band */
-  .photo-band-sec{padding:3.5rem 0}
-  .photo-band{margin:0}
-  .photo-band img{display:block;width:100%;height:auto;border-radius:4px;background:#e8e2d5;box-shadow:0 24px 60px -30px rgba(30,27,22,.4)}
-  .photo-band figcaption{margin-top:1rem;font-size:.85rem;color:var(--ink-soft);text-align:center;letter-spacing:.02em}
+  /* field guide index — ruled editorial list */
+  .guides{margin-top:2.6rem;border-top:1px solid var(--line)}
+  .guide-row{display:grid;grid-template-columns:minmax(9rem,14rem) 1fr auto;gap:1.5rem;align-items:baseline;padding:1.35rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
+  .guide-row h3{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;transition:color .15s ease}
+  .guide-row p{color:var(--mist);font-size:.95rem;max-width:38em}
+  .guide-row .go{color:var(--amber);font-weight:600;font-size:.9rem;white-space:nowrap}
+  .guide-row:hover h3{color:var(--amber)}
+  .guide-row.teaser{color:var(--mist)}
+  .guide-row.teaser h3{color:var(--mist)}
+  @media (max-width:700px){.guide-row{grid-template-columns:1fr;gap:.3rem}.guide-row .go{display:none}}
 
-  /* fish guides */
-  .guides{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3rem}
-  @media (max-width:600px){.guides{grid-template-columns:1fr}}
-  .guide-card{
-    display:block;text-decoration:none;border:1px solid var(--rule);background:rgba(255,255,255,.45);
-    padding:1.75rem;color:var(--ink);transition:border-color .15s ease;
-  }
-  .guide-card:hover{border-color:var(--brand-mid)}
-  .guide-card .q{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ember-text);margin-bottom:.6rem}
-  .guide-card h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:.4rem}
-  .guide-card p{font-size:.92rem;color:var(--ink-soft)}
-  .guide-card .go{display:inline-block;margin-top:1rem;font-size:.88rem;font-weight:600;color:var(--brand)}
-  .guide-card-teaser{border-style:dashed;background:transparent}
-  .guide-card-teaser .q{color:var(--ink-soft)}
-
-  /* premium band */
-  .band{background:var(--slate);color:var(--paper-on-dark);border-radius:4px;padding:4.5rem clamp(1.5rem,5vw,4.5rem);margin:2rem 0}
-  .band h2{color:#fff}
-  .band .prose{color:rgba(243,237,225,.8)}
-  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+  /* premium tiers */
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:3rem}
   @media (max-width:760px){.tiers{grid-template-columns:1fr}}
-  .tier{border:1px solid rgba(243,237,225,.25);padding:2rem}
-  .tier.premium{background:rgba(243,237,225,.07);border-color:rgba(243,237,225,.4)}
-  .tier h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:.35rem}
-  .tier .sub{font-size:.85rem;color:rgba(243,237,225,.78);margin-bottom:1.25rem}
+  .tier{border:1px solid var(--line);border-radius:16px;padding:2rem;background:var(--night2)}
+  .tier.premium{border-color:rgba(245,158,11,.55);background:linear-gradient(180deg,rgba(245,158,11,.07),rgba(245,158,11,0) 55%),var(--night2)}
+  .tier h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:.35rem;color:var(--bone)}
+  .tier .sub{font-size:.85rem;color:var(--mist);margin-bottom:1.25rem}
   .tier ul{list-style:none}
-  .tier li{padding:.4rem 0 .4rem 1.6rem;position:relative;font-size:.95rem;color:rgba(243,237,225,.85)}
-  .tier li::before{content:"";position:absolute;left:0;top:1rem;width:.6rem;height:2px;background:var(--ember)}
-  .band .fineprint{color:rgba(243,237,225,.72)}
+  .tier li{padding:.4rem 0 .4rem 1.6rem;position:relative;font-size:.95rem;color:var(--mist)}
+  .tier li::before{content:"";position:absolute;left:0;top:1rem;width:.6rem;height:2px;background:var(--amber)}
 
-  /* final CTA */
-  .final{text-align:center;padding:6.5rem 0}
-  .final h2{margin-left:auto;margin-right:auto}
-  .final .lede{margin-left:auto;margin-right:auto}
-  .final .cta-row{justify-content:center}
+  /* closing */
+  .final{text-align:left}
+  .final .inner{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:3rem;align-items:end}
+  @media (max-width:860px){.final .inner{grid-template-columns:1fr}}
+  .final h2{font-size:clamp(2.8rem,7vw,6.4rem);text-transform:uppercase;line-height:.92}
+  .final .right{justify-self:end;text-align:right}
+  @media (max-width:860px){.final .right{justify-self:start;text-align:left}}
+  .final .cta-row{justify-content:flex-end}
+  @media (max-width:860px){.final .cta-row{justify-content:flex-start}}
 
-  /* footer */
-  footer.site{border-top:1px solid var(--rule);padding:2.5rem 0 3.5rem;font-size:.85rem;color:var(--ink-soft)}
-  footer.site .cols{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
-  footer.site a{color:var(--ink-soft)}
-  footer.site a:hover{color:var(--brand)}
-  footer.site nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+  footer.site{border-top:1px solid var(--line);padding:3rem 0 3.5rem;font-size:.88rem;color:var(--mist)}
+  footer.site .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem}
+  @media (max-width:760px){footer.site .cols{grid-template-columns:1fr 1fr}}
+  footer.site .meta{display:block;margin-bottom:.9rem}
+  footer.site a{color:var(--mist);text-decoration:none;display:block;padding:.22rem 0}
+  footer.site a:hover{color:var(--amber)}
+  footer.site .brandline{color:var(--mist)}
+  footer.site .brandline .brand{font-size:1.1rem;display:inline-block;margin-bottom:.8rem}
+
+  /* scroll reveal — subtle, respects reduced motion */
+  @media (prefers-reduced-motion: no-preference){
+    .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .rv.in{opacity:1;transform:none}
+  }
 </style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <script type="text/javascript">
     /* Microsoft Clarity — deferred until after the load event so it never competes with page rendering */
     (function(c,l,a,r,i,t,y){
@@ -249,25 +254,69 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="wrap">
 
 <header class="site">
   <a class="brand" href="/">Catch <span>'N</span> Bake</a>
-  <nav class="main" aria-label="Site">
-    <a href="#features" class="hide-sm">Features</a>
-    <a href="#guides">Fish Guides</a>
-    <a href="/support" class="hide-sm">Support</a>
+  <nav class="primary" aria-label="Site">
+    <a href="/">Home</a>
+    <div class="drop">
+      <button type="button" aria-haspopup="true">Fish Guides</button>
+      <div class="menu">
+        <a href="/fish/sheepshead">Sheepshead</a>
+        <a href="/fish/snook">Snook</a>
+        <a href="/fish/redfish">Redfish</a>
+        <a href="/fish/gag-grouper">Gag Grouper</a>
+        <a href="/fish/red-grouper">Red Grouper</a>
+        <a href="/fish/black-drum">Black Drum</a>
+        <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+        <a class="all" href="/#guides">All guides →</a>
+      </div>
+    </div>
+    <a href="/support">Support</a>
   </nav>
+  <button class="burger" data-nav-open aria-label="Open menu" aria-expanded="false">
+    <svg width="20" height="14" viewBox="0 0 20 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1h18M1 7h18M1 13h18"/></svg>
+  </button>
 </header>
+
+<div class="mobilenav" id="mobilenav" hidden>
+  <button class="close" data-nav-close aria-label="Close menu">
+    <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="display:block;margin:auto"><path d="M2 2l12 12M14 2L2 14"/></svg>
+  </button>
+  <span class="meta">Catch 'N Bake</span>
+  <a href="/">Home</a>
+  <a href="/support">Support</a>
+  <span class="meta">Fish Guides</span>
+  <a href="/fish/sheepshead">Sheepshead</a>
+  <a href="/fish/snook">Snook</a>
+  <a href="/fish/redfish">Redfish</a>
+  <a href="/fish/gag-grouper">Gag Grouper</a>
+  <a href="/fish/red-grouper">Red Grouper</a>
+  <a href="/fish/black-drum">Black Drum</a>
+  <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+  <span class="meta">Legal</span>
+  <div class="small">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/guidelines">Community Guidelines</a>
+  </div>
+</div>
 
 <main id="main">
 
 <!-- ============ HERO ============ -->
-<section class="hero" aria-label="Introduction">
-  <div>
-    <p class="eyebrow">Catch to Kitchen <span class="dot">·</span> iOS</p>
-    <h1>You caught it.<br><em>Now cook it.</em></h1>
-    <p class="lede">Snap a photo of your fish. Catch 'N Bake identifies the species, points you to the regulations that matter, and writes recipes for your exact catch — tuned to the way your region cooks.</p>
+<div class="hero">
+  <div class="ph">
+    <picture>
+      <source srcset="/images/hero/home-snook-960.webp 960w, /images/hero/home-snook.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/home-snook.jpg" width="1920" height="1280" alt="Angler at a Florida dock holding a snook up to the camera, palm trees along the water behind him" fetchpriority="high" />
+    </picture>
+  </div>
+  <div class="grade"></div>
+  <div class="copy">
+    <span class="eyebrow meta">Catch to Kitchen · <b>iOS</b></span>
+    <h1>You caught it.<span class="l2">Now cook it.</span></h1>
+    <p class="dek">Snap a photo of your fish. Catch 'N Bake identifies the species, points you to the regulations that matter, and writes recipes for your exact catch — tuned to the way your region cooks.</p>
     <div class="cta-row">
       <a class="store-badge" data-app-store hidden href="#">
         <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 1 2.7-1.5 3.7-3c1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.3-3.3-4.8zM15 4.8c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
@@ -280,47 +329,36 @@
       <span class="cta-note">Free to download · 10 fish IDs a month on the house</span>
     </div>
   </div>
-  <div class="feature-shot">
-    <div class="phone">
-      <img src="/images/screens/01-identify.webp" width="1179" height="2556" alt="Catch 'N Bake identify screen: a hogfish identified with high confidence, species name and details shown" fetchpriority="high" />
+</div>
+
+<div class="tide" aria-hidden="true"><svg preserveAspectRatio="none" viewBox="0 0 1200 14" fill="none"><path d="M0 7 Q 75 1 150 7 T 300 7 T 450 7 T 600 7 T 750 7 T 900 7 T 1050 7 T 1200 7" stroke="#f59e0b" stroke-width="1.4"/></svg></div>
+
+<!-- ============ WHY ============ -->
+<section aria-labelledby="gap-title">
+  <div class="wrap why">
+    <div class="rv">
+      <div class="sechead"><span class="meta">Why we built it</span></div>
+      <h2 id="gap-title">Every app helps you catch fish. Then you're on <em>your own.</em></h2>
+      <div class="prose" style="margin-top:1.8rem">
+        <p>Forecast apps find the bite. Regulation apps tell you what you can keep. But the moment that actually matters — standing at the cleaning table with a fish you don't quite recognize, wondering <em>can I even eat this?</em> — has always belonged to a frantic one-handed search and a decade-old forum thread.</p>
+        <p>Catch 'N Bake exists for exactly that moment.</p>
+      </div>
+    </div>
+    <div class="steps rv">
+      <div class="step"><span class="n" aria-hidden="true">1</span><div><h3>Snap</h3><p>Take a photo of your catch, or pull one from your camera roll. That's the whole input.</p></div></div>
+      <div class="step"><span class="n" aria-hidden="true">2</span><div><h3>Know</h3><p>Get the species and scientific name, how confident the ID is, habitat notes, and a regulations summary — with direct links to your state's official rules.</p></div></div>
+      <div class="step"><span class="n" aria-hidden="true">3</span><div><h3>Cook</h3><p>Get a hand-picked spread of recipes written for that exact fish, from a quick weeknight pan to a proper fish fry with sides.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ THE GAP ============ -->
-<section class="rule-top" aria-labelledby="gap-title">
-  <div class="sec-eyebrow"><span class="n">01</span><p class="eyebrow" style="margin:0">Why we built it</p></div>
-  <h2 id="gap-title">Every app helps you catch fish. Then you're on your own.</h2>
-  <div class="prose">
-    <p>Forecast apps find the bite. Regulation apps tell you what you can keep. But the moment that actually matters — standing at the cleaning table with a fish you don't quite recognize, wondering <em>can I even eat this?</em> — has always belonged to a frantic one-handed search and a decade-old forum thread.</p>
-    <p>Catch 'N Bake exists for exactly that moment.</p>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <p class="n" aria-hidden="true">1</p>
-      <h3>Snap</h3>
-      <p>Take a photo of your catch, or pull one from your camera roll. That's the whole input.</p>
-    </div>
-    <div class="step">
-      <p class="n" aria-hidden="true">2</p>
-      <h3>Know</h3>
-      <p>Get the species and scientific name, how confident the ID is, habitat notes, and a regulations summary — with direct links to your state's official rules.</p>
-    </div>
-    <div class="step">
-      <p class="n" aria-hidden="true">3</p>
-      <h3>Cook</h3>
-      <p>Get a hand-picked spread of recipes written for that exact fish, from a quick weeknight pan to a proper fish fry with sides.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURES ============ -->
-<section id="features" class="rule-top" aria-labelledby="feat-id-title">
-  <div class="feature">
-    <div class="feature-copy">
-      <div class="sec-eyebrow"><span class="n">02</span><p class="eyebrow" style="margin:0">Fish identification</p></div>
+<!-- ============ IDENTIFY ============ -->
+<section id="features" aria-labelledby="feat-id-title">
+  <div class="wrap feature">
+    <div class="fcopy rv">
+      <div class="sechead"><span class="meta">The Catch · <b>Identify</b></span></div>
       <h2 id="feat-id-title">Know what's on the end of your line.</h2>
-      <p class="prose">One photo. AI vision reads the fish and gives you a straight answer — and when it isn't sure, it tells you that too.</p>
+      <p class="prose" style="margin-top:1.4rem">One photo. AI vision reads the fish and gives you a straight answer — and when it isn't sure, it tells you that too.</p>
       <ul>
         <li><strong>Species + scientific name</strong> from a single photo, with habitat notes.</li>
         <li><strong>Honest confidence.</strong> A low-confidence ID never bluffs — you get the likely alternatives and pick, instead of trusting a guess.</li>
@@ -328,25 +366,22 @@
       </ul>
       <p class="fineprint">10 free IDs every month · unlimited with Premium. AI identification can be wrong — always confirm species and local rules before you keep a fish.</p>
     </div>
-    <div class="feature-shot">
-      <div class="phone">
-        <img src="/images/screens/02-id-result.webp" width="1179" height="2556" alt="Identification result for a gag grouper with the is-this-right confirmation step and a regulations summary" loading="lazy" />
-      </div>
+    <div class="fshot rv">
+      <div class="phone"><img src="/images/screens/01-identify.webp" width="590" height="1279" alt="Catch 'N Bake identify screen: a hogfish identified with high confidence, species name and details shown" loading="lazy" /></div>
     </div>
   </div>
 </section>
 
-<section class="rule-top" aria-labelledby="feat-recipes-title">
-  <div class="feature flip">
-    <div class="feature-shot">
-      <div class="phone">
-        <img src="/images/screens/03-recipes.webp" width="1179" height="2556" alt="Recipe Ideas screen with difficulty filters and a Classic Fried Fish recipe card" loading="lazy" />
-      </div>
+<!-- ============ COOK ============ -->
+<section aria-labelledby="feat-recipes-title">
+  <div class="wrap feature flip">
+    <div class="fshot rv">
+      <div class="phone"><img src="/images/screens/03-recipes.webp" width="590" height="1279" alt="Recipe Ideas screen with difficulty filters and a Classic Fried Fish recipe card" loading="lazy" /></div>
     </div>
-    <div class="feature-copy">
-      <div class="sec-eyebrow"><span class="n">03</span><p class="eyebrow" style="margin:0">Recipes for your actual fish</p></div>
-      <h2 id="feat-recipes-title">From this exact fish to dinner.</h2>
-      <p class="prose">Not “fish recipes.” Recipes for the fish in your cooler, written when you ask for them.</p>
+    <div class="fcopy rv">
+      <div class="sechead"><span class="meta">The Cook · <b>Recipes</b></span></div>
+      <h2 id="feat-recipes-title">From this exact fish <em>to dinner.</em></h2>
+      <p class="prose" style="margin-top:1.4rem">Not "fish recipes." Recipes for the fish in your cooler, written when you ask for them.</p>
       <ul>
         <li><strong>Four to six recipes per catch</strong> — each with difficulty, a full ingredient list, and step-by-step instructions.</li>
         <li><strong>Region-aware.</strong> Recipes lean into your local tradition across 11 American culinary regions — a redfish in Louisiana doesn't cook like a redfish in the Carolinas.</li>
@@ -356,39 +391,69 @@
   </div>
 </section>
 
-<section class="rule-top" aria-labelledby="feat-journal-title">
-  <div class="feature">
-    <div class="feature-copy">
-      <div class="sec-eyebrow"><span class="n">04</span><p class="eyebrow" style="margin:0">Catch journal</p></div>
+<!-- ============ JOURNAL BAND + PHONE ============ -->
+<div class="band" aria-labelledby="feat-journal-title">
+  <div class="ph">
+    <picture>
+      <source srcset="/images/hero/band-redfish-960.webp 960w, /images/hero/band-redfish.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/band-redfish.jpg" width="1600" height="1067" alt="Angler on a flats boat holding a copper redfish, the black tail spot in frame" loading="lazy" style="object-position:50% 40%" />
+    </picture>
+  </div>
+  <div class="grade"></div>
+  <div class="cap">
+    <div class="wrap inner">
       <h2 id="feat-journal-title">Your season, written down.</h2>
-      <p class="prose">Every catch becomes a record you'll actually look back on — and the patterns start to show.</p>
-      <ul>
+      <div class="side">
+        <span class="meta">The Journal · <b>Every catch</b></span>
+        One tap from an ID to a logbook entry — spot, weather, bait, lure, weight, length, and your notes. Works offline and syncs when you're back in signal.
+      </div>
+    </div>
+  </div>
+</div>
+
+<section aria-label="Journal details" style="padding-top:clamp(3rem,7vh,5rem)">
+  <div class="wrap feature">
+    <div class="fcopy rv">
+      <ul style="margin-top:0">
         <li><strong>One tap from ID to logbook</strong> — the photo and species carry straight over.</li>
         <li><strong>The details that matter:</strong> spot, weather, temperature, bait, lure, weight, length, and your notes.</li>
         <li><strong>Works offline.</strong> No signal at the flats? Entries queue and sync when you're back.</li>
         <li><strong>Stats, a catch map, and a leaderboard</strong> to see your season take shape.</li>
       </ul>
     </div>
-    <div class="feature-shot">
-      <div class="phone">
-        <img src="/images/screens/04-journal.webp" width="1179" height="2556" alt="My Catch Journal screen with catch stats, journal tabs, and a logged snook entry" loading="lazy" />
-      </div>
+    <div class="fshot rv">
+      <div class="phone"><img src="/images/screens/04-journal.webp" width="590" height="1279" alt="My Catch Journal screen with catch stats, journal tabs, and a logged snook entry" loading="lazy" /></div>
     </div>
   </div>
 </section>
 
-<section class="rule-top" aria-labelledby="feat-community-title">
-  <div class="feature flip">
-    <div class="feature-shot">
-      <div class="phone">
-        <img src="/images/screens/05-community.webp" width="1179" height="2556" alt="Community Explore and Share screen with a shared lane snapper post and a night black drum post" loading="lazy" />
+<!-- ============ COMMUNITY BAND + PHONE ============ -->
+<div class="band" aria-labelledby="feat-community-title">
+  <div class="ph">
+    <picture>
+      <source srcset="/images/hero/share-hogfish-960.webp 960w, /images/hero/share-hogfish.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/share-hogfish.jpg" width="1920" height="1280" alt="Angler holding a hogfish offshore, open Gulf water behind him" loading="lazy" style="object-position:50% 55%" />
+    </picture>
+  </div>
+  <div class="grade"></div>
+  <div class="cap">
+    <div class="wrap inner">
+      <h2 id="feat-community-title">Show off what's biting.</h2>
+      <div class="side">
+        <span class="meta">The Community · <b>Share it</b></span>
+        The dock, minus the drive — show off the catch <em style="color:var(--bone)">and</em> the plate, and trade what worked with people who fish your water.
       </div>
     </div>
-    <div class="feature-copy">
-      <div class="sec-eyebrow"><span class="n">05</span><p class="eyebrow" style="margin:0">Community</p></div>
-      <h2 id="feat-community-title">The dock, minus the drive.</h2>
-      <p class="prose">Show off the catch <em>and</em> the plate. Trade what worked with people who fish your water.</p>
-      <ul>
+  </div>
+</div>
+
+<section aria-label="Community details" style="padding-top:clamp(3rem,7vh,5rem)">
+  <div class="wrap feature flip">
+    <div class="fshot rv">
+      <div class="phone"><img src="/images/screens/05-community.webp" width="590" height="1279" alt="Community Explore and Share screen with a shared lane snapper post and a night black drum post" loading="lazy" /></div>
+    </div>
+    <div class="fcopy rv">
+      <ul style="margin-top:0">
         <li><strong>Share catches, cook photos, and recipes</strong> — with comments, likes, and saves.</li>
         <li><strong>Groups</strong> for your species, your technique, your stretch of coast.</li>
         <li><strong>Family-friendly by design.</strong> Every photo is AI-moderated before it posts, and report &amp; block tools are one tap away.</li>
@@ -397,105 +462,68 @@
   </div>
 </section>
 
-<!-- ============ ALSO IN THE BOX ============ -->
-<section class="rule-top" aria-labelledby="also-title">
-  <div class="sec-eyebrow"><span class="n">06</span><p class="eyebrow" style="margin:0">Also in the box</p></div>
-  <h2 id="also-title">The small things that add up.</h2>
-  <div class="also">
-    <div class="also-card">
-      <h3>Seasonal forecast</h3>
-      <p>A monthly, location-aware read on what's biting, when to go, and what to throw — free for everyone.</p>
-    </div>
-    <div class="also-card">
-      <h3>Rules at hand</h3>
-      <p>Direct links to the official fishing regulations for all 50 states, right where you need them.</p>
-    </div>
-    <div class="also-card">
-      <h3>Badges &amp; levels</h3>
-      <p>Points for logging, cooking, and contributing — climb from Newcomer to Legend.</p>
-    </div>
-    <div class="also-card">
-      <h3>Your spots stay yours</h3>
-      <p>GPS metadata is stripped from photos before upload. Honey holes are sacred.</p>
+<div class="tide" aria-hidden="true"><svg preserveAspectRatio="none" viewBox="0 0 1200 14" fill="none"><path d="M0 7 Q 75 1 150 7 T 300 7 T 450 7 T 600 7 T 750 7 T 900 7 T 1050 7 T 1200 7" stroke="#f59e0b" stroke-width="1.4"/></svg></div>
+
+<!-- ============ ALSO ============ -->
+<section aria-labelledby="also-title">
+  <div class="wrap">
+    <div class="sechead rv"><span class="meta">Also in the box</span></div>
+    <h2 id="also-title" class="rv">The small things that add up.</h2>
+    <div class="also">
+      <div class="also-card rv"><h3>Seasonal forecast</h3><p>A monthly, location-aware read on what's biting, when to go, and what to throw — free for everyone.</p></div>
+      <div class="also-card rv"><h3>Rules at hand</h3><p>Direct links to the official fishing regulations for all 50 states, right where you need them.</p></div>
+      <div class="also-card rv"><h3>Badges &amp; levels</h3><p>Points for logging, cooking, and contributing — climb from Newcomer to Legend.</p></div>
+      <div class="also-card rv"><h3>Your spots stay yours</h3><p>GPS metadata is stripped from photos before upload. Honey holes are sacred.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ FIELD PHOTO ============ -->
-<section class="rule-top photo-band-sec" aria-label="From the field">
-  <figure class="photo-band">
+<!-- ============ FIELD GUIDES ============ -->
+<section id="guides" aria-labelledby="guides-title">
+  <div class="wrap">
+    <div class="sechead rv"><span class="meta">The Field Guide · <b>Can you eat it?</b></span></div>
+    <h2 id="guides-title" class="rv">Straight answers, species by species.</h2>
+    <p class="prose rv" style="margin-top:1.4rem">Taste, cleaning, and cooking — starting with the Florida inshore fish everyone actually catches.</p>
+    <div class="guides rv">
+      <a class="guide-row" href="/fish/sheepshead"><h3>Sheepshead</h3><p>The convict fish with human teeth — and some of the sweetest white meat inshore.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/snook"><h3>Snook</h3><p>Superb on the plate — but one of Florida's most tightly protected gamefish. Know before you keep.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/redfish"><h3>Redfish</h3><p>The fish that made "blackened" famous. Taste, cleaning, and three ways to cook it.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/gag-grouper"><h3>Gag Grouper</h3><p>The fish behind Florida's famous grouper sandwich — and its tightly watched seasons.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/red-grouper"><h3>Red Grouper</h3><p>Gag's sweeter Gulf sibling — the other half of the sandwich dynasty.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/black-drum"><h3>Black Drum</h3><p>The redfish's humble cousin. Puppy drum eat like reds — size is everything.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/spanish-mackerel"><h3>Spanish Mackerel</h3><p>Florida's most underrated table fish — if you treat it right from minute one.</p><span class="go">Read the guide →</span></a>
+      <div class="guide-row teaser" aria-hidden="true"><h3>More every week</h3><p>Snapper, seatrout, flounder, and mahi are queued up next.</p><span class="go" style="color:var(--mist)">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TROUT BAND ============ -->
+<div class="band" role="img" aria-label="Angler kneeling in a mountain stream holding a brown trout, fly rod gripped in his teeth">
+  <div class="ph">
     <picture>
-      <source srcset="/images/photos/brown-trout-fly-fishing-mountain-stream.webp" type="image/webp" />
-      <img src="/images/photos/brown-trout-fly-fishing-mountain-stream.jpg" width="1400" height="596" alt="An angler kneeling in a Rocky Mountain stream holding a brown trout, fly rod gripped in his teeth" loading="lazy" />
+      <source srcset="/images/hero/band-trout-960.webp 960w, /images/hero/band-trout.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/band-trout.jpg" width="1600" height="900" alt="" loading="lazy" style="object-position:50% 45%" />
     </picture>
-    <figcaption>Salt flats or mountain streams — if you can catch it, you can cook it.</figcaption>
-  </figure>
-</section>
-
-<!-- ============ FISH GUIDES ============ -->
-<section id="guides" class="rule-top" aria-labelledby="guides-title">
-  <div class="sec-eyebrow"><span class="n">07</span><p class="eyebrow" style="margin:0">Field guide</p></div>
-  <h2 id="guides-title">Can you eat it? Start here.</h2>
-  <p class="prose">Straight answers on taste, cleaning, and cooking — starting with the Florida inshore fish everyone actually catches.</p>
-  <div class="guides">
-    <a class="guide-card" href="/fish/sheepshead">
-      <p class="q">Can you eat…</p>
-      <h3>Sheepshead</h3>
-      <p>The convict fish with human teeth — and some of the sweetest white meat inshore.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <a class="guide-card" href="/fish/snook">
-      <p class="q">Can you eat…</p>
-      <h3>Snook</h3>
-      <p>Superb on the plate — but one of Florida's most tightly protected gamefish. Know before you keep.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <a class="guide-card" href="/fish/redfish">
-      <p class="q">Can you eat…</p>
-      <h3>Redfish</h3>
-      <p>The fish that made “blackened” famous. Taste, cleaning, and three ways to cook it.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <a class="guide-card" href="/fish/gag-grouper">
-      <p class="q">Can you eat…</p>
-      <h3>Gag Grouper</h3>
-      <p>The fish behind Florida's famous grouper sandwich — and its tightly watched seasons.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <a class="guide-card" href="/fish/red-grouper">
-      <p class="q">Can you eat…</p>
-      <h3>Red Grouper</h3>
-      <p>Gag's sweeter Gulf sibling — the other half of the sandwich dynasty.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <a class="guide-card" href="/fish/black-drum">
-      <p class="q">Can you eat…</p>
-      <h3>Black Drum</h3>
-      <p>The redfish's humble cousin. Puppy drum eat like reds — size is everything.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <a class="guide-card" href="/fish/spanish-mackerel">
-      <p class="q">Can you eat…</p>
-      <h3>Spanish Mackerel</h3>
-      <p>Florida's most underrated table fish — if you treat it right from minute one.</p>
-      <span class="go">Read the guide →</span>
-    </a>
-    <div class="guide-card guide-card-teaser" aria-hidden="true">
-      <p class="q">Coming soon…</p>
-      <h3>More every week</h3>
-      <p>Snapper, seatrout, flounder, and mahi are queued up next.</p>
+  </div>
+  <div class="grade"></div>
+  <div class="cap">
+    <div class="wrap inner">
+      <div class="side" style="max-width:34rem">
+        <span class="meta">Wherever you fish</span>
+        <span style="font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.3;color:var(--bone);display:block">Salt flats or mountain streams — if you can catch it, you can cook it.</span>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ============ PREMIUM ============ -->
-<section aria-labelledby="premium-title" style="padding-top:2rem">
-  <div class="band">
-    <div class="sec-eyebrow"><span class="n" style="color:var(--brand-bright)">08</span><p class="eyebrow" style="margin:0;color:rgba(243,237,225,.7)">Free &amp; Premium</p></div>
-    <h2 id="premium-title">Free where it counts. Premium when you're hooked.</h2>
-    <p class="prose">Everything above works on the free tier. Premium removes the ceilings.</p>
+<section aria-labelledby="premium-title">
+  <div class="wrap">
+    <div class="sechead rv"><span class="meta">Free &amp; Premium</span></div>
+    <h2 id="premium-title" class="rv">Free where it counts. Premium when <em>you're hooked.</em></h2>
+    <p class="prose rv" style="margin-top:1.4rem">Everything above works on the free tier. Premium removes the ceilings.</p>
     <div class="tiers">
-      <div class="tier">
+      <div class="tier rv">
         <h3>Free</h3>
         <p class="sub">Everything you need to cook tonight's catch</p>
         <ul>
@@ -505,7 +533,7 @@
           <li>Full community access &amp; seasonal forecast</li>
         </ul>
       </div>
-      <div class="tier premium">
+      <div class="tier premium rv">
         <h3>Premium</h3>
         <p class="sub">For the every-weekend angler</p>
         <ul>
@@ -516,45 +544,66 @@
         </ul>
       </div>
     </div>
-    <p class="fineprint" style="margin-top:2rem">Premium pricing is shown in the app before you subscribe.</p>
+    <p class="fineprint" style="margin-top:1.6rem">Premium pricing is shown in the app before you subscribe.</p>
   </div>
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final rule-top" aria-labelledby="final-title">
-  <p class="eyebrow">From pond to plate</p>
-  <h2 id="final-title">Be first at the ramp.</h2>
-  <p class="lede">Catch 'N Bake is coming to the App Store. In the meantime, the field guides below are open to everyone.</p>
-  <div class="cta-row">
-    <a class="store-badge" data-app-store hidden href="#">
-      <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 1 2.7-1.5 3.7-3c1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.3-3.3-4.8zM15 4.8c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
-      <span><span class="small">Download on the</span><span class="big">App Store</span></span>
-    </a>
-    <span class="store-badge is-soon" data-store-soon>
-      <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 1 2.7-1.5 3.7-3c1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.3-3.3-4.8zM15 4.8c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
-      <span><span class="small">Coming soon to the</span><span class="big">App Store</span></span>
-    </span>
+<section class="final" aria-labelledby="final-title">
+  <div class="wrap inner">
+    <div class="rv">
+      <span class="meta" style="display:block;margin-bottom:1.4rem">From catch to kitchen</span>
+      <h2 id="final-title">We fish. We cook.<span class="l2" style="display:block;color:var(--amber)">We built this.</span></h2>
+    </div>
+    <div class="right rv">
+      <div class="cta-row">
+        <a class="store-badge" data-app-store hidden href="#">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 1 2.7-1.5 3.7-3c1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.3-3.3-4.8zM15 4.8c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
+          <span><span class="small">Download on the</span><span class="big">App Store</span></span>
+        </a>
+        <span class="store-badge is-soon" data-store-soon>
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 1 2.7-1.5 3.7-3c1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.3-3.3-4.8zM15 4.8c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
+          <span><span class="small">Coming soon to the</span><span class="big">App Store</span></span>
+        </span>
+      </div>
+      <p class="cta-note" style="margin-top:1.2rem">The field guides below are open to everyone.</p>
+    </div>
   </div>
 </section>
 
 </main>
 
 <footer class="site">
-  <div class="cols">
-    <span>© 2026 Catch 'N Bake LLC · Made in Florida</span>
-    <nav aria-label="Footer">
+  <div class="wrap cols">
+    <div class="brandline">
+      <span class="brand" style="color:var(--bone)">Catch <span style="color:var(--amber)">'N</span> Bake</span><br>
+      © 2026 Catch 'N Bake LLC · Made in Florida
+    </div>
+    <div>
+      <span class="meta">App</span>
+      <a href="/">Home</a>
+      <a href="/support">Support</a>
+    </div>
+    <div>
+      <span class="meta">Fish Guides</span>
       <a href="/fish/sheepshead">Sheepshead</a>
       <a href="/fish/snook">Snook</a>
       <a href="/fish/redfish">Redfish</a>
-      <a href="/support">Support</a>
+      <a href="/fish/gag-grouper">Gag Grouper</a>
+      <a href="/fish/red-grouper">Red Grouper</a>
+      <a href="/fish/black-drum">Black Drum</a>
+      <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+    </div>
+    <div>
+      <span class="meta">Legal</span>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="/guidelines">Guidelines</a>
-    </nav>
+    </div>
   </div>
 </footer>
 
-</div>
 <script src="/js/app-store.js" defer></script>
+<script src="/js/nav.js" defer></script>
 </body>
 </html>
