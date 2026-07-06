@@ -104,7 +104,8 @@
   .drop > button::after{content:"";width:.45em;height:.45em;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-.1em)}
   .drop > button:hover{color:var(--amber);opacity:1}
   .drop .menu{position:absolute;top:calc(100% + .9rem);left:50%;transform:translateX(-50%);background:var(--night2);border:1px solid var(--line);border-radius:12px;padding:.6rem;min-width:15rem;display:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
-  .drop:hover .menu,.drop:focus-within .menu{display:block}
+  .drop:focus-within .menu,.drop.open .menu{display:block}
+  .drop .menu::before{content:"";position:absolute;left:-1.2rem;right:-1.2rem;top:-1.2rem;height:1.3rem}
   .drop .menu a{display:block;color:var(--bone);text-decoration:none;padding:.55rem .9rem;border-radius:8px;font-size:.92rem}
   .drop .menu a:hover{background:var(--card);color:var(--amber)}
   .drop .menu .all{border-top:1px solid var(--line);margin-top:.4rem;padding-top:.7rem;color:var(--mist);font-size:.8rem}
@@ -122,8 +123,8 @@
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end}
   .hero .ph{position:absolute;inset:0;overflow:hidden}
-  .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:62% 30%}
-  @media (max-width:700px){.hero .ph img{object-position:42% 28%}}
+  .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:62% 38%}
+  @media (max-width:700px){.hero .ph img{object-position:42% 34%}}
   .hero .grade{position:absolute;inset:0;background:linear-gradient(178deg,rgba(11,18,32,.66) 4%,rgba(11,18,32,.06) 30%,rgba(11,18,32,.18) 55%,rgba(11,18,32,.96) 90%)}
   .hero .copy{position:relative;z-index:2;width:100%;padding:9rem clamp(1.25rem,4vw,3rem) 7vh}
   .eyebrow{display:block;margin-bottom:1.6rem}
@@ -260,7 +261,7 @@
   <nav class="primary" aria-label="Site">
     <a href="/">Home</a>
     <div class="drop">
-      <button type="button" aria-haspopup="true">Fish Guides</button>
+      <button type="button" aria-haspopup="true" aria-expanded="false">Fish Guides</button>
       <div class="menu">
         <a href="/fish/sheepshead">Sheepshead</a>
         <a href="/fish/snook">Snook</a>
@@ -392,11 +393,11 @@
 </section>
 
 <!-- ============ JOURNAL BAND + PHONE ============ -->
-<div class="band" aria-labelledby="feat-journal-title">
+<div class="band" id="band-journal" aria-labelledby="feat-journal-title">
   <div class="ph">
     <picture>
-      <source srcset="/images/hero/band-redfish-960.webp 960w, /images/hero/band-redfish.webp 1920w" sizes="100vw" type="image/webp" />
-      <img src="/images/hero/band-redfish.jpg" width="1600" height="1067" alt="Angler on a flats boat holding a copper redfish, the black tail spot in frame" loading="lazy" style="object-position:50% 40%" />
+      <source srcset="/images/hero/band-mackerel-960.webp 960w, /images/hero/band-mackerel.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/band-mackerel.jpg" width="1600" height="1067" alt="Angler on a bridge pier holding a Spanish mackerel out to the camera, its yellow spots catching the sun" loading="lazy" style="object-position:50% 75%" />
     </picture>
   </div>
   <div class="grade"></div>
@@ -428,11 +429,11 @@
 </section>
 
 <!-- ============ COMMUNITY BAND + PHONE ============ -->
-<div class="band" aria-labelledby="feat-community-title">
+<div class="band" id="band-community" aria-labelledby="feat-community-title">
   <div class="ph">
     <picture>
       <source srcset="/images/hero/share-hogfish-960.webp 960w, /images/hero/share-hogfish.webp 1920w" sizes="100vw" type="image/webp" />
-      <img src="/images/hero/share-hogfish.jpg" width="1920" height="1280" alt="Angler holding a hogfish offshore, open Gulf water behind him" loading="lazy" style="object-position:50% 55%" />
+      <img src="/images/hero/share-hogfish.jpg" width="1920" height="1280" alt="Angler holding a hogfish offshore, open Gulf water behind him" loading="lazy" style="object-position:50% 74%" />
     </picture>
   </div>
   <div class="grade"></div>
@@ -441,7 +442,7 @@
       <h2 id="feat-community-title">Show off what's biting.</h2>
       <div class="side">
         <span class="meta">The Community · <b>Share it</b></span>
-        The dock, minus the drive — show off the catch <em style="color:var(--bone)">and</em> the plate, and trade what worked with people who fish your water.
+        Show off the catch <em style="color:var(--bone)">and</em> the plate, and trade what worked with people who fish your water.
       </div>
     </div>
   </div>
@@ -498,11 +499,11 @@
 </section>
 
 <!-- ============ TROUT BAND ============ -->
-<div class="band" role="img" aria-label="Angler kneeling in a mountain stream holding a brown trout, fly rod gripped in his teeth">
+<div class="band" id="band-trout" role="img" aria-label="Angler kneeling in a mountain stream holding a brown trout, fly rod gripped in his teeth">
   <div class="ph">
     <picture>
       <source srcset="/images/hero/band-trout-960.webp 960w, /images/hero/band-trout.webp 1920w" sizes="100vw" type="image/webp" />
-      <img src="/images/hero/band-trout.jpg" width="1600" height="900" alt="" loading="lazy" style="object-position:50% 45%" />
+      <img src="/images/hero/band-trout.jpg" width="1600" height="900" alt="" loading="lazy" style="object-position:50% 78%" />
     </picture>
   </div>
   <div class="grade"></div>

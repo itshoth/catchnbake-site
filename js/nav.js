@@ -17,6 +17,20 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) setOpen(false); });
   }
 
+  // Dropdown: hover-intent (280ms close delay) + click toggle + Escape + outside-click.
+  document.querySelectorAll(".drop").forEach(function (drop) {
+    var btn = drop.querySelector("button");
+    if (!btn) return;
+    var timer;
+    function open() { clearTimeout(timer); drop.classList.add("open"); btn.setAttribute("aria-expanded", "true"); }
+    function close() { clearTimeout(timer); drop.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
+    btn.addEventListener("click", function () { drop.classList.contains("open") ? close() : open(); });
+    drop.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") open(); });
+    drop.addEventListener("pointerleave", function (e) { if (e.pointerType !== "mouse") return; clearTimeout(timer); timer = setTimeout(close, 280); });
+    drop.addEventListener("keydown", function (e) { if (e.key === "Escape") { close(); btn.focus(); } });
+    document.addEventListener("click", function (e) { if (!drop.contains(e.target)) close(); });
+  });
+
   // Scroll reveals — no-ops for reduced-motion users (CSS gates the initial state).
   var rv = document.querySelectorAll(".rv");
   if (rv.length && "IntersectionObserver" in window) {

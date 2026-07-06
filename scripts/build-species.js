@@ -431,7 +431,7 @@ const NAV = `<header class="site">
   <nav class="primary" aria-label="Site">
     <a href="/">Home</a>
     <div class="drop">
-      <button type="button" aria-haspopup="true">Fish Guides</button>
+      <button type="button" aria-haspopup="true" aria-expanded="false">Fish Guides</button>
       <div class="menu">
         <a href="/fish/sheepshead">Sheepshead</a>
         <a href="/fish/snook">Snook</a>
@@ -590,7 +590,8 @@ ${jsonLd(sp)}
   .drop > button::after{content:"";width:.45em;height:.45em;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-.1em)}
   .drop > button:hover{color:var(--amber);opacity:1}
   .drop .menu{position:absolute;top:calc(100% + .9rem);left:50%;transform:translateX(-50%);background:var(--night2);border:1px solid var(--line);border-radius:12px;padding:.6rem;min-width:15rem;display:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);z-index:50}
-  .drop:hover .menu,.drop:focus-within .menu{display:block}
+  .drop:focus-within .menu,.drop.open .menu{display:block}
+  .drop .menu::before{content:"";position:absolute;left:-1.2rem;right:-1.2rem;top:-1.2rem;height:1.3rem}
   .drop .menu a{display:block;color:var(--bone);text-decoration:none;padding:.55rem .9rem;border-radius:8px;font-size:.92rem}
   .drop .menu a:hover{background:var(--card);color:var(--amber)}
   .drop .menu .all{border-top:1px solid var(--line);margin-top:.4rem;padding-top:.7rem;color:var(--mist);font-size:.8rem}
