@@ -1,10 +1,9 @@
 // ============================================================
-// APP STORE URL — the ONE constant to update at launch.
-// Paste the App Store link (https://apps.apple.com/app/...)
-// between the quotes and every CTA on the site goes live.
-// Leave empty ("") to show the honest "Coming soon" badge.
+// APP STORE URL — the app is LIVE. Badges are hard-coded in the
+// HTML now; this constant is kept as the single source of truth
+// so any straggler [data-app-store] anchor still gets the link.
 // ============================================================
-var APP_STORE_URL = "";
+var APP_STORE_URL = "https://apps.apple.com/us/app/catch-n-bake/id6762584046";
 
 (function () {
   if (!APP_STORE_URL) return;

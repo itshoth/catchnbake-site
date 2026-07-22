@@ -547,6 +547,7 @@ function page(sp) {
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#0b1220" />
+<meta name="apple-itunes-app" content="app-id=6762584046" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -710,12 +711,9 @@ ${sp.meal ? `<figure class="meal">
 <div class="cta-band">
   <h2>Caught one? Make sure, then make dinner.</h2>
   <p>Snap a photo in Catch 'N Bake to confirm the species, see a regulations summary, and get recipes written for your exact fish.</p>
-  <a class="store-badge" data-app-store hidden href="#">
+  <a class="store-badge" data-app-store href="https://apps.apple.com/us/app/catch-n-bake/id6762584046" target="_blank" rel="noopener" aria-label="Download Catch 'N Bake on the App Store">
     <span><span class="small">Download on the</span><span class="big">App Store</span></span>
   </a>
-  <span class="store-badge is-soon" data-store-soon>
-    <span><span class="small">Coming soon to the</span><span class="big">App Store</span></span>
-  </span>
 </div>
 
 <h2>Frequently asked questions</h2>
