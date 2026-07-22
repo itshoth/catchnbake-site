@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+  Email verification landing page. Served at https://catchnbake.com/verify
+  Supabase auth emails redirect here; this page forwards the result params
+  to the app at catchnbake://auth/callback (handled by app/auth/callback.tsx).
+
+  PRIVACY: auth tokens arrive in the URL hash/query. This page must never
+  send them anywhere — no analytics (Clarity intentionally omitted), no
+  external requests, no logging of location.hash. Keep it that way.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verify your email — Catch 'N Bake</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0b1220" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  /* self-hosted variable fonts (latin) */
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/fraunces-latin.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2')}
+  @font-face{font-family:'Fraunces Fallback';src:local('Georgia');ascent-override:98%;descent-override:26%;line-gap-override:0%;size-adjust:101%}
+  @font-face{font-family:'Inter Fallback';src:local('Arial');ascent-override:96.9%;descent-override:24.2%;line-gap-override:0%;size-adjust:107%}
+
+  :root{
+    --night:#0b1220;
+    --night2:#0f172a;
+    --line:#26334a;
+    --bone:#f5f1e6;
+    --mist:#a3adbf;
+    --amber:#f59e0b;
+    --ink-on-amber:#171003;
+    --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
+    --sans:'Inter','Inter Fallback',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
+  body{
+    background:var(--night);color:var(--bone);
+    font-family:var(--sans);font-size:1.0625rem;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    min-height:100svh;display:flex;flex-direction:column;
+  }
+  a{color:var(--amber)}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+  header.site{display:flex;justify-content:center;padding:1.6rem clamp(1.25rem,4vw,3rem)}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--bone);text-decoration:none;letter-spacing:.01em}
+  .brand span{color:var(--amber)}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem clamp(1.25rem,5vw,3rem) 4rem}
+  .card{width:100%;max-width:26.5rem;text-align:center}
+
+  .mark{width:74px;height:74px;margin:0 auto 1.8rem;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1.5px solid var(--line);background:var(--night2)}
+  .mark svg{display:block}
+  .mark.ok{border-color:rgba(245,158,11,.55);box-shadow:0 0 60px 2px rgba(245,158,11,.16)}
+
+  .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mist);margin-bottom:1rem}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,7vw,2.5rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:.9rem}
+  h1 em{font-style:normal;color:var(--amber)}
+  .sub{color:var(--mist);font-size:1rem;margin-bottom:2.2rem}
+
+  .openbtn{display:block;width:100%;padding:1.05rem 1.5rem;border-radius:12px;
+    background:var(--amber);color:var(--ink-on-amber);text-decoration:none;
+    font-family:var(--serif);font-weight:600;font-size:1.15rem;line-height:1.2}
+  .openbtn:hover{background:#d97706}
+  .openbtn:active{transform:translateY(1px)}
+
+  .fallback{margin-top:1.4rem;font-size:.85rem;color:var(--mist)}
+  .fallback a{color:var(--mist)}
+
+  /* success spinner shown while we hand off to the app */
+  .handoff{display:flex;align-items:center;justify-content:center;gap:.6rem;
+    margin-top:1.6rem;font-size:.85rem;color:var(--mist)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 1.2s ease-in-out infinite}
+  .dot:nth-child(2){animation-delay:.2s}
+  .dot:nth-child(3){animation-delay:.4s}
+  @keyframes pulse{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+  @media (prefers-reduced-motion: reduce){.dot{animation:none;opacity:.7}}
+
+  footer.site{padding:1.6rem;text-align:center;font-size:.8rem;color:var(--mist);border-top:1px solid var(--line)}
+  footer.site a{color:var(--mist);text-decoration:none;margin:0 .6rem}
+  footer.site a:hover{color:var(--amber)}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="/">Catch <span>'N</span> Bake</a>
+</header>
+
+<main>
+  <!-- success state -->
+  <div class="card" id="state-success" hidden>
+    <div class="mark ok" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18.5 13.5 26 28 9"/></svg>
+    </div>
+    <p class="eyebrow">You're all set</p>
+    <h1>Email <em>verified!</em></h1>
+    <p class="sub" id="success-sub">Opening Catch 'N Bake…</p>
+    <a class="openbtn" id="open-app-success" href="catchnbake://auth/callback">Open Catch 'N Bake</a>
+    <div class="handoff" id="handoff" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <p class="fallback">On a computer? You're verified. Open Catch 'N Bake on your phone and sign in.</p>
+  </div>
+
+  <!-- error state -->
+  <div class="card" id="state-error" hidden>
+    <div class="mark" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#a3adbf" stroke-width="2.4" stroke-linecap="round"><path d="M15 6v11"/><circle cx="15" cy="23" r="1.4" fill="#a3adbf" stroke="none"/></svg>
+    </div>
+    <p class="eyebrow">Verification link</p>
+    <h1>This link has expired or was already used</h1>
+    <p class="sub">No worries. Open Catch 'N Bake and request a new verification email from the sign in screen.</p>
+    <a class="openbtn" id="open-app-error" href="catchnbake://auth/callback">Open Catch 'N Bake</a>
+    <p class="fallback">On a computer? Open Catch 'N Bake on your phone to request a fresh link.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  // Tokens live in location.hash / location.search. They are forwarded to the
+  // app's deep link and nowhere else — no network calls, no logging.
+  var search = window.location.search || '';
+  var hash = window.location.hash || '';
+
+  function hasError(str) {
+    if (!str || str.length < 2) return false;
+    var p = new URLSearchParams(str.slice(1));
+    return p.has('error') || p.has('error_code') || p.has('error_description');
+  }
+
+  var failed = hasError(search) || hasError(hash);
+  // Forward params EXACTLY — the app needs them to establish the session.
+  var deepLink = 'catchnbake://auth/callback' + search + hash;
+
+  var success = document.getElementById('state-success');
+  var error = document.getElementById('state-error');
+
+  if (failed) {
+    error.hidden = false;
+    document.getElementById('open-app-error').href = deepLink;
+    document.title = "Link expired — Catch 'N Bake";
+  } else {
+    success.hidden = false;
+    document.getElementById('open-app-success').href = deepLink;
+    var hasParams = search.length > 1 || hash.length > 1;
+    if (hasParams) {
+      setTimeout(function () { window.location.href = deepLink; }, 800);
+    } else {
+      // Direct visit with nothing to hand off: skip the auto attempt.
+      document.getElementById('success-sub').textContent = "Open Catch 'N Bake to sign in.";
+      document.getElementById('handoff').hidden = true;
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
