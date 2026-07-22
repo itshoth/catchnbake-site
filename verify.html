@@ -100,8 +100,8 @@
     <div class="mark ok" aria-hidden="true">
       <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18.5 13.5 26 28 9"/></svg>
     </div>
-    <p class="eyebrow">You're all set</p>
-    <h1>Email <em>verified!</em></h1>
+    <p class="eyebrow" id="success-eyebrow">You're all set</p>
+    <h1 id="success-h1">Email <em>verified!</em></h1>
     <p class="sub" id="success-sub">Opening Catch 'N Bake…</p>
     <a class="openbtn" id="open-app-success" href="catchnbake://auth/callback">Open Catch 'N Bake</a>
     <div class="handoff" id="handoff" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
@@ -140,6 +140,15 @@
   }
 
   var failed = hasError(search) || hasError(hash);
+
+  function getParam(name) {
+    var q = new URLSearchParams(search.slice(1));
+    if (q.has(name)) return q.get(name);
+    var h = new URLSearchParams(hash.length > 1 ? hash.slice(1) : '');
+    return h.get(name);
+  }
+  // Password reset emails land here too (type=recovery); adjust the copy.
+  var recovery = getParam('type') === 'recovery';
   // Forward params EXACTLY — the app needs them to establish the session.
   var deepLink = 'catchnbake://auth/callback' + search + hash;
 
@@ -153,6 +162,12 @@
   } else {
     success.hidden = false;
     document.getElementById('open-app-success').href = deepLink;
+    if (recovery) {
+      document.getElementById('success-eyebrow').textContent = 'Password reset';
+      document.getElementById('success-h1').innerHTML = 'Reset your <em>password</em>';
+      document.getElementById('success-sub').textContent = "Opening Catch 'N Bake to reset your password…";
+      document.title = "Reset your password — Catch 'N Bake";
+    }
     var hasParams = search.length > 1 || hash.length > 1;
     if (hasParams) {
       setTimeout(function () { window.location.href = deepLink; }, 800);
