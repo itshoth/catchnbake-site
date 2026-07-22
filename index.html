@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  Catch 'N Bake — marketing landing page. "Dark Water" design system:
+  Catch 'N Bake marketing landing page. "Dark Water" design system:
   night slate ground (#0b1220), amber accent (#f59e0b), full-bleed owner
   photography with art-directed focal points, Fraunces display type.
   Every feature claim verified against the app repo; see docs/SITE_AUDIT.md.
@@ -10,12 +10,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Catch 'N Bake — AI Fish ID &amp; Recipes for Your Catch</title>
-<meta name="description" content="Snap a photo of your catch. Catch 'N Bake identifies the species, points you to the regulations, and writes recipes for your exact fish — tuned to how your region cooks. Free on the App Store." />
+<title>Catch 'N Bake · AI Fish ID &amp; Recipes for Your Catch</title>
+<meta name="description" content="Snap a photo of your catch. Catch 'N Bake identifies the species, points you to the regulations, and writes recipes for your exact fish, tuned to how your region cooks. Free on the App Store." />
 <link rel="canonical" href="https://catchnbake.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Catch 'N Bake" />
-<meta property="og:title" content="Catch 'N Bake — You caught it. Now cook it." />
+<meta property="og:title" content="Catch 'N Bake · You caught it. Now cook it." />
 <meta property="og:description" content="AI fish identification, region-aware recipes for your exact catch, a catch journal, and a community of anglers who cook. Free on the App Store." />
 <meta property="og:url" content="https://catchnbake.com/" />
 <meta property="og:image" content="https://catchnbake.com/images/og-default.png" />
@@ -67,7 +67,7 @@
     --line:#26334a;
     --bone:#f5f1e6;         /* primary text */
     --mist:#a3adbf;         /* muted text, 6.9:1 on night */
-    --amber:#f59e0b;        /* the accent — 8.3:1 on night */
+    --amber:#f59e0b;        /* the accent, 8.3:1 on night */
     --amber-deep:#d97706;
     --ink-on-amber:#171003;
     --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
@@ -124,8 +124,10 @@
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end}
   .hero .ph{position:absolute;inset:0;overflow:hidden}
-  .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:62% 38%}
-  @media (max-width:700px){.hero .ph img{object-position:42% 34%}}
+  /* snook spans the frame diagonally (head ~22% 10%, tail ~72% 90%): keep the
+     focal point on the fish's center so viewport crops trim sky/water, not fish */
+  .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:45% 47%}
+  @media (max-width:700px){.hero .ph img{object-position:40% 47%}}
   .hero .grade{position:absolute;inset:0;background:linear-gradient(178deg,rgba(11,18,32,.66) 4%,rgba(11,18,32,.06) 30%,rgba(11,18,32,.18) 55%,rgba(11,18,32,.96) 90%)}
   .hero .copy{position:relative;z-index:2;width:100%;padding:9rem clamp(1.25rem,4vw,3rem) 7vh}
   .eyebrow{display:block;margin-bottom:1.6rem}
@@ -186,6 +188,9 @@
   .band h2{max-width:12em}
   .band .side{max-width:26rem;color:#d4dae4;font-size:1rem}
   .band .side .meta{display:block;margin-bottom:.8rem}
+  /* hogfish sits in the bottom half of its photo, belly at the frame edge:
+     full-height band + bottom-anchored crop keeps the whole fish in view */
+  #band-community{min-height:100svh}
 
   /* also cards */
   .also{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:3rem}
@@ -195,7 +200,7 @@
   .also-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem;color:var(--bone)}
   .also-card p{font-size:.92rem;color:var(--mist)}
 
-  /* field guide index — ruled editorial list */
+  /* field guide index: ruled editorial list */
   .guides{margin-top:2.6rem;border-top:1px solid var(--line)}
   .guide-row{display:grid;grid-template-columns:minmax(9rem,14rem) 1fr auto;gap:1.5rem;align-items:baseline;padding:1.35rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
   .guide-row h3{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;transition:color .15s ease}
@@ -239,8 +244,9 @@
   /* ---------- mobile (<=480px): stacked photo + slate text block; fish-first focal points ---------- */
   @media (max-width:480px){
     .hero{min-height:auto;display:block}
-    .hero .ph{position:relative;height:58svh}
-    .hero .ph img{object-position:30% 45%}
+    /* photo block matches the image's own 3:2 ratio: zero crop, full fish */
+    .hero .ph{position:relative;aspect-ratio:3/2;height:auto}
+    .hero .ph img{object-position:center}
     .hero .grade{display:none}
     .hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.72),rgba(11,18,32,0) 32%,rgba(11,18,32,0) 78%,rgba(11,18,32,.5))}
     .hero .copy{position:relative;padding:2.4rem clamp(1.25rem,4vw,3rem) 3rem;background:var(--night)}
@@ -253,11 +259,13 @@
     .band h2{margin-bottom:1rem}
     .band .side{max-width:none}
     #band-journal .ph img{object-position:48% 58%!important}
-    #band-community .ph img{object-position:48% 65%!important}
+    #band-community{min-height:auto}
+    #band-community .ph{height:auto;aspect-ratio:3/2}
+    #band-community .ph img{object-position:center!important}
     #band-trout .ph img{object-position:48% 75%!important}
   }
 
-  /* scroll reveal — subtle, respects reduced motion */
+  /* scroll reveal: subtle, respects reduced motion */
   @media (prefers-reduced-motion: no-preference){
     .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
     .rv.in{opacity:1;transform:none}
@@ -265,7 +273,7 @@
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <script type="text/javascript">
-    /* Microsoft Clarity — deferred until after the load event so it never competes with page rendering */
+    /* Microsoft Clarity, deferred until after the load event so it never competes with page rendering */
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         function go(){t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -339,7 +347,7 @@
   <div class="copy">
     <span class="eyebrow meta">Catch to Kitchen · <b>iOS</b></span>
     <h1>You caught it.<span class="l2">Now cook it.</span></h1>
-    <p class="dek">Snap a photo of your fish. Catch 'N Bake identifies the species, points you to the regulations that matter, and writes recipes for your exact catch — tuned to the way your region cooks.</p>
+    <p class="dek">Snap a photo of your fish. Catch 'N Bake identifies the species, points you to the regulations that matter, and writes recipes for your exact catch, tuned to the way your region cooks.</p>
     <div class="cta-row">
       <a class="store-badge" data-app-store href="https://apps.apple.com/us/app/catch-n-bake/id6762584046" target="_blank" rel="noopener" aria-label="Download Catch 'N Bake on the App Store">
         <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor" aria-hidden="true"><path d="M18.1 13.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.6 1.1-1 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.2 1.5 12.2 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1s2.4 1 4 1 2.7-1.5 3.7-3c1.2-1.7 1.6-3.4 1.7-3.5-.1 0-3.2-1.3-3.3-4.8zM15 4.8c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.6-1.7z"/></svg>
@@ -359,13 +367,13 @@
       <div class="sechead"><span class="meta">Why we built it</span></div>
       <h2 id="gap-title">Every app helps you catch fish. Then you're on <em>your own.</em></h2>
       <div class="prose" style="margin-top:1.8rem">
-        <p>Forecast apps find the bite. Regulation apps tell you what you can keep. But the moment that actually matters — standing at the cleaning table with a fish you don't quite recognize, wondering <em>can I even eat this?</em> — has always belonged to a frantic one-handed search and a decade-old forum thread.</p>
+        <p>Forecast apps find the bite. Regulation apps tell you what you can keep. But the moment that actually matters has always belonged to a frantic one-handed search and a decade-old forum thread: standing at the cleaning table with a fish you don't quite recognize, wondering <em>can I even eat this?</em></p>
         <p>Catch 'N Bake exists for exactly that moment.</p>
       </div>
     </div>
     <div class="steps rv">
       <div class="step"><span class="n" aria-hidden="true">1</span><div><h3>Snap</h3><p>Take a photo of your catch, or pull one from your camera roll. That's the whole input.</p></div></div>
-      <div class="step"><span class="n" aria-hidden="true">2</span><div><h3>Know</h3><p>Get the species and scientific name, how confident the ID is, habitat notes, and a regulations summary — with direct links to your state's official rules.</p></div></div>
+      <div class="step"><span class="n" aria-hidden="true">2</span><div><h3>Know</h3><p>Get the species and scientific name, how confident the ID is, habitat notes, and a regulations summary with direct links to your state's official rules.</p></div></div>
       <div class="step"><span class="n" aria-hidden="true">3</span><div><h3>Cook</h3><p>Get a hand-picked spread of recipes written for that exact fish, from a quick weeknight pan to a proper fish fry with sides.</p></div></div>
     </div>
   </div>
@@ -377,13 +385,13 @@
     <div class="fcopy rv">
       <div class="sechead"><span class="meta">The Catch · <b>Identify</b></span></div>
       <h2 id="feat-id-title">Know what's on the end of your line.</h2>
-      <p class="prose" style="margin-top:1.4rem">One photo. AI vision reads the fish and gives you a straight answer — and when it isn't sure, it tells you that too.</p>
+      <p class="prose" style="margin-top:1.4rem">One photo. AI vision reads the fish and gives you a straight answer. When it isn't sure, it tells you that too.</p>
       <ul>
         <li><strong>Species + scientific name</strong> from a single photo, with habitat notes.</li>
-        <li><strong>Honest confidence.</strong> A low-confidence ID never bluffs — you get the likely alternatives and pick, instead of trusting a guess.</li>
+        <li><strong>Honest confidence.</strong> A low-confidence ID never bluffs. You get the likely alternatives and pick, instead of trusting a guess.</li>
         <li><strong>Regulations, summarized.</strong> Every ID includes a regulations overview and the app links out to the official rules for all 50 states.</li>
       </ul>
-      <p class="fineprint">10 free IDs every month · unlimited with Premium. AI identification can be wrong — always confirm species and local rules before you keep a fish.</p>
+      <p class="fineprint">10 free IDs every month · unlimited with Premium. AI identification can be wrong. Always confirm species and local rules before you keep a fish.</p>
     </div>
     <div class="fshot rv">
       <div class="phone"><img src="/images/screens/01-identify.webp" width="590" height="1279" alt="Catch 'N Bake identify screen: a hogfish identified with high confidence, species name and details shown" loading="lazy" /></div>
@@ -402,8 +410,8 @@
       <h2 id="feat-recipes-title">From this exact fish <em>to dinner.</em></h2>
       <p class="prose" style="margin-top:1.4rem">Not "fish recipes." Recipes for the fish in your cooler, written when you ask for them.</p>
       <ul>
-        <li><strong>Four to six recipes per catch</strong> — each with difficulty, a full ingredient list, and step-by-step instructions.</li>
-        <li><strong>Region-aware.</strong> Recipes lean into your local tradition across 11 American culinary regions — a redfish in Louisiana doesn't cook like a redfish in the Carolinas.</li>
+        <li><strong>Four to six recipes per catch</strong>, each with difficulty, a full ingredient list, and step-by-step instructions.</li>
+        <li><strong>Region-aware.</strong> Recipes lean into your local tradition across 11 American culinary regions. A redfish in Louisiana doesn't cook like a redfish in the Carolinas.</li>
         <li><strong>The classic, always.</strong> Every spread includes a proper crispy fried fish with sides to match.</li>
       </ul>
     </div>
@@ -424,7 +432,7 @@
       <h2 id="feat-journal-title">Your season, written down.</h2>
       <div class="side">
         <span class="meta">The Journal · <b>Every catch</b></span>
-        One tap from an ID to a logbook entry — spot, weather, bait, lure, weight, length, and your notes. Works offline and syncs when you're back in signal.
+        One tap from an ID to a logbook entry: spot, weather, bait, lure, weight, length, and your notes. Works offline and syncs when you're back in signal.
       </div>
     </div>
   </div>
@@ -434,7 +442,7 @@
   <div class="wrap feature">
     <div class="fcopy rv">
       <ul style="margin-top:0">
-        <li><strong>One tap from ID to logbook</strong> — the photo and species carry straight over.</li>
+        <li><strong>One tap from ID to logbook</strong>. The photo and species carry straight over.</li>
         <li><strong>The details that matter:</strong> spot, weather, temperature, bait, lure, weight, length, and your notes.</li>
         <li><strong>Works offline.</strong> No signal at the flats? Entries queue and sync when you're back.</li>
         <li><strong>Stats, a catch map, and a leaderboard</strong> to see your season take shape.</li>
@@ -451,7 +459,7 @@
   <div class="ph">
     <picture>
       <source srcset="/images/hero/share-hogfish-960.webp 960w, /images/hero/share-hogfish.webp 1920w" sizes="100vw" type="image/webp" />
-      <img src="/images/hero/share-hogfish.jpg" width="1920" height="1280" alt="Angler holding a hogfish offshore, open Gulf water behind him" loading="lazy" style="object-position:50% 74%" />
+      <img src="/images/hero/share-hogfish.jpg" width="1920" height="1280" alt="Angler holding a hogfish offshore, open Gulf water behind him" loading="lazy" style="object-position:50% 100%" />
     </picture>
   </div>
   <div class="grade"></div>
@@ -473,7 +481,7 @@
     </div>
     <div class="fcopy rv">
       <ul style="margin-top:0">
-        <li><strong>Share catches, cook photos, and recipes</strong> — with comments, likes, and saves.</li>
+        <li><strong>Share catches, cook photos, and recipes</strong>, with comments, likes, and saves.</li>
         <li><strong>Groups</strong> for your species, your technique, your stretch of coast.</li>
         <li><strong>Family-friendly by design.</strong> Every photo is AI-moderated before it posts, and report &amp; block tools are one tap away.</li>
       </ul>
@@ -489,9 +497,9 @@
     <div class="sechead rv"><span class="meta">Also in the box</span></div>
     <h2 id="also-title" class="rv">The small things that add up.</h2>
     <div class="also">
-      <div class="also-card rv"><h3>Seasonal forecast</h3><p>A monthly, location-aware read on what's biting, when to go, and what to throw — free for everyone.</p></div>
+      <div class="also-card rv"><h3>Seasonal forecast</h3><p>A monthly, location-aware read on what's biting, when to go, and what to throw. Free for everyone.</p></div>
       <div class="also-card rv"><h3>Rules at hand</h3><p>Direct links to the official fishing regulations for all 50 states, right where you need them.</p></div>
-      <div class="also-card rv"><h3>Badges &amp; levels</h3><p>Points for logging, cooking, and contributing — climb from Newcomer to Legend.</p></div>
+      <div class="also-card rv"><h3>Badges &amp; levels</h3><p>Points for logging, cooking, and contributing. Climb from Newcomer to Legend.</p></div>
       <div class="also-card rv"><h3>Your spots stay yours</h3><p>GPS metadata is stripped from photos before upload. Honey holes are sacred.</p></div>
     </div>
   </div>
@@ -502,15 +510,15 @@
   <div class="wrap">
     <div class="sechead rv"><span class="meta">The Field Guide · <b>Can you eat it?</b></span></div>
     <h2 id="guides-title" class="rv">Straight answers, species by species.</h2>
-    <p class="prose rv" style="margin-top:1.4rem">Taste, cleaning, and cooking — starting with the Florida inshore fish everyone actually catches.</p>
+    <p class="prose rv" style="margin-top:1.4rem">Taste, cleaning, and cooking, starting with the Florida inshore fish everyone actually catches.</p>
     <div class="guides rv">
-      <a class="guide-row" href="/fish/sheepshead"><h3>Sheepshead</h3><p>The convict fish with human teeth — and some of the sweetest white meat inshore.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/snook"><h3>Snook</h3><p>Superb on the plate — but one of Florida's most tightly protected gamefish. Know before you keep.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/sheepshead"><h3>Sheepshead</h3><p>The convict fish with human teeth, and some of the sweetest white meat inshore.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/snook"><h3>Snook</h3><p>Superb on the plate, but one of Florida's most tightly protected gamefish. Know before you keep.</p><span class="go">Read the guide →</span></a>
       <a class="guide-row" href="/fish/redfish"><h3>Redfish</h3><p>The fish that made "blackened" famous. Taste, cleaning, and three ways to cook it.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/gag-grouper"><h3>Gag Grouper</h3><p>The fish behind Florida's famous grouper sandwich — and its tightly watched seasons.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/red-grouper"><h3>Red Grouper</h3><p>Gag's sweeter Gulf sibling — the other half of the sandwich dynasty.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/black-drum"><h3>Black Drum</h3><p>The redfish's humble cousin. Puppy drum eat like reds — size is everything.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/spanish-mackerel"><h3>Spanish Mackerel</h3><p>Florida's most underrated table fish — if you treat it right from minute one.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/gag-grouper"><h3>Gag Grouper</h3><p>The fish behind Florida's famous grouper sandwich, and its tightly watched seasons.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/red-grouper"><h3>Red Grouper</h3><p>Gag's sweeter Gulf sibling, the other half of the sandwich dynasty.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/black-drum"><h3>Black Drum</h3><p>The redfish's humble cousin. Puppy drum eat like reds. Size is everything.</p><span class="go">Read the guide →</span></a>
+      <a class="guide-row" href="/fish/spanish-mackerel"><h3>Spanish Mackerel</h3><p>Florida's most underrated table fish, if you treat it right from minute one.</p><span class="go">Read the guide →</span></a>
       <div class="guide-row teaser" aria-hidden="true"><h3>More every week</h3><p>Snapper, seatrout, flounder, and mahi are queued up next.</p><span class="go" style="color:var(--mist)">Coming soon</span></div>
     </div>
   </div>
@@ -529,7 +537,7 @@
     <div class="wrap inner">
       <div class="side" style="max-width:34rem">
         <span class="meta">Wherever you fish</span>
-        <span style="font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.3;color:var(--bone);display:block">Salt flats or mountain streams — if you can catch it, you can cook it.</span>
+        <span style="font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.3;color:var(--bone);display:block">Salt flats or mountain streams: if you can catch it, you can cook it.</span>
       </div>
     </div>
   </div>

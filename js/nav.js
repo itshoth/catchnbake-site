@@ -31,7 +31,7 @@
     document.addEventListener("click", function (e) { if (!drop.contains(e.target)) close(); });
   });
 
-  // Scroll reveals — no-ops for reduced-motion users (CSS gates the initial state).
+  // Scroll reveals: no-ops for reduced-motion users (CSS gates the initial state).
   var rv = document.querySelectorAll(".rv");
   if (rv.length && "IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {

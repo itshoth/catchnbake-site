@@ -1,5 +1,5 @@
 // ============================================================
-// APP STORE URL — the app is LIVE. Badges are hard-coded in the
+// APP STORE URL. The app is LIVE. Badges are hard-coded in the
 // HTML now; this constant is kept as the single source of truth
 // so any straggler [data-app-store] anchor still gets the link.
 // ============================================================
