@@ -10,13 +10,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Catch 'N Bake · AI Fish ID &amp; Recipes for Your Catch</title>
-<meta name="description" content="Snap a photo of your catch. Catch 'N Bake identifies the species, points you to the regulations, and writes recipes for your exact fish, tuned to how your region cooks. Free on the App Store." />
+<title>Fish Identification &amp; Recipes App | Catch 'N Bake</title>
+<meta name="description" content="Identify your fish from a photo, save your catches, and find recipes for your species. Explore free fish guides or download Catch 'N Bake for iPhone." />
+<meta name="robots" content="max-image-preview:large" />
 <link rel="canonical" href="https://catchnbake.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Catch 'N Bake" />
 <meta property="og:title" content="Catch 'N Bake · You caught it. Now cook it." />
-<meta property="og:description" content="AI fish identification, region-aware recipes for your exact catch, a catch journal, and a community of anglers who cook. Free on the App Store." />
+<meta property="og:description" content="Identify your fish, remember the trip, and find a way to cook your catch. Explore fish guides or download Catch 'N Bake for iPhone." />
 <meta property="og:url" content="https://catchnbake.com/" />
 <meta property="og:image" content="https://catchnbake.com/images/og-default.png" />
 <meta property="og:image:width" content="1200" />
@@ -25,7 +26,7 @@
 <meta name="theme-color" content="#0b1220" />
 <meta name="apple-itunes-app" content="app-id=6762584046" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="preload" as="image" imagesrcset="/images/hero/home-snook-960.webp 960w, /images/hero/home-snook.webp 1920w" imagesizes="100vw" />
+<link rel="preload" as="image" imagesrcset="/images/hero/home-red-snapper-960.webp 960w, /images/hero/home-red-snapper.webp 1920w" imagesizes="100vw" />
 <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 <script type="application/ld+json">
@@ -45,7 +46,7 @@
       "name": "Catch 'N Bake",
       "operatingSystem": "iOS",
       "applicationCategory": "LifestyleApplication",
-      "description": "AI fish identification from a photo, region-aware recipes for your exact catch, a catch journal, and an angler community.",
+      "description": "Fish identification from a photo, recipes for your species, a catch journal, and an angler community.",
       "url": "https://catchnbake.com/",
       "publisher": { "@id": "https://catchnbake.com/#org" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free to download; optional Premium subscription." }
@@ -300,10 +301,13 @@
         <a href="/fish/red-grouper">Red Grouper</a>
         <a href="/fish/black-drum">Black Drum</a>
         <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
-        <a class="all" href="/#guides">All guides →</a>
+<a href="/fish/red-snapper">American Red Snapper</a>
+<a href="/fish/halibut">Pacific Halibut</a>
+<a href="/fish/">All fish guides</a>
       </div>
     </div>
     <a href="/support">Support</a>
+<a href="/about">About</a>
   </nav>
   <button class="burger" data-nav-open aria-label="Open menu" aria-expanded="false">
     <svg width="20" height="14" viewBox="0 0 20 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1h18M1 7h18M1 13h18"/></svg>
@@ -317,6 +321,7 @@
   <span class="meta">Catch 'N Bake</span>
   <a href="/">Home</a>
   <a href="/support">Support</a>
+<a href="/about">About</a>
   <span class="meta">Fish Guides</span>
   <a href="/fish/sheepshead">Sheepshead</a>
   <a href="/fish/snook">Snook</a>
@@ -325,6 +330,9 @@
   <a href="/fish/red-grouper">Red Grouper</a>
   <a href="/fish/black-drum">Black Drum</a>
   <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+<a href="/fish/red-snapper">American Red Snapper</a>
+<a href="/fish/halibut">Pacific Halibut</a>
+<a href="/fish/">All fish guides</a>
   <span class="meta">Legal</span>
   <div class="small">
     <a href="/privacy">Privacy</a>
@@ -339,8 +347,8 @@
 <div class="hero" id="hero">
   <div class="ph">
     <picture>
-      <source srcset="/images/hero/home-snook-960.webp 960w, /images/hero/home-snook.webp 1920w" sizes="100vw" type="image/webp" />
-      <img src="/images/hero/home-snook.jpg" width="1920" height="1280" alt="Angler at a Florida dock holding a snook up to the camera, palm trees along the water behind him" fetchpriority="high" />
+      <source srcset="/images/hero/home-red-snapper-960.webp 960w, /images/hero/home-red-snapper.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/home-red-snapper.jpg" width="1920" height="1280" alt="Angler holding an American red snapper above a boat deck on calm blue water" fetchpriority="high" />
     </picture>
   </div>
   <div class="grade"></div>
@@ -385,13 +393,13 @@
     <div class="fcopy rv">
       <div class="sechead"><span class="meta">The Catch · <b>Identify</b></span></div>
       <h2 id="feat-id-title">Know what's on the end of your line.</h2>
-      <p class="prose" style="margin-top:1.4rem">One photo. AI vision reads the fish and gives you a straight answer. When it isn't sure, it tells you that too.</p>
+      <p class="prose" style="margin-top:1.4rem">Take a clear photo of your catch to get help identifying the species. Check the result against the fish in front of you before deciding what to keep.</p>
       <ul>
         <li><strong>Species + scientific name</strong> from a single photo, with habitat notes.</li>
         <li><strong>Honest confidence.</strong> A low-confidence ID never bluffs. You get the likely alternatives and pick, instead of trusting a guess.</li>
         <li><strong>Regulations, summarized.</strong> Every ID includes a regulations overview and the app links out to the official rules for all 50 states.</li>
       </ul>
-      <p class="fineprint">10 free IDs every month · unlimited with Premium. AI identification can be wrong. Always confirm species and local rules before you keep a fish.</p>
+      <p class="fineprint">10 free IDs every month · unlimited with Premium. Photo identification can be wrong. Confirm the species and current local rules before you keep a fish.</p>
     </div>
     <div class="fshot rv">
       <div class="phone"><img src="/images/screens/01-identify.webp" width="590" height="1279" alt="Catch 'N Bake identify screen: a hogfish identified with high confidence, species name and details shown" loading="lazy" /></div>
@@ -422,8 +430,8 @@
 <div class="band" id="band-journal" aria-labelledby="feat-journal-title">
   <div class="ph">
     <picture>
-      <source srcset="/images/hero/band-mackerel-960.webp 960w, /images/hero/band-mackerel.webp 1920w" sizes="100vw" type="image/webp" />
-      <img src="/images/hero/band-mackerel.jpg" width="1600" height="1067" alt="Angler on a bridge pier holding a Spanish mackerel out to the camera, its yellow spots catching the sun" loading="lazy" style="object-position:50% 75%" />
+      <source srcset="/images/hero/band-halibut-960.webp 960w, /images/hero/band-halibut.webp 1920w" sizes="100vw" type="image/webp" />
+      <img src="/images/hero/band-halibut.jpg" width="1920" height="1280" alt="Angler holding a Pacific halibut aboard a boat off Port Renfrew, British Columbia" loading="lazy" style="object-position:50% 50%" />
     </picture>
   </div>
   <div class="grade"></div>
@@ -483,7 +491,7 @@
       <ul style="margin-top:0">
         <li><strong>Share catches, cook photos, and recipes</strong>, with comments, likes, and saves.</li>
         <li><strong>Groups</strong> for your species, your technique, your stretch of coast.</li>
-        <li><strong>Family-friendly by design.</strong> Every photo is AI-moderated before it posts, and report &amp; block tools are one tap away.</li>
+        <li><strong>Tools for a welcoming community.</strong> Report a post or block an account from the app.</li>
       </ul>
     </div>
   </div>
@@ -510,17 +518,18 @@
   <div class="wrap">
     <div class="sechead rv"><span class="meta">The Field Guide · <b>Can you eat it?</b></span></div>
     <h2 id="guides-title" class="rv">Straight answers, species by species.</h2>
-    <p class="prose rv" style="margin-top:1.4rem">Taste, cleaning, and cooking, starting with the Florida inshore fish everyone actually catches.</p>
+    <p class="prose rv" style="margin-top:1.4rem">Learn how your catch tastes and how to cook it, from Florida snook and red snapper to Pacific halibut. <a href="/fish/">Browse all fish guides.</a></p>
     <div class="guides rv">
-      <a class="guide-row" href="/fish/sheepshead"><h3>Sheepshead</h3><p>The convict fish with human teeth, and some of the sweetest white meat inshore.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/snook"><h3>Snook</h3><p>Superb on the plate, but one of Florida's most tightly protected gamefish. Know before you keep.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/redfish"><h3>Redfish</h3><p>The fish that made "blackened" famous. Taste, cleaning, and three ways to cook it.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/gag-grouper"><h3>Gag Grouper</h3><p>The fish behind Florida's famous grouper sandwich, and its tightly watched seasons.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/red-grouper"><h3>Red Grouper</h3><p>Gag's sweeter Gulf sibling, the other half of the sandwich dynasty.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/black-drum"><h3>Black Drum</h3><p>The redfish's humble cousin. Puppy drum eat like reds. Size is everything.</p><span class="go">Read the guide →</span></a>
-      <a class="guide-row" href="/fish/spanish-mackerel"><h3>Spanish Mackerel</h3><p>Florida's most underrated table fish, if you treat it right from minute one.</p><span class="go">Read the guide →</span></a>
-      <div class="guide-row teaser" aria-hidden="true"><h3>More every week</h3><p>Snapper, seatrout, flounder, and mahi are queued up next.</p><span class="go" style="color:var(--mist)">Coming soon</span></div>
-    </div>
+<a class="guide-row" href="/fish/sheepshead"><h3>Sheepshead</h3><p>Sheepshead has mild, sweet white meat. Learn what it tastes like, how to clean around the ribs, cooking ideas, and where to check Florida harvest rules.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/snook"><h3>Snook</h3><p>Yes, you can eat legally harvested snook. Learn its mild, sweet taste, how to prepare skinless fillets, cooking ideas, and where to check Florida rules.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/redfish"><h3>Redfish</h3><p>Redfish has mild, firm meat. Learn how it tastes, how to prepare fillets or cook on the half shell, and where to check Florida harvest rules.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/gag-grouper"><h3>Gag Grouper</h3><p>Gag grouper has thick, mild white fillets. Learn about taste, cleaning, sandwich and cooking ideas, and where to check current Florida grouper rules.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/black-drum"><h3>Black Drum</h3><p>Can you eat black drum? Learn about flavor, preparing the fillets, parasites to check for, cooking methods, and current Florida harvest rules.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/spanish-mackerel"><h3>Spanish Mackerel</h3><p>Spanish mackerel has a rich flavor. Learn how to keep it cold, prepare the fillets, choose a cooking method, and check current Florida harvest rules.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/red-grouper"><h3>Red Grouper</h3><p>Red grouper has mild, sweet meat with a firm flake. Compare it with gag grouper, prepare the fillets, and choose a way to cook your catch.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/halibut"><h3>Pacific Halibut</h3><p>Halibut has mild, sweet meat and a firm flake. Compare Pacific and California halibut, learn how to portion fillets, and choose a cooking method.</p><span class="go">Read the guide →</span></a>
+<a class="guide-row" href="/fish/red-snapper"><h3>American Red Snapper</h3><p>American red snapper has mild, sweet flesh. Learn identification clues, how it differs from vermilion snapper, and ways to cook fillets or a whole fish.</p><span class="go">Read the guide →</span></a>
+</div>
   </div>
 </section>
 
@@ -606,6 +615,7 @@
       <span class="meta">App</span>
       <a href="/">Home</a>
       <a href="/support">Support</a>
+<a href="/about">About</a>
     </div>
     <div>
       <span class="meta">Fish Guides</span>
@@ -616,6 +626,9 @@
       <a href="/fish/red-grouper">Red Grouper</a>
       <a href="/fish/black-drum">Black Drum</a>
       <a href="/fish/spanish-mackerel">Spanish Mackerel</a>
+<a href="/fish/red-snapper">American Red Snapper</a>
+<a href="/fish/halibut">Pacific Halibut</a>
+<a href="/fish/">All fish guides</a>
     </div>
     <div>
       <span class="meta">Legal</span>

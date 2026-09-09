@@ -1,5 +1,7 @@
 # Domain + Deploy: catchnbake.com → Cloudflare Pages
 
+September 9 correction: the domain redirect examples below are historical and do not work in Pages `_redirects`. Configure the zone redirect described in [the current SEO release notes](SEO_2026-09-09.md). The live www hostname still needs that change.
+
 **Date:** 2026-07-03
 
 ## 0. The recommendation (and why)

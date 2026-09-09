@@ -5,9 +5,9 @@
  * Usage:  node scripts/build-species.js
  * Output: fish/<slug>.html for every entry in SPECIES below.
  *
- * To add a species: add an entry to SPECIES, add its images
- * (images/fish/<slug>.webp + .jpg at 1400x875, images/og/<slug>.png 1200x630),
- * add the route to sitemap.xml, then re-run this script.
+ * To add a species: add an entry in new-species.js and verified photos
+ * (images/fish/<slug>.webp + .jpg at 1400x875, images/og/<slug>.png 1200x630).
+ * Re-run this script to rebuild articles, navigation, hubs, and sitemap.
  * Photo processing rule: every photo must be EXIF-stripped (GPS especially)
  * and converted to sRGB before it enters the repo. Pipeline used:
  *   magick IN -auto-orient -profile "C:/Windows/System32/spool/drivers/color/sRGB Color Space Profile.icm" -strip -resize/-crop ... OUT
@@ -16,8 +16,8 @@
  *  - The eat-it verdict must be responsible: where harvest is tightly
  *    regulated (e.g. snook), the verdict leads with legality.
  *  - NEVER state size/season/bag numbers; link to the official FWC page.
- *  - The visible FAQ and the FAQPage JSON-LD are generated from the same
- *    data, so they can never drift apart.
+ *  - Keep useful questions visible. Article and BreadcrumbList JSON-LD
+ *    describe the page without promising unsupported search enhancements.
  */
 const fs = require('fs');
 const path = require('path');
@@ -399,7 +399,11 @@ const SPECIES = [
 
 /* ---------------------------------------------------------------- */
 
+SPECIES.push(...require('./new-species'));
+require('./refresh-species')(SPECIES);
+require('./photo-content')(SPECIES);
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const ogImage = sp => sp.ogImage || (sp.hero === false ? '/images/og-default.png' : `/images/og/${sp.slug}.png`);
 
 function jsonLd(sp) {
   return JSON.stringify({
@@ -407,21 +411,22 @@ function jsonLd(sp) {
     '@graph': [
       {
         '@type': 'Article',
-        headline: `Can You Eat ${sp.name}? Taste, Cleaning & Best Recipes`,
+        headline: sp.h1 || `Can You Eat ${sp.name}?`,
         description: sp.description,
-        image: `${SITE}/images/og/${sp.slug}.png`,
+        image: sp.photo ? `${SITE}${sp.photo.file}.jpg` : (sp.hero === false && !sp.ogImage ? undefined : `${SITE}${ogImage(sp)}`),
         datePublished: sp.published || PUBLISHED,
-        dateModified: sp.published || PUBLISHED,
+        dateModified: sp.modified || sp.published || PUBLISHED,
         mainEntityOfPage: `${SITE}/fish/${sp.slug}`,
         author: { '@type': 'Organization', name: "Catch 'N Bake", url: SITE },
         publisher: { '@type': 'Organization', name: "Catch 'N Bake LLC", url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/favicon.svg` } }
       },
       {
-        '@type': 'FAQPage',
-        mainEntity: sp.faq.map((f) => ({
-          '@type': 'Question', name: f.q,
-          acceptedAnswer: { '@type': 'Answer', text: f.a }
-        }))
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+          { '@type': 'ListItem', position: 2, name: 'Fish Guides', item: SITE + '/fish/' },
+          { '@type': 'ListItem', position: 3, name: sp.name, item: `${SITE}/fish/${sp.slug}` }
+        ]
       }
     ]
   }, null, 2);
@@ -514,6 +519,15 @@ const CLARITY = `<script type="text/javascript">
     })(window, document, "clarity", "script", "xhwobxiz8q");
 </script>`;
 
+function photoFigure(photo, lazy = false) {
+  return `<figure>
+  <picture>
+    <source srcset="${photo.file}-600.webp 600w, ${photo.file}.webp ${photo.width}w" sizes="(max-width:768px) calc(100vw - 40px), 704px" type="image/webp" />
+    <img src="${photo.file}.jpg" width="${photo.width}" height="${photo.height}" alt="${esc(photo.alt)}" decoding="async" ${lazy ? 'loading="lazy"' : ''} />
+  </picture>
+  <figcaption>${esc(photo.caption)}</figcaption>
+</figure>`;
+}
 function page(sp) {
   const relatedCards = sp.related.map((slug) => {
     const r = SPECIES.find((s) => s.slug === slug);
@@ -534,7 +548,7 @@ function page(sp) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${esc(sp.title)} · Catch 'N Bake</title>
+<title>${esc(sp.title)}</title>
 <meta name="description" content="${esc(sp.description)}" />
 <link rel="canonical" href="${SITE}/fish/${sp.slug}" />
 <meta property="og:type" content="article" />
@@ -542,7 +556,8 @@ function page(sp) {
 <meta property="og:title" content="${esc(sp.title)}" />
 <meta property="og:description" content="${esc(sp.description)}" />
 <meta property="og:url" content="${SITE}/fish/${sp.slug}" />
-<meta property="og:image" content="${SITE}/images/og/${sp.slug}.png" />
+<meta property="og:image" content="${SITE}${ogImage(sp)}" />
+<meta name="robots" content="max-image-preview:large" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -664,9 +679,11 @@ ${NAV}
 <main id="main">
 <div class="wrap">
 
-<span class="eyebrow meta">The Field Guide · <b>Florida Inshore</b></span>
-<h1>Can You Eat ${sp.name}?</h1>
+<nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/fish/">Fish Guides</a> / ${esc(sp.name)}</nav>
+<span class="eyebrow meta">The Field Guide · <b>${esc(sp.region || 'Florida Saltwater')}</b></span>
+<h1>${esc(sp.h1 || `Can You Eat ${sp.name}?`)}</h1>
 <p class="sci">${sp.scientific}</p>
+<p>By <a href="/about">Catch 'N Bake</a> · Updated <time datetime="${sp.modified || sp.published || PUBLISHED}">${sp.modified || sp.published || PUBLISHED}</time></p>
 
 <p class="intro">${sp.intro}</p>
 
@@ -675,23 +692,26 @@ ${NAV}
   <p>${sp.verdict.text}</p>
 </div>
 
-<figure>
+<nav aria-label="On this page"><a href="#taste">Taste</a> · <a href="#cleaning">Preparation</a> · <a href="#cooking">Cooking</a> · <a href="#regulations">Rules</a> · <a href="#questions">Questions</a></nav>
+${sp.photo ? photoFigure(sp.photo) : sp.hero === false ? '' : `<figure>
   <picture>
     <source srcset="/images/fish/${sp.slug}.webp" type="image/webp" />
-    <img src="/images/fish/${sp.slug}.jpg" width="1400" height="875" alt="${esc(sp.heroAlt)}" loading="lazy" />
+    <img src="/images/fish/${sp.slug}.jpg" width="1400" height="875" alt="${esc(sp.heroAlt)}" decoding="async" />
   </picture>
-</figure>
+</figure>`}
+${(sp.extra || []).map(section => `<h2>${esc(section.heading)}</h2>${section.body.map(p => `<p>${p}</p>`).join('\n')}`).join('\n')}
 
-<h2>${sp.taste.heading}</h2>
+<h2 id="taste">${sp.taste.heading}</h2>
 ${sp.taste.body.map((p) => `<p>${p}</p>`).join('\n')}
 
-<h2>${sp.clean.heading}</h2>
+<h2 id="cleaning">${sp.clean.heading}</h2>
 ${sp.clean.body.map((p) => `<p>${p}</p>`).join('\n')}
 <ol class="steps">
 ${sp.clean.steps.map((s) => `  <li>${s}</li>`).join('\n')}
 </ol>
+${(sp.gallery || []).map(photo => photoFigure(photo, true)).join('\n')}
 
-<h2>${sp.methods.heading}</h2>
+<h2 id="cooking">${sp.methods.heading}</h2>
 ${sp.methods.items.map((m) => `<h3>${m.name}</h3>\n<p>${m.body}</p>`).join('\n')}
 ${sp.meal ? `<figure class="meal">
   <picture>
@@ -702,24 +722,27 @@ ${sp.meal ? `<figure class="meal">
 </figure>` : ''}
 <p class="safety"><strong>Food safety:</strong> ${sp.methods.safety}</p>
 
-<h2>Regulations: check before you keep</h2>
+<h2 id="regulations">Regulations: check before you keep</h2>
 <div class="regs">
   <p>${sp.regs.body}</p>
   <p><a href="${sp.regs.url}" rel="noopener">${sp.regs.label} →</a></p>
 </div>
 
 <div class="cta-band">
-  <h2>Caught one? Make sure, then make dinner.</h2>
-  <p>Snap a photo in Catch 'N Bake to confirm the species, see a regulations summary, and get recipes written for your exact fish.</p>
+  <h2>Save your catch. Find a way to cook it.</h2>
+  <p>Use Catch 'N Bake to help identify your fish, keep a catch journal, and find recipes for your species. Confirm the identification and current official rules before you keep a fish.</p>
   <a class="store-badge" data-app-store href="https://apps.apple.com/us/app/catch-n-bake/id6762584046" target="_blank" rel="noopener" aria-label="Download Catch 'N Bake on the App Store">
     <span><span class="small">Download on the</span><span class="big">App Store</span></span>
   </a>
 </div>
 
-<h2>Frequently asked questions</h2>
+<h2 id="questions">Frequently asked questions</h2>
 <dl class="faq">
 ${sp.faq.map((f) => `  <dt>${f.q}</dt>\n  <dd>${f.a}</dd>`).join('\n')}
 </dl>
+<h2>Sources and further reading</h2>
+<ul>${[{label: sp.regs.label, url: sp.regs.url}, ...(sp.sources || [])].map(s => `<li><a href="${esc(s.url)}">${esc(s.label)}</a></li>`).join('\n')}</ul>
+<p>See <a href="/about#editorial">how we prepare these guides</a> or <a href="/support">send a correction</a>.</p>
 
 <h2>More from the field guide</h2>
 <div class="guides">
@@ -743,3 +766,4 @@ for (const sp of SPECIES) {
   fs.writeFileSync(path.join(outDir, `${sp.slug}.html`), page(sp));
   console.log(`fish/${sp.slug}.html written`);
 }
+require('./build-hubs')({ SPECIES, page, NAV, FOOTER, SITE, esc });

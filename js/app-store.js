@@ -10,6 +10,12 @@ var APP_STORE_URL = "https://apps.apple.com/us/app/catch-n-bake/id6762584046";
   document.querySelectorAll("[data-app-store]").forEach(function (a) {
     a.href = APP_STORE_URL;
     a.hidden = false;
+    a.addEventListener('click', function () {
+      if (typeof window.clarity === 'function') {
+        window.clarity('set', 'app_store_click_page', window.location.pathname);
+        window.clarity('event', 'app_store_click');
+      }
+    });
   });
   document.querySelectorAll("[data-store-soon]").forEach(function (s) {
     s.remove();
