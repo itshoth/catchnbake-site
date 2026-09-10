@@ -5,12 +5,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>About Catch 'N Bake &amp; Our Fish Guides</title>
-<meta name="description" content="Catch N Bake is a fishing and cooking app from Jordan Hoth. Learn how we prepare species guides, use original catch photos, and handle corrections." />
+<meta name="description" content="Catch N Bake helps anglers identify fish, remember trips, and find ways to cook their catch. Learn how we prepare species guides, use original catch photos, and handle corrections." />
 <link rel="canonical" href="https://catchnbake.com/about" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Catch 'N Bake" />
 <meta property="og:title" content="About Catch 'N Bake &amp; Our Fish Guides" />
-<meta property="og:description" content="Catch N Bake is a fishing and cooking app from Jordan Hoth. Learn how we prepare species guides, use original catch photos, and handle corrections." />
+<meta property="og:description" content="Catch N Bake helps anglers identify fish, remember trips, and find ways to cook their catch. Learn how we prepare species guides, use original catch photos, and handle corrections." />
 <meta property="og:url" content="https://catchnbake.com/about" />
 <meta property="og:image" content="https://catchnbake.com/images/og-default.png" />
 <meta name="robots" content="max-image-preview:large" />
@@ -120,10 +120,18 @@
   dl.faq dt{font-weight:600;color:var(--bone);margin-top:1.5rem}
   dl.faq dd{margin:.4rem 0 0;color:var(--mist)}
   .guides{margin-top:1.4rem;border-top:1px solid var(--line)}
-  .guide-row{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
+  .guide-row{display:grid;grid-template-columns:9rem minmax(0,1fr) auto;align-items:baseline;gap:1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
   .guide-row h3{margin:0;font-size:1.4rem}
   .guide-row:hover h3{color:var(--amber)}
   .guide-row .go{color:var(--amber);font-weight:600;font-size:.9rem;white-space:nowrap}
+  .guide-row > *{min-width:0}
+  .guide-row p{margin:0}
+  @media (max-width:700px){
+    .guide-row{display:flex;flex-direction:column;align-items:flex-start;gap:.65rem}
+    .guide-row h3{font-size:1.4rem}
+    .guide-row p{width:100%;max-width:none;font-size:1rem;line-height:1.6}
+    .guide-row .go{white-space:normal}
+  }
 
   footer.site{border-top:1px solid var(--line);padding:3rem 0 3.5rem;font-size:.88rem;color:var(--mist)}
   footer.site .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:76rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
@@ -201,7 +209,7 @@
   </div>
 </div>
 
-<main id="main"><div class="wrap"><nav aria-label="Breadcrumb"><a href="/">Home</a> / About</nav><h1>About Catch 'N Bake</h1><p class="intro">Jordan Hoth built Catch 'N Bake for anglers who want to identify a catch, remember the trip, and find a way to cook their fish. Jordan is based in St. Petersburg, Florida.</p><p>The app brings photo identification, a catch journal, species recipes, and a fishing community into one place. The <a href="/fish/">field guides</a> give you a place to start before you download.</p><h2 id="editorial">How we prepare these guides</h2><p>We link to fisheries agencies for identification and harvest information. We use food safety sources for handling and cooking temperatures. Sources appear at the end of each guide.</p><p>Cooking sections offer preparation ideas. We do not label them as tested recipes or publish invented ratings. Taste varies with the fish, handling, and preparation.</p><p>Catch photos come from Jordan's fishing trips where identified. We label illustrative meal photos separately. An article can appear without a species photo while we prepare an original image.</p><p>We show an updated date when we revise a guide. That date does not guarantee that fishing rules remain unchanged. Check the official agency page for your location and trip date.</p><h2>Send a correction</h2><p>If you spot a species error, outdated link, or unclear instruction, <a href="/support">contact us</a> with the page address and the detail to review.</p><h2>Explore the app</h2><p><a href="/">See Catch 'N Bake</a> or <a href="/fish/">browse the fish guides</a>.</p></div></main>
+<main id="main"><div class="wrap"><nav aria-label="Breadcrumb"><a href="/">Home</a> / About</nav><h1>About Catch 'N Bake</h1><p class="intro">Catch 'N Bake helps anglers identify a catch, remember the trip, and find a way to cook their fish.</p><p>The app brings photo identification, a catch journal, species recipes, and a fishing community into one place. The <a href="/fish/">field guides</a> give you a place to start before you download.</p><h2 id="editorial">How we prepare these guides</h2><p>We link to fisheries agencies for identification and harvest information. We use food safety sources for handling and cooking temperatures. Sources appear at the end of each guide.</p><p>Cooking sections offer preparation ideas. We do not label them as tested recipes or publish invented ratings. Taste varies with the fish, handling, and preparation.</p><p>Catch photos come from our own fishing trips where identified. We label illustrative meal photos separately. An article can appear without a species photo while we prepare an original image.</p><p>We show an updated date when we revise a guide. That date does not guarantee that fishing rules remain unchanged. Check the official agency page for your location and trip date.</p><h2>Send a correction</h2><p>If you spot a species error, outdated link, or unclear instruction, <a href="/support">contact us</a> with the page address and the detail to review.</p><h2>Explore the app</h2><p><a href="/">See Catch 'N Bake</a> or <a href="/fish/">browse the fish guides</a>.</p></div></main>
 
 <footer class="site">
   <div class="wrap cols">

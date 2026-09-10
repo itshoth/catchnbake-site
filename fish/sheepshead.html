@@ -165,10 +165,18 @@
   dl.faq dt{font-weight:600;color:var(--bone);margin-top:1.5rem}
   dl.faq dd{margin:.4rem 0 0;color:var(--mist)}
   .guides{margin-top:1.4rem;border-top:1px solid var(--line)}
-  .guide-row{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
+  .guide-row{display:grid;grid-template-columns:9rem minmax(0,1fr) auto;align-items:baseline;gap:1.5rem;padding:1.15rem 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone)}
   .guide-row h3{margin:0;font-size:1.4rem}
   .guide-row:hover h3{color:var(--amber)}
   .guide-row .go{color:var(--amber);font-weight:600;font-size:.9rem;white-space:nowrap}
+  .guide-row > *{min-width:0}
+  .guide-row p{margin:0}
+  @media (max-width:700px){
+    .guide-row{display:flex;flex-direction:column;align-items:flex-start;gap:.65rem}
+    .guide-row h3{font-size:1.4rem}
+    .guide-row p{width:100%;max-width:none;font-size:1rem;line-height:1.6}
+    .guide-row .go{white-space:normal}
+  }
 
   footer.site{border-top:1px solid var(--line);padding:3rem 0 3.5rem;font-size:.88rem;color:var(--mist)}
   footer.site .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:76rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
