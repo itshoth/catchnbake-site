@@ -19,7 +19,7 @@ Every page we build answers that one moment for one species, then hands the sear
 | **Cooking** | “how to cook {species}”, “{species} recipe”, “best way to cook {species}”, “grilled/blackened/fried {species}” | Cooking methods (2–3 per page) |
 | **Post-catch** | “what to do with {species} after catching”, “keeping {species} to eat”, “can you keep {species} in florida” | Verdict + regulations pointer |
 
-FAQPage JSON-LD mirrors the question-form queries verbatim — these are the queries that produce featured snippets and are the easiest wins against forum-thread SERPs.
+September 10 correction: Google discontinued FAQ rich results in May 2026. Use visible questions to answer reader needs. Do not promise search enhancements from FAQ markup. See docs/SEO_2026-09-10.md for the measured search baseline and current plan.
 
 ## 3. Species priority queue (Florida inshore first — the seed audience)
 
