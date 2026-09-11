@@ -1,4 +1,4 @@
-// Public content uses verified features. Change preview status only after release confirmation.
+// Public content uses verified features. Change upcoming status after public release confirmation.
 const questions = [
   ['Can I identify a fish from a photo?', "Yes. Take or upload a clear photo in Catch 'N Bake to get a suggested species identification. Review the result against your fish and correct it if needed. Keep the fins, tail, and body markings visible in the photo."],
   ["Is Catch 'N Bake free?", 'The free app includes 10 photo identifications per calendar month, up to 25 catch journal entries, and 10 saved recipes. Optional Premium subscriptions remove those limits. Check current prices in the app before subscribing.'],
@@ -7,7 +7,7 @@ const questions = [
   ['Do you have a guide for Pacific halibut in Canada?', 'Yes. Our <a href="/fish/halibut">Pacific halibut guide</a> includes original catch photos from off Port Renfrew, British Columbia, preparation ideas, and links to Fisheries and Oceans Canada. Check the official rules for the waters where you plan to fish.'],
   ['What can I save in my fishing journal?', 'Keep catch photos, species, length, weight, bait, location, and trip notes together. Use those details to remember what worked and revisit earlier catches.'],
   ['Can I log a catch without cell service?', 'Catch logging works offline and syncs when your connection returns. Photo identification and new recipe requests need an internet connection.'],
-  ['What is changing in version 1.1.0?', 'The planned update brings a feed of shared catches, recipes, and food photos, along with Following, angler profiles, and filters for species, area, and time. Read the <a href="/updates">version 1.1.0 preview</a> for the full feature list and release status.']
+  ['What is changing in version 1.1.0?', 'The upcoming release brings a feed of shared catches, recipes, and food photos, along with Following, angler profiles, and filters for species, area, and time. Version 1.1.0 is awaiting Apple review. Read about the <a href="/updates">upcoming release</a> for the full feature list.']
 ];
 
 exports.homeFaq = () => `<section id="faq" aria-labelledby="faq-title"><div class="wrap">
@@ -18,15 +18,15 @@ exports.homeFaq = () => `<section id="faq" aria-labelledby="faq-title"><div clas
 </div></section>`;
 
 exports.updates = {
-  title: "Catch 'N Bake 1.1.0 Preview | Feed & Cooking Tools",
-  description: "Preview Catch 'N Bake 1.1.0: a fishing community feed, angler profiles, shared catch rankings, shopping lists, and cooking mode. See the planned changes.",
+  title: "Catch 'N Bake 1.1.0 | Upcoming Release",
+  description: "Catch 'N Bake 1.1.0 is awaiting Apple review. Explore the upcoming fishing feed, angler profiles, shared catch rankings, shopping lists, and cooking tools.",
   url: '/updates',
-  schema: {'@context': 'https://schema.org', '@type': 'WebPage', name: "Catch 'N Bake version 1.1.0 preview", url: 'https://catchnbake.com/updates', description: 'Preview of the planned version 1.1.0 update. Public release is not yet confirmed.'},
+  schema: {'@context': 'https://schema.org', '@type': 'WebPage', name: "Catch 'N Bake version 1.1.0 upcoming release", url: 'https://catchnbake.com/updates', description: 'Version 1.1.0 is an upcoming release awaiting Apple review.'},
   content: `<nav aria-label="Breadcrumb"><a href="/">Home</a> / What's new</nav>
   <h1>What's new in Catch 'N Bake</h1>
   <p class="intro">Follow the anglers you fish like, find a dinner idea, and keep your own catches close.</p>
-  <h2>Version 1.1.0 preview</h2>
-  <p><strong>Coming soon.</strong> These changes are prepared for version 1.1.0. We will update this page when the release is available in the App Store.</p>
+  <h2>Upcoming release: version 1.1.0</h2>
+  <p><strong>Awaiting Apple review.</strong> We have submitted version 1.1.0 for review. We will update this page when you can download the release from the App Store.</p>
   <h2>A feed for fish and food</h2>
   <p>Browse shared catches, recipes, and food photos together. Switch to Following to see posts from anglers you follow. Discover other anglers through shared species interests and a general area you choose.</p>
   <p>Tap an angler to open their public profile and explore their posts. Narrow the feed by content type, species, area, or time when you want something specific.</p>
