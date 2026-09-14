@@ -7,7 +7,7 @@ const questions = [
   ['Do you have a guide for Pacific halibut in Canada?', 'Yes. Our <a href="/fish/halibut">Pacific halibut guide</a> includes original catch photos from off Port Renfrew, British Columbia, preparation ideas, and links to Fisheries and Oceans Canada. Check the official rules for the waters where you plan to fish.'],
   ['What can I save in my fishing journal?', 'Keep catch photos, species, length, weight, bait, location, and trip notes together. Use those details to remember what worked and revisit earlier catches.'],
   ['Can I log a catch without cell service?', 'Catch logging works offline and syncs when your connection returns. Photo identification and new recipe requests need an internet connection.'],
-  ['What is changing in version 1.1.0?', 'The upcoming release brings a feed of shared catches, recipes, and food photos, along with Following, angler profiles, and filters for species, area, and time. Version 1.1.0 is awaiting Apple review. Read about the <a href="/updates">upcoming release</a> for the full feature list.']
+  ['What is new in version 1.1.0?', 'Version 1.1.0 brings a feed of shared catches, recipes, and food photos, along with Following, angler profiles, and filters for species, area, and time. It is available on the App Store. Read the <a href="/updates">release notes</a> for the full feature list.']
 ];
 
 exports.homeFaq = () => `<section id="faq" aria-labelledby="faq-title"><div class="wrap">
@@ -18,15 +18,15 @@ exports.homeFaq = () => `<section id="faq" aria-labelledby="faq-title"><div clas
 </div></section>`;
 
 exports.updates = {
-  title: "Catch 'N Bake 1.1.0 | Upcoming Release",
-  description: "Catch 'N Bake 1.1.0 is awaiting Apple review. Explore the upcoming fishing feed, angler profiles, shared catch rankings, shopping lists, and cooking tools.",
+  title: "Catch 'N Bake 1.1.0 | Available Now",
+  description: "Catch 'N Bake 1.1.0 is live on the App Store. Explore the fishing feed, angler profiles, shared catch rankings, shopping lists, and cooking tools.",
   url: '/updates',
-  schema: {'@context': 'https://schema.org', '@type': 'WebPage', name: "Catch 'N Bake version 1.1.0 upcoming release", url: 'https://catchnbake.com/updates', description: 'Version 1.1.0 is an upcoming release awaiting Apple review.'},
+  schema: {'@context': 'https://schema.org', '@type': 'WebPage', name: "Catch 'N Bake version 1.1.0 release", url: 'https://catchnbake.com/updates', description: 'Version 1.1.0 is available on the App Store.'},
   content: `<nav aria-label="Breadcrumb"><a href="/">Home</a> / What's new</nav>
   <h1>What's new in Catch 'N Bake</h1>
   <p class="intro">Follow the anglers you fish like, find a dinner idea, and keep your own catches close.</p>
-  <h2>Upcoming release: version 1.1.0</h2>
-  <p><strong>Awaiting Apple review.</strong> We have submitted version 1.1.0 for review. We will update this page when you can download the release from the App Store.</p>
+  <h2>Version 1.1.0 is available now</h2>
+  <p><strong>Now on the App Store.</strong> <a data-app-store href="https://apps.apple.com/us/app/catch-n-bake/id6762584046">Update or download Catch 'N Bake</a> to follow anglers, share your catches, and take saved recipes into the kitchen.</p>
   <h2>A feed for fish and food</h2>
   <p>Browse shared catches, recipes, and food photos together. Switch to Following to see posts from anglers you follow. Discover other anglers through shared species interests and a general area you choose.</p>
   <p>Tap an angler to open their public profile and explore their posts. Narrow the feed by content type, species, area, or time when you want something specific.</p>
@@ -37,7 +37,7 @@ exports.updates = {
   <p>Save recipes in your cookbook and turn ingredients into a shopping list. Check items off as you shop. In cooking mode, follow large directions, check ingredients, and use the timer while you cook.</p>
   <h2>Easier sharing</h2>
   <p>Updated photo and recipe forms keep Cancel and Post or Share within reach while you type. The update also includes improvements to photo privacy, subscription restores, and account recovery.</p>
-  <h2>Start with a fish guide</h2>
+  <h2>Try it on your next trip</h2><p>Keep your catch photos and trip notes together, then share a catch or find a dinner idea in the feed. <a data-app-store href="https://apps.apple.com/us/app/catch-n-bake/id6762584046">Get Catch 'N Bake on the App Store</a>.</p><h2>Start with a fish guide</h2>
   <p>The website guides are available now. Read about <a href="/fish/snook">snook taste and cooking</a>, <a href="/fish/red-snapper">American red snapper</a>, or <a href="/fish/halibut">Pacific halibut caught off Port Renfrew</a>.</p>
   <p><a href="/#faq">Read the app FAQ</a> or <a href="/support">get help with the app</a>.</p>`
 };

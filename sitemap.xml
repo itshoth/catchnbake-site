@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://catchnbake.com/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://catchnbake.com/</loc><lastmod>2026-09-14</lastmod></url>
   <url><loc>https://catchnbake.com/fish/</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://catchnbake.com/about</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://catchnbake.com/updates</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://catchnbake.com/updates</loc><lastmod>2026-09-14</lastmod></url>
   <url><loc>https://catchnbake.com/support</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://catchnbake.com/privacy</loc><lastmod>2026-07-03</lastmod></url>
   <url><loc>https://catchnbake.com/terms</loc><lastmod>2026-07-03</lastmod></url>
@@ -17,4 +17,7 @@
   <url><loc>https://catchnbake.com/fish/red-grouper</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://catchnbake.com/fish/halibut</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://catchnbake.com/fish/red-snapper</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://catchnbake.com/blog/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://catchnbake.com/blog/tampa-bay-snook-september</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://catchnbake.com/blog/st-pete-gag-grouper-september</loc><lastmod>2026-09-14</lastmod></url>
 </urlset>

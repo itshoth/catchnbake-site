@@ -51,7 +51,8 @@ module.exports = ({SPECIES, page, SITE, esc}) => {
     ? home.replace(/<!-- APP FAQ START -->[\s\S]*?<!-- APP FAQ END -->/, faq)
     : home.replace('<!-- ============ FINAL CTA ============ -->', faq + '\n\n<!-- ============ FINAL CTA ============ -->');
   fs.writeFileSync(homeFile, home);
-  const staticPages = [['/', '2026-09-10'], ['/fish/', '2026-09-09'], ['/about', '2026-09-09'], ['/updates', '2026-09-10'], ['/support', '2026-09-10'], ...['privacy','terms','guidelines'].map(p => [`/${p}`, '2026-07-03'])];
+  const staticPages = [['/', '2026-09-14'], ['/fish/', '2026-09-09'], ['/about', '2026-09-09'], ['/updates', '2026-09-14'], ['/support', '2026-09-10'], ...['privacy','terms','guidelines'].map(p => [`/${p}`, '2026-07-03'])];
   const urls = [...staticPages, ...SPECIES.map(sp => [`/fish/${sp.slug}`, sp.modified || sp.published || '2026-07-03'])];
   fs.writeFileSync(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([url, date]) => `  <url><loc>${SITE}${url}</loc><lastmod>${date}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+  require('./build-blog')();
 };

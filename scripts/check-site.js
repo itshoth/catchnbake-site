@@ -3,6 +3,7 @@ const path = require('path');
 const assert = require('assert/strict');
 const root = path.join(__dirname, '..');
 const files = fs.readdirSync(root).filter(f => f.endsWith('.html')).concat(fs.readdirSync(path.join(root, 'fish')).filter(f => f.endsWith('.html')).map(f => 'fish/' + f));
+if (fs.existsSync(path.join(root, 'blog'))) files.push(...fs.readdirSync(path.join(root, 'blog')).filter(f => f.endsWith('.html')).map(f => 'blog/' + f));
 const sitemap = [...fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
 const errors = [], titles = new Set();
 function resolve(url) {
@@ -21,8 +22,14 @@ for (const file of files) {
     if (!/^(404|verify)\.html$/.test(file)) {
       assert(canonical?.startsWith('https://catchnbake.com/'), 'apex canonical');
       assert.equal(resolve(canonical), path.join(root, file), 'canonical resolves to this file');
-      assert(sitemap.includes(canonical), 'indexable page is in sitemap');
-      assert(!/noindex/.test(html), 'indexable');
+      const draft = file.startsWith('blog/') && html.includes('<meta name="cnb-editorial-status" content="draft">');
+      if (draft) {
+        assert(html.includes('<meta name="robots" content="noindex, follow">'), 'draft is noindex');
+        assert(!sitemap.includes(canonical), 'draft excluded from sitemap');
+      } else {
+        assert(sitemap.includes(canonical), 'indexable page is in sitemap');
+        assert(!/noindex/.test(html), 'indexable');
+      }
     }
     for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
       const url = match[1];
