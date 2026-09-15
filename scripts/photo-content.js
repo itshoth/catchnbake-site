@@ -13,7 +13,9 @@ module.exports = species => {
   gag.photo = photo('gag-grouper-boat', 'Angler aboard a boat holding a gag grouper with irregular dark markings on its pale body', 'The irregular dark markings on this gag grouper help distinguish it from red grouper.');
   gag.ogImage = '/images/og/gag-grouper-catch.jpg';
   const red = species.find(s => s.slug === 'red-grouper');
-  red.photo = photo('red-grouper-dock', 'Angler on a dock holding a red grouper with a reddish body and irregular pale blotches', 'Red grouper with pale blotches along its reddish flank. Photo from Jordan Hoth’s fishing collection.', 1200, 1431);
-  red.ogImage = '/images/og/red-grouper-catch.jpg';
+  // Dock photo withheld because its species could not be confirmed.
+  red.hero = false;
+  red.modified = "2026-09-14";
+  red.ogImage = '/images/og-default.png';
   red.gallery = [photo('mixed-grouper-snapper-dock', 'Several grouper and striped snapper arranged together on a wooden dock', 'A mixed catch of snapper and grouper. Identify each fish separately before applying harvest rules.', 1200, 900)];
 };
