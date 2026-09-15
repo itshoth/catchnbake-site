@@ -41,7 +41,7 @@ for (const file of files) {
     for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
       const data = JSON.parse(m[1]);
       for (const entity of data['@graph'] || [data]) {
-        if (entity['@type'] === 'Article') {
+        if (['Article','BlogPosting'].includes(entity['@type'])) {
           assert.equal(entity.mainEntityOfPage, canonical, 'article canonical');
           assert(html.includes(`<time datetime="${entity.dateModified}">`), 'visible modified date');
           if (entity.image) assert(resolve(entity.image), 'article image exists');

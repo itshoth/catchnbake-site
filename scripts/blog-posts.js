@@ -134,3 +134,5 @@ module.exports = [
     ]
   }
 ];
+
+module.exports.push(...require('./blog-batch-one'));
