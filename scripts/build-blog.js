@@ -7,6 +7,7 @@ const esc = s => s .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&qu
 module.exports = function buildBlog() {
   // Check prose only. JavaScript punctuation and HTML entities are not editorial copy.
   for (const p of posts) {
+    if (/[:;&\u2014]/.test(p.title)) throw new Error("Keep blog titles plain without colons, semicolons, ampersands or em dashes: "+p.slug);
     const prose = [p.title,p.description,p.deck,p.caption,p.cta || '',...p.sections.flatMap(s=>[s.title,s.html])].join(' ').replace(/<[^>]*>/g,' ').replace(/&(?:#\d+|#x[0-9a-f]+|[a-z]+);/gi,' ');
     if (/[;\u2014]/.test(prose)) throw new Error('Blog voice check: remove semicolons and em dashes from '+p.slug);
   }

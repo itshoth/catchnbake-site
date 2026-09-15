@@ -7,7 +7,7 @@ const gagPhoto = {image:'/images/photos/gag-grouper-boat.jpg',webp:'/images/phot
 module.exports = [
   {
     slug:'which-grouper-did-i-catch', category:'Fish identification', species:'Grouper identification',
-    title:'Which Grouper Did I Catch? Tampa Bay & Gulf Grouper ID',
+    title:'Which Grouper Did I Catch?',
     description:'Gag, goliath, red, black, or scamp? Compare grouper markings and fins, learn which fish fit bay and bridge habitat, and check the rules before keeping one.',
     deck:"Pulled a grouper off the bottom and aren't sure which one it is? Start with the markings and fins. Here's what to look for around Tampa Bay and out in the Gulf.",
     ...gagPhoto,
@@ -29,7 +29,7 @@ module.exports = [
   },
   {
     slug:'tampa-bay-snook-tides-current', category:'Inshore', species:'Snook tides',
-    title:'Tampa Bay Snook Fishing: How to Read Tides and Current',
+    title:'How to Read Tides and Current for Tampa Bay Snook',
     description:'Incoming or outgoing tide for snook? Learn how to read tide predictions, watch the current, and fish a shoreline around Tampa Bay and St. Pete.',
     deck:"The chart says high tide, but your bait is still moving past the pilings. Here's how to make sense of it before you change spots.",
     image:'/images/hero/home-snook.jpg',webp:'/images/hero/home-snook.webp',width:1600,height:1067,alt:'Angler holding a snook beside a seawall',caption:"Snook from the Catch 'N Bake collection. The photo does not establish the tide or current at the time of the catch.",
