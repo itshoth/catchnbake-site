@@ -1,60 +1,136 @@
-// Editorial drafts. No invented catches, product testing, or publication dates.
+// Blog voice: natural Florida fishing conversation with proper grammar.
+// No em dashes or semicolons in reader facing prose. No forced slang or invented trips.
 module.exports = [
   {
-    slug: 'tampa-bay-snook-september', category: 'Inshore', species: 'Snook',
-    title: 'Tampa Bay Snook in September: A St. Pete Trip Plan',
-    description: 'Plan a September snook trip around St. Pete: check Tampa Bay harvest rules, choose a workable stretch of water, and record more than a catch photo.',
-    deck: 'Pick a stretch you can fish well. Check the water when you get there. Have a plan for the fish before it reaches the boat.',
-    image: '/images/hero/home-snook.jpg', webp: '/images/hero/home-snook.webp', width: 1600, height: 1067,
-    alt: 'Angler holding a snook beside a seawall, with the dark lateral line visible',
-    caption: "Snook beside a seawall. Photo from the Catch 'N Bake collection.",
-    sections: [
-      {id:'season', title:'September gives you a harvest option', html:`<p>September opens the Tampa Bay snook harvest after the summer closure. Around St. Petersburg, start by choosing between the bay shoreline and the Gulf side, then check access and the conditions for that stretch. Give yourself time to fish it before driving or running to another spot.</p>
-      <div class="season-note"><strong>2026 season check · September 14</strong><p>FWC lists September through November as an open harvest period for the Tampa Bay snook region. The listed slot is 28 to 33 inches total length, with one fish per person per day. Check license and snook permit requirements, exemptions, and any newer orders on the <a href="https://myfwc.com/fishing/saltwater/recreational/snook/">official FWC snook page</a>.</p></div>
-      <p>The management region reaches from Fred Howard Park to State Road 64 in Manatee County, with specific inland waters and exclusions. Use FWC's map when you leave your usual area. A trip described as “near Tampa” is not a precise enough location for choosing regulations.</p>`},
-      {id:'pick-your-water',title:'Choose your side of St. Pete',html:`<p>Start with the side of St. Pete you can reach and fish without rushing. A bay shoreline, a Gulf beach, and a pass require different decisions about parking, boat positioning, current, and the route home. Putting all three on the same morning's itinerary can leave very little time with a bait in the water.</p>
-      <p>For a shore trip, choose a legal place to stand and a safe place to land or release a fish before making the first cast. Public shoreline does not mean every nearby dock or seawall is open to you. Check posted restrictions and current access with the property manager. Do not plan around a photograph of somebody standing there years ago.</p>
-      <p>For a boat trip, choose one primary stretch and one reachable alternative. The alternative should solve a specific problem, such as exposure to wind. Another mark with the same exposure may give you the same bad conditions after a longer ride.</p>`},
-      {id:'read-the-water',title:'Watch the current before changing your bait',html:`<p>A predicted tide time tells you when to look. Once you arrive, watch what the water is doing where your bait will actually travel. Look for a current edge, bait activity, a change in depth, or cover you can fish without putting the boat on top of it. Treat those observations as clues to test, not proof that a snook is waiting.</p>
-      <p>Try a few controlled presentations through the same lane before changing everything. If your bait sweeps past too fast, fix the angle or position first. If you switch the bait, weight, spot, and retrieve at once, a later bite will tell you very little about which change helped.</p>
-      <p>Keep a brief record even when you do not catch anything. “No bites” beside a photo of the water, the time, and your presentation is more useful than a blank day in the journal. On the next visit, you have something concrete to compare.</p>`},
-      {id:'landing',title:'Decide how you will handle the fish before the bite',html:`<p>Put the measuring board and dehooker where you can reach them. Choose tackle you can control around the cover you intend to fish; the lightest outfit in the garage is not automatically the right one beside pilings.</p>
-      <p>Keep handling brief. Wet your hands, support the fish horizontally, and avoid touching its gills or eyes. If it needs to go back, organize the release before organizing the photograph. FWC's <a href="https://myfwc.com/fishing/saltwater/outreach/fish-handling/">fish handling guidance</a> explains the details.</p>
-      <p>For a possible keeper, measure rather than estimate. Keep the fish in the condition required for landing and inspection. Only start filleting when the applicable rules allow it. An open season is one part of the decision, not a substitute for checking the rest.</p>`},
-      {id:'weather',title:'Leave room to end the trip early',html:`<p>Check the <a href="https://www.weather.gov/tbw/">Tampa Bay National Weather Service forecast and radar</a> before leaving, then keep checking as conditions change. Read the forecast for the water you will cross, including the trip back. A sheltered launch does not describe the whole route.</p>
-      <p>Set a return time that leaves a margin. If conditions deteriorate, use that margin to get home rather than spending it on one more stop. The season calendar is not a reason to stay on exposed water.</p>`},
-      {id:'after-the-trip',title:'Save the detail you will forget by dinner',html:`<p>Before cleaning up, write down your bait or lure, the direction of the presentation, the cover, and what you changed. Keep exact locations in your private notes. A public post can tell the story without handing out a dock address.</p>
-      <p>If you kept a legal fish, move on to our <a href="/fish/snook">snook taste and cooking guide</a> for skinless preparation and dinner ideas. This trip plan is about getting organized on the water; that guide handles the fish once you bring it home.</p>`}
+    "slug": "tampa-bay-snook-september",
+    "category": "Inshore",
+    "species": "Snook",
+    "title": "Tampa Bay Snook in September: A St. Pete Trip Plan",
+    "description": "Fishing for snook around Tampa Bay this September? Check the season, pick a shoreline around St. Pete, and get ready for the bite and dinner afterward.",
+    "deck": "September snook season is open around Tampa Bay. Pick your stretch of water, get your bait in the right spot, and have the measuring board ready.",
+    "image": "/images/hero/home-snook.jpg",
+    "webp": "/images/hero/home-snook.webp",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Angler holding a snook beside a seawall, with the dark lateral line visible",
+    "caption": "Snook beside a seawall. Photo from the Catch 'N Bake collection.",
+    "sections": [
+      {
+        "id": "season",
+        "title": "Tampa Bay snook season in September",
+        "html": "<p>September means you can bring home a slot snook around Tampa Bay again, as long as you follow the current harvest rules. If you're heading out from St. Pete, start with a stretch you know you can fish. You can spend half the morning bouncing between the bay and the beach if you don't settle on a spot before leaving.</p>\n      <div class=\"season-note\"><strong>2026 season check · September 14</strong><p>FWC lists September through November as an open harvest period for the Tampa Bay snook region. The listed slot is 28 to 33 inches total length, with one fish per person per day. Check license and snook permit requirements, exemptions, and any newer orders on the <a href=\"https://myfwc.com/fishing/saltwater/recreational/snook/\">official FWC snook page</a>.</p></div>\n      <p>FWC's Tampa Bay region runs from Fred Howard Park to State Road 64 in Manatee County, with specific inland waters and exclusions. Pull up the map on that page if you're fishing outside your usual area. The region boundaries matter when you're checking snook rules.</p>"
+      },
+      {
+        "id": "pick-your-water",
+        "title": "Pick a shoreline and give it some time",
+        "html": "<p>You don't need to fish three different parts of St. Pete in one morning. Choose a bay shoreline, a stretch of beach, or a pass you can reach, then give yourself time to work it.</p><p>If you're on foot, sort out parking and public access before unloading the rods. Look for a place where you can bring a fish in and release it without climbing over something or stepping onto private property. Check posted signs around docks and seawalls.</p><p>From the boat, have a second spot in mind if the wind makes the first one tough to fish. Think about what that move will solve. Running to another shoreline with the wind hitting it the same way can leave you burning fuel for the same problem.</p>"
+      },
+      {
+        "id": "read-the-water",
+        "title": "Watch where your bait goes",
+        "html": "<p>Once you get there, take a minute to watch the water. Look for bait moving along an edge or current passing the cover you want to fish. Pay attention to where your cast lands and where the bait ends up.</p><p>If the current carries it past the spot before you can fish it, try another casting angle or adjust your position. Give that change a few casts before switching your bait too. You'll have a better idea of what helped if you get a bite.</p><p>Keep a few notes on the slow trips. Record the time, what you threw, and how the water was moving. Next time you fish that stretch, you'll have something to go on besides remembering that it looked good.</p>"
+      },
+      {
+        "id": "landing",
+        "title": "Have the measuring board ready",
+        "html": "<p>Keep the board and dehooker within reach. You don't want to be digging under a seat with a fish waiting on you. Bring tackle you can control around the cover you're fishing, especially near pilings.</p><p>Wet your hands, support the snook horizontally, and keep your fingers away from its gills and eyes. Get the camera ready ahead of time if you want a quick photo. FWC's <a href=\"https://myfwc.com/fishing/saltwater/outreach/fish-handling/\">fish handling guide</a> covers how to keep handling brief.</p><p>Measure a possible keeper on the board. Check the landing requirements before cleaning anything, too. Leave the fillet knife put away until you're somewhere the rules allow you to use it.</p>"
+      },
+      {
+        "id": "weather",
+        "title": "Keep an eye on the ride home",
+        "html": "<p>Check the <a href=\"https://www.weather.gov/tbw/\">Tampa Bay marine forecast and radar</a> before you leave, and keep checking conditions while you're out. Include the water you'll cross on the way back. It can feel calm at the ramp while the rest of the trip calls for a different plan.</p><p>Give yourself room to head in early. If the weather starts cutting into that time, skip the extra stop. There will be another morning to fish.</p>"
+      },
+      {
+        "id": "after-the-trip",
+        "title": "Back at the dock",
+        "html": "<p>Before you rinse the gear, jot down what you used and anything you changed before the bite. Keep exact spots in your private notes. You can share the fish without posting somebody's dock.</p><p>Bringing home a legal keeper? Our <a href=\"/fish/snook\">snook taste and cooking guide</a> covers skinless fillets and a few ways to make dinner with them.</p>"
+      }
     ],
-    sources: [['FWC: snook regions and harvest rules','https://myfwc.com/fishing/saltwater/recreational/snook/'],['FWC: fish handling','https://myfwc.com/fishing/saltwater/outreach/fish-handling/'],['NWS: Tampa Bay weather','https://www.weather.gov/tbw/']]
+    "sources": [
+      [
+        "FWC: snook regions and harvest rules",
+        "https://myfwc.com/fishing/saltwater/recreational/snook/"
+      ],
+      [
+        "FWC: fish handling",
+        "https://myfwc.com/fishing/saltwater/outreach/fish-handling/"
+      ],
+      [
+        "NWS: Tampa Bay weather",
+        "https://www.weather.gov/tbw/"
+      ]
+    ]
   },
   {
-    slug:'st-pete-gag-grouper-september',category:'Gulf & reefs',species:'Gag grouper',
-    title:'St. Pete Gag Grouper: Planning for September 2026',
-    description:'Gag grouper season near St. Pete runs through September in 2026. Plan around the right waters, reef information, release gear, and a realistic return trip.',
-    deck:'A short season makes it tempting to chase every forecast. Choose a trip you can finish safely, with the right rules and release gear already sorted.',
-    image:'/images/photos/gag-grouper-boat.jpg',webp:'/images/photos/gag-grouper-boat.webp',width:1200,height:1600,
-    alt:'Angler aboard a boat holding a gag grouper with irregular dark markings',
-    caption:"Gag grouper aboard a boat. Photo from the Catch 'N Bake collection.",
-    sections:[
-      {id:'season',title:'Check the September 2026 gag season',html:`<p>September leaves a short window to keep Gulf gag grouper in 2026. For a trip from St. Pete, work backward from your return route: the pass you will use, the water you will cross, and how much time you can spend fishing. Then choose reef locations that fit.</p>
-      <div class="season-note"><strong>2026 season check · September 14</strong><p>FWC lists Gulf gag harvest as open September 1 through 30, 2026. NOAA lists the federal Gulf closure at 12:01 a.m. local time on October 1. Check both the <a href="https://myfwc.com/fishing/saltwater/recreational/groupers/">FWC grouper rules</a> and the <a href="https://www.fisheries.noaa.gov/bulletin/noaa-fisheries-announces-2026-gag-recreational-season-federal-waters-gulf">NOAA season bulletin</a> before your trip.</p></div>
-      <p>Old articles still circulate with different dates. The year matters, and so does the fishery. An Atlantic gag announcement does not describe the Gulf trip you are planning from St. Pete.</p>`},
-      {id:'waters',title:'Write the fishing area into the plan',html:`<p>“Leaving from St. Pete” identifies the departure point. It does not identify the rules at the place you drop a bait. Plot the intended fishing area and establish whether you will fish state or federal waters before you leave. Check the regulations that apply to the vessel as well as the fish.</p>
-      <p>For Gulf gag, FWC lists a 24 inch total length minimum and two fish per person within the four grouper aggregate. Charter captain and crew have a zero gag bag limit. Those numbers belong beside the current season and applicable rules, not on a disconnected screenshot in your camera roll.</p>
-      <p>If you book a charter, ask what waters the captain expects to fish, what happens if weather changes the plan, and which species are realistic alternatives. Ask before paying whether a shortened or changed trip affects the booking. A gag target is not a promise of a gag catch.</p>`},
-      {id:'reef-plan',title:'A public reef coordinate is a starting point',html:`<p><a href="https://pinellas.gov/artificial-reef-guide/">Pinellas County's artificial reef map</a> gives you a public source for reef locations. Use it to build a shortlist that fits your boat, range, and forecast. It does not tell you which reef holds keeper gag today.</p>
-      <p>On that shortlist, compare the whole route rather than distance from the ramp alone. Include the run through the pass, the return direction, and a fallback you can reach without extending the day. Leave shipping channels clear and give other boats room to fish.</p>
-      <p>When you arrive, take time to understand your position relative to the structure and current. Watch the line angle and whether you can maintain controlled contact with the bottom. If the boat cannot hold a workable position, dropping more bait is not a substitute for fixing the setup.</p>
-      <p>Record the depth and presentation you actually fished. A saved reef name without those details can turn a productive trip into a mystery when you return.</p>`},
-      {id:'gear',title:'Set up for the fish you will release',html:`<p>A measuring tool, dehooker, and a ready release setup deserve space beside the bait. They are part of the trip even if you hope to put a legal gag on ice.</p>
-      <p>FWC's <a href="https://myfwc.com/fishing/saltwater/recreational/gear-rules/">Gulf reef fish gear rules</a> cover circle hooks when using natural bait, dehooking equipment, and a descending device or venting tool rigged and ready. The hook requirements differ in detail between state and federal waters. Read the matching section before rigging.</p>
-      <p>Learn the release tool before you need it. Keep the instructions with the equipment and practice the setup ashore. FWC's <a href="https://myfwc.com/fishing/saltwater/outreach/barotrauma/">barotrauma guidance</a> explains why a fish brought up from depth may need help returning. A tool still sealed in its packaging will slow that decision down.</p>`},
-      {id:'return',title:'Choose the return window before the first drop',html:`<p>Check the marine forecast for your planned route, not just the weather app's city forecast. The <a href="https://www.weather.gov/tbw/">National Weather Service Tampa Bay office</a> provides forecasts, radar, and warnings. Recheck before departure and while you have a reliable connection.</p>
-      <p>Give somebody ashore your plan. Agree on the return time with the people on board. If one more stop uses the margin you set aside for a slower ride home, skip it. You can change the fishing plan without turning the day into a failed trip.</p>`},
-      {id:'table',title:'Keep the catch useful after the photo',html:`<p>Once you confirm a fish is legal to retain, keep it cold and follow the applicable landing requirements. Decide where cleaning will happen before returning with a cooler to manage.</p>
-      <p>Our <a href="/fish/gag-grouper">gag grouper taste and cooking guide</a> covers fillet preparation and meal ideas. For the journal, save the depth, rig, bait, and whether the fish came from the first presentation or after a change. Those notes can make next September's planning more specific than “try that reef again.”</p>`}
+    "slug": "st-pete-gag-grouper-september",
+    "category": "Gulf & reefs",
+    "species": "Gag grouper",
+    "title": "St. Pete Gag Grouper: Planning for September 2026",
+    "description": "Heading offshore from St. Pete for gag grouper? Check the September 2026 season, find the county reef map, and get your boat and release gear ready.",
+    "deck": "Gag season is short this year. Get your gear ready for a decent weather window, with a few spots to try and enough time for the ride back.",
+    "image": "/images/photos/gag-grouper-boat.jpg",
+    "webp": "/images/photos/gag-grouper-boat.webp",
+    "width": 1200,
+    "height": 1600,
+    "alt": "Angler aboard a boat holding a gag grouper with irregular dark markings",
+    "caption": "Gag grouper aboard a boat. Photo from the Catch 'N Bake collection.",
+    "sections": [
+      {
+        "id": "season",
+        "title": "Check the September 2026 gag season",
+        "html": "<p>If you're trying to put a gag grouper in the cooler this September, get the boat and gear ready before the forecast lines up. For a trip from St. Pete, think through the run out and back when you're picking spots. Leave yourself enough time to fish once you get there.</p>\n      <div class=\"season-note\"><strong>2026 season check · September 14</strong><p>FWC lists Gulf gag harvest as open September 1 through 30, 2026. NOAA lists the federal Gulf closure at 12:01 a.m. local time on October 1. Check both the <a href=\"https://myfwc.com/fishing/saltwater/recreational/groupers/\">FWC grouper rules</a> and the <a href=\"https://www.fisheries.noaa.gov/bulletin/noaa-fisheries-announces-2026-gag-recreational-season-federal-waters-gulf\">NOAA season bulletin</a> before your trip.</p></div>\n      <p>Check the year when somebody sends you a season announcement. Older gag dates still turn up in searches. For this trip, you need the Gulf rules for 2026.</p>"
+      },
+      {
+        "id": "waters",
+        "title": "Check the rules for where you drop",
+        "html": "<p>Figure out whether your spots are in state or federal waters before you leave the dock. Read the rules for those waters and any requirements that apply to your boat.</p><p>For Gulf gag, FWC lists a 24 inch total length minimum and two fish per person within the four grouper aggregate. Charter captain and crew have a zero gag bag limit. Check those limits alongside the season dates before the trip.</p><p>Booking a charter? Ask the captain where they expect to fish and what the plan is if the weather changes. Find out how a shorter trip or a different target species would affect your booking before you pay.</p>"
+      },
+      {
+        "id": "reef-plan",
+        "title": "Pick a few spots you can work",
+        "html": "<p>If you need somewhere to start looking, pull up <a href=\"https://pinellas.gov/artificial-reef-guide/\">Pinellas County's artificial reef map</a>. Pick a few locations that fit your boat, fuel range, and forecast. You'll still need to see what's happening when you get there.</p><p>Include the run through the pass when you plan the route. Have another spot you can try without adding a long ride to the day, and give boats already fishing the area plenty of room. Keep shipping channels clear.</p><p>On the spot, watch your line angle and whether you're staying in touch with the bottom. If you can't keep the bait where you want it, sort out the boat's position or your setup before sending down more bait.</p><p>Save the depth, rig, and bait you used. A reef name in your phone won't tell you how you fished it when you come back a month later.</p>"
+      },
+      {
+        "id": "gear",
+        "title": "Get your release gear ready at the dock",
+        "html": "<p>Put the measuring tool and dehooker where you can grab them. Set up your release gear before the first drop, even if you're heading out hoping for fish to keep.</p><p>FWC's <a href=\"https://myfwc.com/fishing/saltwater/recreational/gear-rules/\">Gulf reef fish gear rules</a> cover circle hooks when using natural bait, dehooking equipment, and a descending device or venting tool rigged and ready. Check the section for your waters because the hook requirements differ between state and federal waters.</p><p>If you haven't used your release tool before, learn the setup ashore and keep the instructions handy. FWC's <a href=\"https://myfwc.com/fishing/saltwater/outreach/barotrauma/\">barotrauma guide</a> explains why a fish brought up from depth may need help getting back down. Unpacking a new tool with a fish on deck is a bad time to figure it out.</p>"
+      },
+      {
+        "id": "return",
+        "title": "Leave time for a slower ride back",
+        "html": "<p>Read the marine forecast for the water you plan to cross. The <a href=\"https://www.weather.gov/tbw/\">National Weather Service Tampa Bay office</a> has forecasts, radar, and warnings. Check again before you leave.</p><p>Let somebody ashore know where you're headed and when you expect to return. Agree on a time to head in with the people on the boat. If the ride home could take longer than the run out, account for that before deciding to fish one more spot.</p>"
+      },
+      {
+        "id": "table",
+        "title": "Put the fish on ice and save the details",
+        "html": "<p>Once you've confirmed a fish is legal to keep, get it cold and follow the landing requirements. Have a plan for cleaning it when you get back.</p><p>Our <a href=\"/fish/gag-grouper\">gag grouper taste and cooking guide</a> has fillet preparation and dinner ideas. Before the day gets away from you, save a few notes on the catch. Include the depth, bait, and any adjustment you made before it ate.</p>"
+      }
     ],
-    sources:[['FWC: Gulf grouper rules','https://myfwc.com/fishing/saltwater/recreational/groupers/'],['NOAA: 2026 federal Gulf gag season','https://www.fisheries.noaa.gov/bulletin/noaa-fisheries-announces-2026-gag-recreational-season-federal-waters-gulf'],['Pinellas County: artificial reefs','https://pinellas.gov/artificial-reef-guide/'],['FWC: reef fish gear','https://myfwc.com/fishing/saltwater/recreational/gear-rules/'],['FWC: barotrauma','https://myfwc.com/fishing/saltwater/outreach/barotrauma/'],['NWS: Tampa Bay weather','https://www.weather.gov/tbw/']]
+    "sources": [
+      [
+        "FWC: Gulf grouper rules",
+        "https://myfwc.com/fishing/saltwater/recreational/groupers/"
+      ],
+      [
+        "NOAA: 2026 federal Gulf gag season",
+        "https://www.fisheries.noaa.gov/bulletin/noaa-fisheries-announces-2026-gag-recreational-season-federal-waters-gulf"
+      ],
+      [
+        "Pinellas County: artificial reefs",
+        "https://pinellas.gov/artificial-reef-guide/"
+      ],
+      [
+        "FWC: reef fish gear",
+        "https://myfwc.com/fishing/saltwater/recreational/gear-rules/"
+      ],
+      [
+        "FWC: barotrauma",
+        "https://myfwc.com/fishing/saltwater/outreach/barotrauma/"
+      ],
+      [
+        "NWS: Tampa Bay weather",
+        "https://www.weather.gov/tbw/"
+      ]
+    ]
   }
 ];
